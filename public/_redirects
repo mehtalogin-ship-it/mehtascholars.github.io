@@ -1,6 +1,5 @@
 # Old Wix URL  →  New page                              Status
 # ------------------------------------------------------------------
-/                       /index.html                      200
 /about                  /about.html                      301
 /our-companies          /alumni-companies.html           301
 /works                  /alumni-companies.html           301
@@ -18,5 +17,5 @@
 /copy-of-*              /alumni-companies.html           301
 
 # Dropped Wix app pages (Bookings / Members / Subscriptions form)
-/book-now               /index.html                      301
-/account/*              /index.html                      301
+/book-now               /                                301
+/account/*              /                                301
