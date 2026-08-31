@@ -100,13 +100,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var ctx = canvas.getContext('2d');
   var N = parseInt(stage.getAttribute('data-frames'), 10) || 80;
   var FV = parseFloat(stage.getAttribute('data-video-end')) || 0.45; // share of scroll spent flying
-  // Two encodes of the same 80 frames. Pick by the device pixels actually needed
-  // across the viewport, not by DPR alone - a 375px phone at DPR 2 only needs 750px,
-  // so it takes the 1280 set and downloads less than the old 720p JPEGs did.
+  // Three encodes of the same 80 frames, picked by the device pixels actually needed
+  // across the viewport. A 375px phone at DPR 2 needs 750, so it takes the smallest set.
   var need = window.innerWidth * Math.min(window.devicePixelRatio || 1, 2);
-  var hd = need > 1280;
-  var base = 'assets/intro/' + (hd ? 'hd/' : 'sd/');
-  var SW = hd ? 1920 : 1280, SH = hd ? 1080 : 720;
+  var tier = need > 1920 ? 'xl' : need > 1280 ? 'hd' : 'sd';
+  var base = 'assets/intro/' + tier + '/';
+  var SW = tier === 'xl' ? 2560 : tier === 'hd' ? 1920 : 1280;
+  var SH = tier === 'xl' ? 1440 : tier === 'hd' ? 1080 : 720;
   // Size the backing store to the device pixels actually on screen and do the cover
   // scale ourselves with a high-quality filter. Leaving the canvas at source size and
   // letting CSS stretch it means a second, cheaper resample on top of the first.

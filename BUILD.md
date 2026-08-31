@@ -39,6 +39,29 @@ Because GitHub Pages serves the artifact as-is, `public/_redirects` does nothing
 That file is Netlify/Cloudflare Pages syntax and GitHub Pages has no equivalent, so the
 old Wix slug redirects it lists are not in effect — see "Redirects" below.
 
+## The homepage intro frames
+
+The pinned flight on the home page is a scroll-scrubbed sequence of 80 stills, not a
+video - `<video>` scrubbing is too janky. They live in `public/assets/intro/{xl,hd,sd}/`
+and `js/main.js` picks a tier from the device pixels actually needed across the viewport.
+
+They are derived from `public/assets/intro/_source/kling-o3-4k-master.mp4` (3840x2160,
+145 frames, gitignored - it is 25 MB). That derivation is a one-off script, not part of
+`gen_site.py`, but three things about it matter if it is ever redone:
+
+1. **The master has a defect.** Frames 68-77 are frozen solid (pixel delta ~1 against
+   ~12 either side) and frame 78 hard-cuts to a position further back. Those frames are
+   dropped and 68 is bridged to 82 with six synthesised frames. A plain crossfade there
+   blends two different camera positions and reads as a dissolve; instead both layers are
+   warped to the same virtual camera position first (68 pushed forward by S^t, 82 pulled
+   back by S^(t-1), S=1.08) and then mixed, so geometry stays continuous.
+2. **The 145 frames are resampled to 80 on a weighted curve**, not evenly: the glass
+   crossing is the weakest footage and gets 5 frames, the lobby gets 45.
+3. **The last frames must be exactly `#000000`.** The page hands off from the video to
+   ordinary DOM on a black background, so any residual grey shows as a seam. The tail is
+   faded to zero with a monotonic clamp, and those frames are encoded **lossless** - lossy
+   WebP shifts pure black off zero.
+
 ## Redirects
 `public/_redirects` is inert on GitHub Pages. It is Netlify/Cloudflare Pages syntax and
 GitHub Pages has no equivalent, so every old Wix path listed in it currently 404s.
