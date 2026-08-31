@@ -10,3 +10,6 @@ __pycache__/
 /_logo_montage.png
 /_full_montage.png
 /_test_*.png
+
+# video masters kept locally, not in git
+public/assets/intro/_source/

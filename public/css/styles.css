@@ -388,56 +388,61 @@ section { padding: 84px 0; }
 
 /* ---------- Hero (Patil exterior + green box) ---------- */
 /* Cinematic intro: scroll-scrubbed frame sequence (exterior -> through glass -> screen) */
-.intro-stage { position: relative; height: 400vh; padding: 0; background: #cfbca6 url("../assets/tex/travertine.webp?v=3") repeat; background-size: 800px; }
-.intro-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); overflow: hidden; background:#0b0b0b url("../assets/intro/poster.jpg") center/cover no-repeat; }
+/* ---- Home: one pinned flight that ends on the black LED wall ---- */
+.intro-stage { position: relative; height: 400vh; padding: 0; background: #000; }
+.intro-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); overflow: hidden; background: #000 url("../assets/intro/poster.jpg?v=3") center/cover no-repeat; }
 .intro-canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
-.intro-overlay { position: absolute; inset: 0; display: flex; align-items: center; z-index: 2; pointer-events: none; will-change: opacity; }
-.intro-overlay .wrap { width: 100%; }
-.intro-overlay .hero-box { pointer-events: auto; }
-.intro-cue { position: absolute; left: 0; right: 0; bottom: 26px; text-align: center; color: #fff; letter-spacing: .16em; font-size: .72rem; text-transform: uppercase; z-index: 2; opacity: .85; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
-.hero-patil { position: relative; min-height: 90vh; display: flex; align-items: center; overflow: hidden; }
-.hero-photo { position: absolute; inset: 0; background: url("../assets/hero-patil.jpg") center/cover no-repeat; }
-.hero-photo::after { content:""; position:absolute; inset:0; background: linear-gradient(90deg, rgba(4,20,10,.45), rgba(4,20,10,.10) 62%); }
-.hero-box { position: relative; z-index: 2; max-width: 620px; background: linear-gradient(150deg, var(--green-dark), var(--green-deep)); color:#fff; padding: clamp(28px,4.5vw,54px); border-radius: 18px; box-shadow: 0 30px 70px rgba(0,0,0,.4); }
-.hero-box h1 { color:#fff; margin:0 0 14px; font-size: clamp(2rem,4.6vw,3.6rem); text-transform: uppercase; line-height: 1.08; }
-.hero-box p { color: rgba(255,255,255,.92); font-size: 1.12rem; margin:0; }
-.hero-box .hero-cta { margin-top: 24px; display:flex; gap:14px; flex-wrap:wrap; }
 
-/* ---------- Full-page Patil video wall (scrollytelling) ---------- */
-.wall-stage { position: relative; height: 300vh; background: #cfbca6 url("../assets/tex/travertine.webp?v=3") repeat; background-size: 800px; }
-.wall-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); overflow: hidden; background: #0b0b0b url("../assets/intro/f_140.jpg?v=2") center/cover no-repeat; }
-/* The LED screen is positioned by JS to overlay the black screen in the backdrop frame; it powers on (opacity) as the wall becomes active. */
-/* Crisp, high-res tiled travertine that fades in for the (static) end state, replacing the upscaled low-res video frame. Tone-warmed to match the frame + subtle vignette to hide tile seams. */
-.wall-tex-hd { position:absolute; inset:0; background:#d3c09c url("../assets/tex/travertine.webp?v=3") repeat; background-size: 940px; background-blend-mode: multiply; box-shadow: inset 0 0 240px rgba(60,44,18,.30); opacity: 0; pointer-events:none; }
-.wall-screen { position:absolute; inset:auto; background:#fff; border: 12px solid #0c0c0c; border-radius:6px; box-shadow: 9px 9px 0 0 rgba(0,0,0,.4); overflow: hidden; opacity: 0; }
-.ws-slide { position:absolute; inset:0; opacity:0; transition: opacity .5s ease; overflow:hidden; padding: clamp(20px,4vh,44px) clamp(20px,5vw,64px); }
-.ws-slide.is-active { opacity:1; }
-.ws-slide[data-i="0"] { display:flex; flex-direction:column; justify-content:center; }
-.ws-head { text-align:center; flex:0 0 auto; margin-bottom: clamp(14px,3vh,30px); }
-.ws-head h2 { font-size: clamp(1.6rem,3.3vw,2.6rem); margin:0; }
-.ws-cards { display:flex; flex-direction:column; gap: clamp(12px,2vh,20px); max-width: 860px; width:100%; margin:0 auto; }
-.ws-card { display:flex; gap:20px; align-items:center; background: var(--bg-green-tint); border:1px solid var(--line); border-radius: 12px; padding: clamp(14px,2.2vh,22px) 26px; opacity:0; transform: translateY(22px); transition: opacity .5s, transform .5s; }
-.ws-card.show { opacity:1; transform:none; }
-.ws-card .ico { flex:0 0 auto; width:52px; height:52px; border-radius:12px; display:grid; place-items:center; background:#fff; color: var(--green-dark); box-shadow: var(--shadow); }
-.ws-card .kicker { font-family:var(--font-head); color:var(--green); font-size:.9rem; margin:0 0 2px; }
-.ws-card h3 { font-size:1.3rem; margin:0 0 3px; }
-.ws-card p { color: var(--muted); margin:0; }
-.ws-slide[data-i="1"], .ws-slide[data-i="2"] { display:grid; place-items:center; text-align:center; }
+/* The hero panel is flown past the camera like a roadside sign, so it needs a
+   perspective parent. The vanishing point sits at frame centre; the panel sits left
+   of it, so growing translateZ carries it outward and off the left edge on its own. */
+.intro-overlay { position: absolute; inset: 0; display: flex; align-items: center; z-index: 3; pointer-events: none; }
+.intro-overlay .wrap { width: 100%; perspective: 1400px; perspective-origin: 72% 50%; }
+.intro-overlay .hero-box { pointer-events: auto; will-change: transform, opacity; backface-visibility: hidden; }
+.hero-box { position: relative; z-index: 2; max-width: 620px; background: linear-gradient(150deg, var(--green-dark), var(--green-deep)); color: #fff; padding: clamp(28px,4.5vw,54px); border-radius: 18px; box-shadow: 0 30px 70px rgba(0,0,0,.4); }
+.hero-box h1 { color: #fff; margin: 0 0 14px; font-size: clamp(2rem,4.6vw,3.6rem); text-transform: uppercase; line-height: 1.08; }
+.hero-box p { color: rgba(255,255,255,.92); font-size: 1.12rem; margin: 0; }
+.hero-box .hero-cta { margin-top: 24px; display: flex; gap: 14px; flex-wrap: wrap; }
+.intro-cue { position: absolute; left: 0; right: 0; bottom: 26px; text-align: center; color: #fff; letter-spacing: .16em; font-size: .72rem; text-transform: uppercase; z-index: 4; opacity: .85; text-shadow: 0 2px 10px rgba(0,0,0,.5); }
+
+/* The wall content. The flight lands on true #000, so this is full-bleed black and
+   simply fades up over it - no panel, no bezel, no repositioning. */
+.wall-screen { position: absolute; inset: 0; background: #000; overflow: hidden; opacity: 0; z-index: 2; }
+.ws-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease; overflow: hidden; padding: clamp(20px,4vh,44px) clamp(20px,5vw,64px); color: #fff; }
+.ws-slide.is-active { opacity: 1; }
+.ws-slide[data-i="0"] { display: flex; flex-direction: column; justify-content: center; }
+.ws-slide h2, .ws-slide h3 { color: #fff; }
+.ws-slide .eyebrow { color: #6fe3a2; }
+.ws-head { text-align: center; flex: 0 0 auto; margin-bottom: clamp(14px,3vh,30px); }
+.ws-head h2 { font-size: clamp(1.6rem,3.3vw,2.6rem); margin: 0; }
+.ws-cards { display: flex; flex-direction: column; gap: clamp(12px,2vh,20px); max-width: 860px; width: 100%; margin: 0 auto; }
+.ws-card { display: flex; gap: 20px; align-items: center; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.14); border-radius: 12px; padding: clamp(14px,2.2vh,22px) 26px; opacity: 0; transform: translateY(22px); transition: opacity .5s, transform .5s; }
+.ws-card.show { opacity: 1; transform: none; }
+.ws-card .ico { flex: 0 0 auto; width: 52px; height: 52px; border-radius: 12px; display: grid; place-items: center; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.16); color: #6fe3a2; }
+.ws-card .kicker { font-family: var(--font-head); color: #6fe3a2; font-size: .9rem; margin: 0 0 2px; }
+.ws-card h3 { font-size: 1.3rem; margin: 0 0 3px; }
+.ws-card p { color: rgba(255,255,255,.66); margin: 0; }
+.ws-slide[data-i="1"] { display: grid; place-items: center; text-align: center; }
 .ws-inner { max-width: 60ch; }
 .ws-inner h2 { font-size: clamp(1.8rem,3.6vw,2.8rem); }
-.ws-inner p { color: var(--muted); margin: 14px auto 0; }
+.ws-inner p { color: rgba(255,255,255,.7); margin: 14px auto 0; }
 .ws-inner .btn { margin-top: 22px; }
-.ws-footer { width:100%; max-width: 1000px; }
-.wsf-grid { display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 40px; text-align:left; }
-.wsf-grid .brand-name { font-family:var(--font-head); color: var(--green-dark); text-transform:uppercase; font-size:1rem; }
-.wsf-grid p { color: var(--muted); margin-top:12px; font-size:.95rem; }
-.wsf-grid h4 { color: var(--ink); margin:0 0 12px; }
-.wsf-grid ul { list-style:none; margin:0; padding:0; }
-.wsf-grid li { margin-bottom:8px; color: var(--muted); font-size:.95rem; }
-.wsf-grid a { color: var(--muted); }
-.wsf-grid a:hover { color: var(--green); }
-.wsf-bottom { margin-top: 30px; padding-top:18px; border-top:1px solid var(--line); color: var(--muted); font-size:.85rem; text-align:center; }
-.wall-dots { position:absolute; bottom: 20px; left:0; right:0; display:flex; gap:10px; justify-content:center; z-index:5; }
-.wall-dot { width:9px; height:9px; border-radius:50%; background: rgba(0,0,0,.28); transition:.3s; }
-.wall-dot.is-on { background: var(--green); box-shadow:0 0 10px var(--green); transform:scale(1.2); }
-@media (max-width: 720px){ .wsf-grid { grid-template-columns:1fr; gap:20px; } .ws-card { flex-direction:column; text-align:center; align-items:center; gap:10px; } }
+.wall-screen .btn { background: var(--green); }
+.wall-screen .btn:hover { background: #04a017; }
+.wall-dots { position: absolute; bottom: 20px; left: 0; right: 0; display: flex; gap: 10px; justify-content: center; z-index: 5; opacity: 0; }
+.wall-dot { width: 9px; height: 9px; border-radius: 50%; background: rgba(255,255,255,.25); transition: .3s; }
+.wall-dot.is-on { background: var(--green); box-shadow: 0 0 10px var(--green); transform: scale(1.2); }
+@media (prefers-reduced-motion: reduce) { .intro-overlay .hero-box { transform: none !important; } }
+@media (max-width: 720px){
+  /* The wall is pinned, so its content has to fit one viewport - no scrolling inside it.
+     Compact the cards to a single row each and drop the icons rather than overflow. */
+  .ws-slide { padding: 16px 18px; }
+  .ws-head { margin-bottom: 16px; }
+  .ws-head h2 { font-size: clamp(1.3rem,5.6vw,1.8rem); }
+  .ws-cards { gap: 10px; }
+  .ws-card { gap: 12px; padding: 12px 16px; text-align: left; }
+  .ws-card .ico { display: none; }
+  .ws-card h3 { font-size: 1.05rem; }
+  .ws-card p { font-size: .86rem; line-height: 1.4; }
+  .ws-card .kicker { font-size: .78rem; }
+}

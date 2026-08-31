@@ -1,8 +1,12 @@
 # -*- coding: utf-8 -*-
 import json, re, os
 
-ROOT=os.path.dirname(os.path.abspath(__file__))
-CAP=ROOT+'/captured/'
+# Cloudflare Pages serves public/, so generated HTML and the assets it references go
+# there. The source data stays at the repo root, alongside this script - it is input,
+# not something to publish.
+BASE=os.path.dirname(os.path.abspath(__file__))
+ROOT=os.path.join(BASE,'public')   # output: generated HTML + assets
+CAP=os.path.join(BASE,'captured')+'/'  # input: captured/*.json
 founders=json.load(open(CAP+'founders.json'))
 companies=json.load(open(CAP+'companies.json'))
 com=json.load(open(CAP+'committee.json'))
@@ -71,7 +75,7 @@ def footer(p=''):
       <div class="footer-bottom"><span>&copy; 2026 The Harker Venture Investment Initiative &middot; Mehta Scholars</span><span>The Harker School</span></div>
     </div>
   </footer>
-  <script src="{p}js/main.js?v=20"></script>
+  <script src="{p}js/main.js?v=21"></script>
 </body>
 </html>'''
 
@@ -85,7 +89,7 @@ def head(title, desc, p=''):
   {FONTS}
   <link rel="icon" type="image/png" href="{p}assets/favicon.png?v=1">
   <link rel="apple-touch-icon" href="{p}assets/favicon.png?v=1">
-  <link rel="stylesheet" href="{p}css/styles.css?v=34">
+  <link rel="stylesheet" href="{p}css/styles.css?v=36">
 </head>
 <body>
 '''
@@ -103,10 +107,9 @@ def avatar(name, cls='avatar', p=''):
 home=head('Home | Mehta Scholars','The Harker Venture Investment Initiative — Mehta Scholars invest in and support Harker alumni founders and their companies.')
 home+=nav('home')
 home+='''
-  <section class="intro-stage" id="introStage" data-frames="140" data-video-end="0.34">
+  <section class="intro-stage" id="introStage" data-frames="80" data-video-end="0.45">
     <div class="intro-pin">
-      <canvas id="introCanvas" class="intro-canvas" width="1280" height="720"></canvas>
-      <div class="wall-tex-hd" aria-hidden="true"></div>
+      <canvas id="introCanvas" class="intro-canvas" width="1920" height="1080"></canvas>
       <div class="wall-screen">
         <div class="ws-slide is-active" data-i="0">
           <div class="ws-head"><p class="eyebrow">What We Do</p><h2>A launchpad for founders and investors</h2></div>

@@ -13,15 +13,21 @@ This is a **static site generated from data**. Content lives in `captured/*.json
 3. Commit and push. The host redeploys automatically.
 
 ## Change design / layout
-Edit `css/styles.css`, `js/main.js`, or the page templates inside `gen_site.py`,
-then run `python3 gen_site.py`, commit, and push.
+Edit `public/css/styles.css`, `public/js/main.js`, or the page templates inside
+`gen_site.py`, then run `python3 gen_site.py`, commit, and push.
 
 ## Add or fix logos / headshots (occasional)
 Helper tools live in `scripts/` (`tilegen.py` builds white-silhouette logo tiles,
 `procphoto.py` squares up headshots). They need `pip install pillow numpy` and the
 font at `assets/fonts/Questrial.ttf`.
 
+## Layout
+`gen_site.py` and `captured/` live at the repo root; everything the site serves lives in
+`public/`. The generator reads from `captured/` and writes into `public/` - so the only
+directory that gets deployed is `public/`, and nothing generated ever lands at the root.
+
 ## Hosting
-Static — `netlify.toml` publishes the repo root, no build step required.
-Pushing to `main` triggers a redeploy. Custom domain + free SSL are set in the host UI.
+Static, no build step — **Cloudflare Pages**, serving `public/`. Pushing to `main`
+triggers a redeploy. Custom domain + SSL are set in the Cloudflare dashboard, and the
+build output directory there must be `public`.
 ```
