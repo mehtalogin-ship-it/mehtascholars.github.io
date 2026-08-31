@@ -1,5 +1,9 @@
-# Old Wix URL  →  New page                              Status
+# Old URL  →  New page                                   Status
 # ------------------------------------------------------------------
+# INPUT DATA, not a deployed file. GitHub Pages has no _redirects support, so
+# gen_site.py reads this list and writes a real meta-refresh + canonical stub into
+# public/ for each exact path. Wildcard rows cannot be expressed as static files and
+# are skipped - those land on the 404 page.
 /about                  /about.html                      301
 /our-companies          /alumni-companies.html           301
 /works                  /alumni-companies.html           301
@@ -19,3 +23,6 @@
 # Dropped Wix app pages (Bookings / Members / Subscriptions form)
 /book-now               /                                301
 /account/*              /                                301
+
+# Stale slug: Louiza Labs was renamed Theora, so the old per-company page is orphaned.
+/companies/louiza-labs.html  /companies/theora.html      301

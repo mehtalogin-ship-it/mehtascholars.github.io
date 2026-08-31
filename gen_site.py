@@ -384,5 +384,51 @@ upd+='''
 upd+=footer()
 open(ROOT+'/updates.html','w').write(upd)
 
+# ============ REDIRECT STUBS ============
+# GitHub Pages serves static files and nothing else - no _redirects, no rewrite rules -
+# so every old URL needs a real file sitting at that path. A meta refresh plus a
+# rel=canonical is the most a static host can do: it is not a 301, but search engines
+# honour the canonical. Source of truth is captured/redirects.txt.
+def redirect_stub(target):
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0; url={target}">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{target}">
+  <title>Redirecting&hellip;</title>
+</head>
+<body>
+  <p>This page has moved. <a href="{target}">Continue to {target}</a>.</p>
+</body>
+</html>
+"""
+
+stubs=[]; skipped=[]
+for line in open(os.path.join(BASE,'captured','redirects.txt'), encoding='utf-8'):
+    line=line.strip()
+    if not line or line.startswith('#'): continue
+    parts=line.split()
+    if len(parts) < 2: continue
+    old, new = parts[0], parts[1]
+    if '*' in old:
+        skipped.append((old,'wildcard - needs a 404 page')); continue
+    old = old.lstrip('/')
+    if not old: continue
+    # Pages already resolves /foo to foo.html, so an identity mapping needs no stub
+    # (and a stub there would add a pointless extra hop).
+    if new.lstrip('/') == old + '.html':
+        skipped.append(('/'+old,'Pages resolves this already')); continue
+    dest = os.path.join(ROOT, old) if old.endswith('.html') else os.path.join(ROOT, old, 'index.html')
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    open(dest,'w',encoding='utf-8').write(redirect_stub(new))
+    stubs.append(('/'+old, new))
+
 print("Generated: index, about, alumni-companies, our-investments, committee-list, updates")
-print("Company pages:", len(founders))
+print("Company pages:", len(pages), f"(from {len(companies)} company records, {len(founders)} founders)")
+print("Redirect stubs:", len(stubs))
+for o,n in stubs: print(f"    {o}  ->  {n}")
+if skipped:
+    print("Not stubbed:", len(skipped))
+    for o,why in skipped: print(f"    {o}  ({why})")
