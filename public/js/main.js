@@ -106,8 +106,21 @@ document.addEventListener('DOMContentLoaded', function () {
   var need = window.innerWidth * Math.min(window.devicePixelRatio || 1, 2);
   var hd = need > 1280;
   var base = 'assets/intro/' + (hd ? 'hd/' : 'sd/');
-  canvas.width = hd ? 1920 : 1280;
-  canvas.height = hd ? 1080 : 720;
+  var SW = hd ? 1920 : 1280, SH = hd ? 1080 : 720;
+  // Size the backing store to the device pixels actually on screen and do the cover
+  // scale ourselves with a high-quality filter. Leaving the canvas at source size and
+  // letting CSS stretch it means a second, cheaper resample on top of the first.
+  function sizeCanvas() {
+    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+    var w = Math.round(canvas.clientWidth * dpr), h = Math.round(canvas.clientHeight * dpr);
+    if (!w || !h) { w = SW; h = SH; }
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width = w; canvas.height = h;
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      current = -1;
+    }
+  }
 
   var imgs = new Array(N);
   var current = -1;
@@ -120,6 +133,8 @@ document.addEventListener('DOMContentLoaded', function () {
   var dotsWrap = stage.querySelector('.wall-dots');
   var dots = [].slice.call(stage.querySelectorAll('.wall-dot'));
   var th = [0.08, 0.26, 0.44];
+  var glow = stage.querySelector('.ws-power');
+  var POWER_AT = 0.10, POWER_OVER = 0.10;  // dark beat, then the screen comes up
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function clamp(x) { return x < 0 ? 0 : x > 1 ? 1 : x; }
@@ -135,7 +150,12 @@ document.addEventListener('DOMContentLoaded', function () {
     return -1;
   }
   function draw(i) {
-    if (ok(imgs[i])) { ctx.drawImage(imgs[i], 0, 0, canvas.width, canvas.height); current = i; }
+    if (!ok(imgs[i])) return;
+    // cover: fill the canvas, cropping the overflowing axis
+    var cw = canvas.width, ch = canvas.height, s = Math.max(cw / SW, ch / SH);
+    var dw = SW * s, dh = SH * s;
+    ctx.drawImage(imgs[i], (cw - dw) / 2, (ch - dh) / 2, dw, dh);
+    current = i;
   }
 
   // The hero panel is flown past the camera like a roadside sign. The perspective
@@ -147,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // With the origin at frame centre the panel straddles it and just engulfs the screen.
   // Z ramps a little faster than linear so it looms; X ramps on a square so the exit
   // whips at the end, the way a sign does once it reaches the window.
-  var FLY = 0.55; // fraction of the flight over which the sign passes
+  var FLY = 0.34; // fraction of the flight over which the sign passes
   function flyBy(vp) {
     if (!heroBox) return;
     var f = clamp(vp / FLY);
@@ -160,7 +180,7 @@ document.addEventListener('DOMContentLoaded', function () {
     heroBox.style.transform = 'translate3d(' + x.toFixed(2) + 'vw,' + drop.toFixed(2) + 'vh,' + z.toFixed(1) + 'px) rotateY(' + rot.toFixed(2) + 'deg)';
     // On wide screens it is geometrically gone before this matters; on narrow ones,
     // where there is less room to diverge, the fade finishes the job.
-    heroBox.style.opacity = String(1 - smooth(clamp((f - 0.78) / 0.22)));
+    heroBox.style.opacity = String(1 - smooth(clamp((f - 0.62) / 0.38)));
     heroBox.style.pointerEvents = f > 0.04 ? 'none' : 'auto';
   }
 
@@ -179,10 +199,14 @@ document.addEventListener('DOMContentLoaded', function () {
     // up over them. No panel to place, no texture to swap, no bezel to align.
     var on = clamp((vp - 0.92) / 0.07);
     if (screen) screen.style.opacity = String(on);
-    if (dotsWrap) dotsWrap.style.opacity = String(on);
 
     // Phase B - the wall's slides
     var q = Math.min(0.9999, Math.max(0, (p - FV) / (1 - FV)));
+    // The wall sits dark for a beat after the flight lands, then powers on.
+    var power = clamp((q - POWER_AT) / POWER_OVER);
+    if (glow) glow.style.opacity = String(power);
+    stage.classList.toggle('lit', power > 0.5);
+    if (dotsWrap) dotsWrap.style.opacity = String(power);
     var idx = q < 0.62 ? 0 : 1;
     slides.forEach(function (s, i) { s.classList.toggle('is-active', i === idx); });
     dots.forEach(function (d, i) { d.classList.toggle('is-on', i === idx); });
@@ -198,7 +222,8 @@ document.addEventListener('DOMContentLoaded', function () {
     })(i);
   }
   window.addEventListener('scroll', update, { passive: true });
-  window.addEventListener('resize', update);
+  window.addEventListener('resize', function () { sizeCanvas(); update(); });
+  sizeCanvas();
   update();
 })();
 

@@ -75,7 +75,7 @@ def footer(p=''):
       <div class="footer-bottom"><span>&copy; 2026 The Harker Venture Investment Initiative &middot; Mehta Scholars</span><span>The Harker School</span></div>
     </div>
   </footer>
-  <script src="{p}js/main.js?v=21"></script>
+  <script src="{p}js/main.js?v=22"></script>
 </body>
 </html>'''
 
@@ -89,7 +89,7 @@ def head(title, desc, p=''):
   {FONTS}
   <link rel="icon" type="image/png" href="{p}assets/favicon.png?v=1">
   <link rel="apple-touch-icon" href="{p}assets/favicon.png?v=1">
-  <link rel="stylesheet" href="{p}css/styles.css?v=36">
+  <link rel="stylesheet" href="{p}css/styles.css?v=37">
 </head>
 <body>
 '''
@@ -111,6 +111,7 @@ home+='''
     <div class="intro-pin">
       <canvas id="introCanvas" class="intro-canvas" width="1920" height="1080"></canvas>
       <div class="wall-screen">
+        <div class="ws-power" aria-hidden="true"></div>
         <div class="ws-slide is-active" data-i="0">
           <div class="ws-head"><p class="eyebrow">What We Do</p><h2>A launchpad for founders and investors</h2></div>
           <div class="ws-cards">

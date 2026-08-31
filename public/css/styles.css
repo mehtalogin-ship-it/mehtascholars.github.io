@@ -389,7 +389,7 @@ section { padding: 84px 0; }
 /* ---------- Hero (Patil exterior + green box) ---------- */
 /* Cinematic intro: scroll-scrubbed frame sequence (exterior -> through glass -> screen) */
 /* ---- Home: one pinned flight that ends on the black LED wall ---- */
-.intro-stage { position: relative; height: 400vh; padding: 0; background: #000; }
+.intro-stage { position: relative; height: 280vh; padding: 0; background: #000; }
 .intro-pin { position: sticky; top: var(--header-h); height: calc(100vh - var(--header-h)); overflow: hidden; background: #000 url("../assets/intro/poster.jpg?v=3") center/cover no-repeat; }
 .intro-canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 
@@ -408,6 +408,18 @@ section { padding: 84px 0; }
 /* The wall content. The flight lands on true #000, so this is full-bleed black and
    simply fades up over it - no panel, no bezel, no repositioning. */
 .wall-screen { position: absolute; inset: 0; background: #000; overflow: hidden; opacity: 0; z-index: 2; }
+/* The wall powers on: it holds dark for a beat after the flight lands, then this
+   white layer comes up underneath the content. */
+.ws-power { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; z-index: 0; }
+.ws-slide { z-index: 1; }
+/* Content flips to dark-on-white once the screen is lit. */
+.intro-stage.lit .ws-slide h2, .intro-stage.lit .ws-slide h3 { color: var(--ink); }
+.intro-stage.lit .ws-slide .eyebrow, .intro-stage.lit .ws-card .kicker { color: var(--green); }
+.intro-stage.lit .ws-card { background: var(--bg-green-tint); border-color: var(--line); }
+.intro-stage.lit .ws-card p, .intro-stage.lit .ws-inner p { color: var(--muted); }
+.intro-stage.lit .ws-card .ico { background: #fff; border-color: var(--line); color: var(--green-dark); box-shadow: var(--shadow); }
+.intro-stage.lit .wall-dot { background: rgba(0,0,0,.22); }
+.intro-stage.lit .wall-screen .btn { background: var(--green-dark); }
 .ws-slide { position: absolute; inset: 0; opacity: 0; transition: opacity .5s ease; overflow: hidden; padding: clamp(20px,4vh,44px) clamp(20px,5vw,64px); color: #fff; }
 .ws-slide.is-active { opacity: 1; }
 .ws-slide[data-i="0"] { display: flex; flex-direction: column; justify-content: center; }
