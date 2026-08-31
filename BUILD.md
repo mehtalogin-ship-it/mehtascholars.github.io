@@ -27,7 +27,21 @@ font at `assets/fonts/Questrial.ttf`.
 directory that gets deployed is `public/`, and nothing generated ever lands at the root.
 
 ## Hosting
-Static, no build step — **Cloudflare Pages**, serving `public/`. Pushing to `main`
-triggers a redeploy. Custom domain + SSL are set in the Cloudflare dashboard, and the
-build output directory there must be `public`.
-```
+Static, no build step. **GitHub Pages** is the host: `.github/workflows/pages-deploy.yml`
+runs on every push to `main` and publishes the `public/` directory as the Pages artifact.
+**Cloudflare** is only DNS — it points the custom domain at GitHub Pages. There is no
+Cloudflare Pages build, and nothing in this repo configures Cloudflare.
+
+Because GitHub Pages serves the artifact as-is, `public/_redirects` does nothing.
+That file is Netlify/Cloudflare Pages syntax and GitHub Pages has no equivalent, so the
+old Wix slug redirects it lists are not in effect — see "Redirects" below.
+
+## Redirects
+`public/_redirects` is inert on GitHub Pages. To actually redirect the old Wix URLs,
+either:
+- add a small HTML file at each old path containing a `<meta http-equiv="refresh">` plus
+  a `<link rel="canonical">`, generated from the same list; or
+- do it at the edge in Cloudflare with Redirect Rules / Bulk Redirects, which needs the
+  domain proxied through Cloudflare (orange cloud), not DNS-only.
+
+The second is cleaner and uses infrastructure that is already there.

@@ -1,5 +1,0 @@
-# Cloudflare Pages hosts this site and serves public/ (set in its dashboard, not here).
-# Kept only so any Netlify-format reader publishes the same directory.
-[build]
-  publish = "public"
-  command = ""
