@@ -205,12 +205,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // The wall sits dark for a beat after the flight lands, then powers on.
     var power = clamp((q - POWER_AT) / POWER_OVER);
     if (glow) glow.style.opacity = String(power);
-    stage.classList.toggle('lit', power > 0.5);
-    if (dotsWrap) dotsWrap.style.opacity = String(power);
-    var idx = q < 0.62 ? 0 : 1;
+    stage.classList.toggle('lit', power > 0.5);        // colours flip as it whitens
+    stage.classList.toggle('powered', power >= 1);     // content only exists after that
+
+    // Content runs on its own progress that does not start until the screen has
+    // finished turning white, so nothing animates against a black or half-lit wall.
+    var cq = clamp((q - (POWER_AT + POWER_OVER)) / (1 - POWER_AT - POWER_OVER));
+    if (dotsWrap) dotsWrap.style.opacity = String(clamp(cq / 0.04));
+    var idx = cq < 0.62 ? 0 : 1;
     slides.forEach(function (s, i) { s.classList.toggle('is-active', i === idx); });
     dots.forEach(function (d, i) { d.classList.toggle('is-on', i === idx); });
-    cards.forEach(function (c, i) { c.classList.toggle('show', idx > 0 || q >= th[i]); });
+    cards.forEach(function (c, i) { c.classList.toggle('show', idx > 0 || cq >= th[i]); });
   }
 
   for (var i = 0; i < N; i++) {

@@ -412,6 +412,10 @@ section { padding: 84px 0; }
    white layer comes up underneath the content. */
 .ws-power { position: absolute; inset: 0; background: #fff; opacity: 0; pointer-events: none; z-index: 0; }
 .ws-slide { z-index: 1; }
+/* Slides stay hidden until the wall has finished powering on - no content should
+   animate against a black or half-lit screen. */
+.intro-stage .ws-slide.is-active { opacity: 0; }
+.intro-stage.powered .ws-slide.is-active { opacity: 1; }
 /* Content flips to dark-on-white once the screen is lit. */
 .intro-stage.lit .ws-slide h2, .intro-stage.lit .ws-slide h3 { color: var(--ink); }
 .intro-stage.lit .ws-slide .eyebrow, .intro-stage.lit .ws-card .kicker { color: var(--green); }

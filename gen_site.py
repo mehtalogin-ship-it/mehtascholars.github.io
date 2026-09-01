@@ -75,7 +75,7 @@ def footer(p=''):
       <div class="footer-bottom"><span>&copy; 2026 The Harker Venture Investment Initiative &middot; Mehta Scholars</span><span>The Harker School</span></div>
     </div>
   </footer>
-  <script src="{p}js/main.js?v=23"></script>
+  <script src="{p}js/main.js?v=24"></script>
 </body>
 </html>'''
 
@@ -89,7 +89,7 @@ def head(title, desc, p=''):
   {FONTS}
   <link rel="icon" type="image/png" href="{p}assets/favicon.png?v=1">
   <link rel="apple-touch-icon" href="{p}assets/favicon.png?v=1">
-  <link rel="stylesheet" href="{p}css/styles.css?v=38">
+  <link rel="stylesheet" href="{p}css/styles.css?v=39">
 </head>
 <body>
 '''
