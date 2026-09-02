@@ -291,7 +291,7 @@ INV=[('Namrata Anand','\'10','Diffuse Bio','Health Tech & Life Sciences','Diffus
 ('Aumesh Mishra','\'16','Tivara','Health Tech & Life Sciences','Tivara is an AI company that automates insurance approval (prior authorization) for healthcare clinics, helping doctors deliver care to patients faster.'),
 ('Anita Modi','\'04','Peer AI','Health Tech & Life Sciences','Peer AI is an agentic AI platform that provides support for regulatory documentation for life sciences and biotech companies with strong security and compliance.'),
 ('Drew Goldstein','\'13','Ephemeral Technologies','Health Tech & Life Sciences','Ephemeral Technologies works to accelerate end-to-end drug development and delivery using an integrated AI, software, and robotics platform.'),
-('Daanish Jamal','\'12','Dolomite Therapeutics','Health Tech & Life Sciences','Dolomite Therapeutics works to develop biologic degraders that induce durable remission in patients with autoimmune kidney disease.')]
+('Tanuj Thapliyal','','Kos.ai','Fintech','Kos.ai is a virtual finance employee that autonomously completes critical financial workflows - invoice reviews, purchase orders and custom finance processes - for capital-intensive industries such as datacenters, defense, energy and construction.')]
 inv=head('Our Investments | Mehta Scholars',"Harker's Mehta Scholars put $25k SAFEs into Harker alumni startups. See a selection of our past investments.")
 inv+=nav('invest')
 inv+='''
@@ -303,7 +303,7 @@ for nm,yr,co,tag,desc in INV:
     inv+=f'''<div class="invest-card">
       <div class="invest-top">
         <div class="invest-co-block">{logo}<div class="co">{esc(co)}</div></div>
-        <div class="invest-founder">{esc(nm)} {esc(yr)}</div>
+        <div class="invest-founder">{esc(nm)}{(" " + esc(yr)) if yr else ""}</div>
       </div>
       <div class="invest-body">
         <div class="invest-headshot">{inner_photo(nm)}</div>
