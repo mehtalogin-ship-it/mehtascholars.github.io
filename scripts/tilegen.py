@@ -1,10 +1,15 @@
-import sys, json, re, io, base64, urllib.request, urllib.parse
+import sys, os, json, re, io, base64, urllib.request, urllib.parse
 import numpy as np
 from collections import deque
 from PIL import Image, ImageDraw, ImageFont, ImageOps, ImageFilter
 
 W, H = 1284, 1194
-FONT = "/tmp/Questrial.ttf"; TEX = "assets/tiles/_texture.png"
+# Paths are resolved against the repo, not the caller's cwd. captured/ lives at the
+# repo root; everything the site serves lives under public/.
+BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+PUB  = os.path.join(BASE, 'public')
+FONT = os.path.join(PUB, 'assets', 'fonts', 'Questrial.ttf')
+TEX  = os.path.join(PUB, 'assets', 'tiles', '_texture.png')
 UA = {'User-Agent': 'Mozilla/5.0'}
 
 def fetch(url, timeout=15):
@@ -141,7 +146,7 @@ def compose(color, name, mark, out):
 
 if __name__ == '__main__':
     slugs = sys.argv[1].split(',')
-    r = json.load(open('captured/companies.json'))
+    r = json.load(open(os.path.join(BASE, 'captured', 'companies.json')))
     by = {e['slug']: e for e in r}
     made=[]; nameonly=[]; fail=[]
     for slug in slugs:
@@ -152,7 +157,7 @@ if __name__ == '__main__':
         if img is None: fail.append((slug,'no icon')); continue
         mark, cov = white_mark(img)
         if mark is None: nameonly.append(slug); continue
-        compose(e.get('color','#2f6d3a'), e['company'], mark, f"assets/tiles/{slug}.png")
+        compose(e.get('color','#2f6d3a'), e['company'], mark, os.path.join(PUB, "assets", "tiles", f"{slug}.png"))
         made.append(slug)
     print('MADE', len(made), made)
     print('NAMEONLY', len(nameonly), nameonly)

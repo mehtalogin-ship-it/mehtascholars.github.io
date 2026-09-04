@@ -2573,5 +2573,29 @@
   "linkedin": "https://www.linkedin.com/in/seandohertyjr/",
   "website": "https://www.awary.com/",
   "page": "awary"
+ },
+ {
+  "name": "Ravi Mishra",
+  "first": "Ravi",
+  "last": "Mishra",
+  "year": "'04",
+  "title": "Co-Founder & CEO",
+  "company": "Ample",
+  "founded": "",
+  "city": "",
+  "sector_raw": "Cloud infrastructure for AI-native development",
+  "sector": "AI",
+  "sector_key": "ai",
+  "stage_raw": "Micro round, pre-YC (Y Combinator Fall 2026)",
+  "stage_group": "Pre-Seed",
+  "invest": "$1-2M micro round",
+  "investors": "Y Combinator (Fall 2026), A Tribe Capital GP, multiple exited CTOs, and senior operators from Google, Meta and Block",
+  "slug": "ample",
+  "tile": "assets/tiles/ample.png",
+  "color": "#D55A2D",
+  "bio": "Ravi Mishra is the Co-Founder and CEO of Ample, an infrastructure company whose product deploys a full application from a single prompt to a coding agent, handling hosting, configuration and scaling behind the scenes. A three-time founder with one exit, he founded and exited Athleauge in 2013 and was a Senior Product Manager at Shopify, where he met Ample's CTO, Ishan.",
+  "linkedin": "https://www.linkedin.com/in/ravimishra/",
+  "website": "https://ample.computer/",
+  "page": "ample"
  }
 ]
