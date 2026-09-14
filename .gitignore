@@ -13,3 +13,6 @@ __pycache__/
 
 # video masters kept locally, not in git
 public/assets/intro/_source/
+
+# Raw shoot media - source material, never deployed, never in git history
+source-media/
