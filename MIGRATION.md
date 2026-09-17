@@ -1,66 +1,87 @@
 # Mehta Scholars — Wix → Freestanding Migration
 
-Status as of this build: **full static site generated from real captured content.**
+**Status: migration complete and live.** The site is generated from `captured/` by
+`gen_site.py` and deployed to GitHub Pages. The Wix site is no longer in the serving path.
+
+Sections 1–7 describe the site as it stands today. Everything below them is the dated
+build log from the original migration, kept as history — those entries record what was
+true at the time, not necessarily now.
 
 ## 1. What's built
 
 | Page | File | Content |
 |---|---|---|
-| Home | `index.html` | Hero + What We Do + values + Join CTA |
-| About | `about.html` | Intro + **Our Process flowchart** + team (3 classes) |
-| Alumni Companies | `alumni-companies.html` | **41 founder bios** + filterable roster (category + stage) |
-| Our Investments | `our-investments.html` | 7 investment cards |
-| Committee List | `committee-list.html` | **53 members** across 3 committees |
-| Updates | `updates.html` | Real blog post (Startup World Cup) |
-| Company detail ×41 | `companies/<slug>.html` | Per-founder template: photo · name/year · company · category+stage · bio · Linkedin/Website |
+| Home | `public/index.html` | Scroll-scrubbed camera flight into the Rothschild PAC lobby → LED wall with 2 content slides |
+| About | `public/about.html` | Intro + **Our Process flowchart** (animated, scroll-built) + team (3 classes) |
+| Alumni Companies | `public/alumni-companies.html` | Filterable roster (9 sectors × 4 stage groups) |
+| Our Investments | `public/our-investments.html` | **8** investment cards |
+| Committee List | `public/committee-list.html` | **56 members** across 3 committees, clickable → modal |
+| Updates | `public/updates.html` | Real blog post (Startup World Cup) |
+| Company detail ×98 | `public/companies/<slug>.html` | Founder · title · company · sector + stage · bio · LinkedIn/Website |
 
-Design matches the live Wix site: greens `#0a582a` / `#038112`; **Questrial** headings,
-**Playfair Display** serif accents, **Montserrat** body (free substitute for Wix's paid Proxima Nova);
-company-page topographic green background; serif page-heroes on Alumni/Committee.
+Plus **10 generated redirect stubs** for old Wix URLs.
+
+Design: greens `#0a582a` / `#038112` / `#073d1e`, ink `#1a1a1a`; **Questrial** headings,
+**Playfair Display** serif accents, **Montserrat** body (free substitute for Wix's paid
+Proxima Nova); company-page topographic green background; serif page-heroes on
+Alumni/Committee.
 
 ## 2. Data sources (all real, captured from the live site)
-- `captured/founders.json` — 41 founders (name, year, company, bio, category, stage)
-- `captured/committee.json` — 53 members grouped into the 3 committees + section blurbs
-- `captured/company_page_template.json` — company page model
-- `captured/photo_map.json` — 38 people matched to real headshots (see §4)
-- `captured/sitemap.md` — full ~50-page inventory of the live site
+- `captured/companies.json` — **107 records**, the primary source for the alumni roster and
+  every company detail page
+- `captured/founders.json` — 43 founders (41 with a LinkedIn)
+- `captured/committee.json` — 56 members in 3 committees + section blurbs
+  (56/56 personal links, 55/56 company links)
+- `captured/photo_map.json` — 154 entries, all files present
+- `captured/redirects.txt` — old URL → new page map (input; see §5)
+- `captured/company_page_template.json`, `captured/sitemap.md` — page model + live-site inventory
 
 ## 3. Dropped (per owner decision — leftover Wix defaults, not used)
 - Wix Bookings ("Book Now"), Members area ("My Subscriptions"/"Notifications"), Subscriptions form.
-- Kept: mailto contact + Tawk.to chat hook (`TAWK_SRC` in `js/main.js`, disabled until an ID is set).
+- Kept: mailto contact + Tawk.to chat hook (`TAWK_SRC` in `public/js/main.js`, disabled until
+  an ID is set).
 
 ## 4. Photos
-- 38 people wired to real headshots in `assets/people/`, matched by filename from the owner's
-  uploaded Site Files (29 committee, 7 founders, Bazigh + Sreyas). Everyone else uses an
-  initials avatar until matched.
-- **Remaining:** ~90 people total; the unmatched ones have numeric/Screenshot filenames with no
-  name label, so they need live-page content-matching (a browser pass) — deferred.
+- 154 people wired to real headshots in `public/assets/people/`; **no entry points at a
+  missing file.**
+- **20 people still have no headshot** and fall back to an initials avatar — mostly later
+  additions to the roster, including Ravi Mishra (Ample) and Tanuj Thapliyal (Kos.ai).
+- Company tiles: 66 companies have one; the rest render as brand-coloured wordmark tiles on
+  the shared topographic texture.
 
 ## 5. SEO / redirects
-- `_redirects` maps old Wix slugs → new pages (Netlify/Cloudflare format).
+- **GitHub Pages has no `_redirects` support** — that file was Netlify/Cloudflare syntax and
+  never did anything here. It has been removed from `public/`.
+- The map now lives at `captured/redirects.txt`, and `gen_site.py` writes a real stub page at
+  each old URL carrying a meta refresh + `rel=canonical` + `noindex`. That is a client-side
+  redirect, not a 301 — the ceiling on a static host.
 - Old `/copy-of-*` company slugs were duplicated/mismatched on Wix and can't be 1:1 remapped;
-  they redirect to the Alumni Companies hub. New pages use clean `/companies/<name>.html`.
+  they point at the Alumni Companies hub. Wildcards can't be expressed as static files, so
+  they need a `public/404.html` to land on — not yet written.
+- Meta descriptions are generated for every page (the live Wix pages had none).
 
-## 6. Known follow-ups (leftover-budget / next session)
-1. ✅ DONE (Jul 2026) — Real LinkedIn/Website + exact category/stage pulled from all 32 live
-   `/copy-of-*` pages via a render pass. **30 founders** now have real Linkedin/Website buttons and
-   exact category & funding stage (Pre-Seed → Series C), stored in `captured/founders.json`
-   (`linkedin`, `website`, `cat_stage`). Also corrected Alexis Gauba's company to **Raindrop** (was
-   "Dawn"). The remaining **13 founders have no live detail page**, so no links exist to pull; their
-   pages show inferred category + bio with no link buttons: Ayush Jain, Rohan Agrawal (Concierge AI),
-   Johnny Wang (Statics), Drew Goldstein (Ephemeral), Ravi Kapur (DiyaTV), Jason Huang (AWG),
-   Jonathan Shih (Pine), Richard Wang (Clad Labs), David Zhu (Percy AI), Sri Prakash (Grey Matter),
-   Jason Lin (Sidenote), Anni Ankola (Spyra Beauty).
-2. Remaining headshots (content-match numeric files to people via live pages).
-3. Two founders share the company "Concierge AI" (Ayush Jain '09, Rohan Agrawal '10) → one page.
-4. Committee grouping is heuristic (6 named to Investment; founders→Entrepreneurship; VCs→Advisory);
-   verify against the live section order if exactness matters.
-5. Design polish pass (owner requested: content first, polish later).
+## 6. Known follow-ups
+1. **3 companies still have sheet-derived stub descriptions** (all three are "Stealth":
+   Suraj Pakala, Nicholas Chuang, Vedant Shah) — they need real detail or should stay stubs
+   deliberately.
+2. **20 missing headshots** (§4).
+3. **Tanuj Thapliyal has no Harker class year** anywhere in `captured/`; his card shows the
+   name alone.
+4. Two founders share the company "Concierge AI" (Ayush Jain '09, Rohan Agrawal '10) → one page.
+5. Committee grouping is heuristic (6 named to Investment; founders→Entrepreneurship;
+   VCs→Advisory); verify against the live section order if exactness matters.
+6. **No photography on the inner page heroes** — all five use a flat green gradient, while
+   `source-media/` holds 41 real photos and videos of the building.
 
-## 7. Cutover — NOT started
-Domain still points to Wix. No DNS change without explicit owner confirmation.
-Preview locally: `cd mehta-scholars-site && python3 -m http.server 8747`
+## 7. Cutover — DONE
+The site is live on **GitHub Pages**, serving `public/` via
+`.github/workflows/pages-deploy.yml` on every push to `main`. The custom domain was bought
+through **Wix, which is now the registrar only** — its DNS panel points the domain at Pages.
+No Wix site, no Netlify and no Cloudflare is in the serving path.
 
+Preview locally: `cd ~/Code/mehta-scholars-site && python3 -m http.server 8747 --directory public`
+
+---
 
 ### Update (Jul 2026, pass 2): remaining founders' links filled
 Sourced the 13 founders that had no live `/copy-of-*` detail page via the Wix editor gallery
