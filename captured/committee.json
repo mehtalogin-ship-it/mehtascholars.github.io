@@ -15,7 +15,7 @@
     },
     {
       "name": "Will Jarvis '97",
-      "org": "Jarvis Family Investments",
+      "org": "Jarvis Family Investments / Jarvis Estate Winery",
       "committee": "Venture Investment Committee",
       "bio": "Will Jarvis is an Investment Director at Jarvis Family Investments, looking for companies with outsized return or heavily de-risked with limited downside potential that have validated business models led by entrepreneurs with operational experience and a proven track record.",
       "linkedin": "https://www.linkedin.com/in/williamjarvis/",
@@ -47,7 +47,7 @@
     },
     {
       "name": "Sreyas Misra '14",
-      "org": "General Cataylst & Greenoaks",
+      "org": "Greenoaks",
       "committee": "Venture Investment Committee",
       "bio": "Sreyas Misra is an investment partner at Greenoaks, valuing novel technologies that solve customer pain points in current industries. Within the firm, Misra focuses on applied AI companies, more specifically AI infrastructure and tooling. Examples of his past investments include Windsurf, an AI coding agent.",
       "linkedin": "https://www.linkedin.com/in/sreyas-misra-311239123",
@@ -55,14 +55,14 @@
     },
     {
       "name": "Anupam Awasthi",
-      "org": "Catalyst Business Partners",
+      "org": "Catalyst Business Solutions",
       "committee": "Venture Advisory Committee",
       "bio": "Anupam Awasthi is a Co-Founder and CEO of Catalyst Business Partners, a consulting firm that specializes in cybersecurity solutions for businesses. Awasthi focuses on technology and digital transformation, especially in Africa and West Asia.",
       "linkedin": "https://www.linkedin.com/in/anupam-awasthi-72879135/",
       "company_url": "https://www.catalyst-us.com/"
     },
     {
-      "name": "Rajesh Swaminithan",
+      "name": "Rajesh Swaminathan",
       "org": "Khosla Ventures",
       "committee": "Venture Advisory Committee",
       "bio": "Rajesh Swaminathan is a Partner at Khosla Ventures, specializing in industrial decarbonization, energy infrastructure, and critical minerals. Swaminathan zeroes in on places where materials science can deliver both emissions reductions and cost competitiveness, as well as  base load power technologies that go beyond intermittent renewables and  the intersection of AI and mining.",
@@ -79,7 +79,7 @@
     },
     {
       "name": "Jia Xu",
-      "org": "J. West Investments",
+      "org": "J West Investments Inc.",
       "committee": "Venture Advisory Committee",
       "bio": "Jia Xu is a Real Estate Developer and Investor at J. West Investments Inc., a real estate investment and development firm focused on acquiring, developing, and managing property assets. Xu focuses on investment strategy, deal sourcing, and overseeing development projects across residential and commercial real estate.",
       "linkedin": "https://www.linkedin.com/in/jia-xu-431426/",
@@ -110,10 +110,10 @@
       "company_url": "https://www.coatue.com/"
     },
     {
-      "name": "Ashok Krishnamurti",
+      "name": "Ashok Krishnamurthi",
       "org": "GreatPoint Ventures",
       "committee": "Venture Advisory Committee",
-      "bio": "Ashok Krishnamurti is a Managing Partner at GreatPoint Ventures. Krishnamurti focuses on Enterprise IT, and the intersection of CS and life sciences, both of which help professionals build and deploy faster. On the Enterprise IT side, he concentrates in core infrastructure for modern software systems, reflected in GreatPoint's Coalesce investment. As for the intersection of CS and Biology, Krishnamurti focuses on computational biology platforms, Arbor BioTechnologies being a good example.",
+      "bio": "Ashok Krishnamurthi is a Managing Partner at GreatPoint Ventures. Krishnamurthi focuses on Enterprise IT, and the intersection of CS and life sciences, both of which help professionals build and deploy faster. On the Enterprise IT side, he concentrates in core infrastructure for modern software systems, reflected in GreatPoint's Coalesce investment. As for the intersection of CS and Biology, Krishnamurthi focuses on computational biology platforms, Arbor BioTechnologies being a good example.",
       "linkedin": "https://www.linkedin.com/in/ashok-krishnamurthi-a783063",
       "company_url": "https://www.greatpointvc.com/"
     },
@@ -183,7 +183,7 @@
     },
     {
       "name": "Laurence Kao '89",
-      "org": "Novare Ventures & OPESVP",
+      "org": "OPES Venture Partners",
       "committee": "Venture Advisory Committee",
       "bio": "Laurence Kao is a Partner at Novare Ventures and OPES Venture Partners, specializing in cross-border venture investing across fintech, enterprise software, and digital infrastructure. Within fintech infrastructure, he focuses on companies building payment rails, financial connectivity, and cross-border transaction systems that improve capital movement between Asia and North American markets. In enterprise software, Kao backs SaaS and platform businesses that digitize operational workflows for globally distributed businesses, particularly in sectors where regulatory complexity and fragmentation create opportunities for software-led efficiency gains. His investment focus also extends to early-stage companies building foundational internet infrastructure and business-to-business platforms that enable scalable international commerce. His thesis centers on backing globally oriented, infrastructure-heavy software companies that sit at the intersection of financial systems modernization and cross-border enterprise digitization.",
       "linkedin": "https://www.linkedin.com/in/laurence-kao-a9767b1/",
@@ -198,10 +198,10 @@
       "company_url": "https://www.consonant.vc/"
     },
     {
-      "name": "Sonia Huang '10",
-      "org": "Sequoia Ventures",
+      "name": "Sonya Huang '10",
+      "org": "Sequoia",
       "committee": "Venture Advisory Committee",
-      "bio": "Sonia Huang is a Partner at Sequoia Capital, specializing in artificial intelligence and enterprise software investments. Within AI infrastructure, she focuses on foundational model ecosystems, including the tooling, platforms, and systems that enable training, deploying, and scaling large-scale machine learning models across industries â with Sequoia-backed companies such as OpenAI (frontier foundation models) and Snowflake (data infrastructure platform) reflecting the firmâs exposure to core data and model infrastructure layers. In applied AI and enterprise software, she focuses on companies embedding intelligence into business workflows, with Sequoia investments like Notion (AI-enabled productivity and collaboration software) illustrating the shift toward AI-native productivity systems. Her investment scope also includes developer platforms and infrastructure tools that support the broader AI stack, where durable data advantages and technical depth create long-term defensibility. Her thesis centers on backing category-defining AI-native companies that evolve from infrastructure to deeply embedded enterprise systems as artificial intelligence becomes a foundational layer of modern software.",
+      "bio": "Sonya Huang is a Partner at Sequoia Capital, specializing in artificial intelligence and enterprise software investments. Within AI infrastructure, she focuses on foundational model ecosystems, including the tooling, platforms, and systems that enable training, deploying, and scaling large-scale machine learning models across industries â with Sequoia-backed companies such as OpenAI (frontier foundation models) and Snowflake (data infrastructure platform) reflecting the firmâs exposure to core data and model infrastructure layers. In applied AI and enterprise software, she focuses on companies embedding intelligence into business workflows, with Sequoia investments like Notion (AI-enabled productivity and collaboration software) illustrating the shift toward AI-native productivity systems. Her investment scope also includes developer platforms and infrastructure tools that support the broader AI stack, where durable data advantages and technical depth create long-term defensibility. Her thesis centers on backing category-defining AI-native companies that evolve from infrastructure to deeply embedded enterprise systems as artificial intelligence becomes a foundational layer of modern software.",
       "linkedin": "https://www.linkedin.com/in/sonyaruihuang/",
       "company_url": "https://www.sequoiacap.com/"
     },
@@ -215,17 +215,17 @@
     },
     {
       "name": "Neil Shah '08",
-      "org": "Greenoaks Capital Partners",
+      "org": "Greenoaks Capital",
       "committee": "Venture Advisory Committee",
       "bio": "Neil Shah is a Partner at Greenoaks Capital Partners, specializing in growth-stage investments across enterprise software, fintech, and consumer internet platforms. Greenoaks focuses on backing a concentrated number of category-defining companies with strong product-market fit and long-term global scaling potential. Within enterprise software and data infrastructure, Greenoaks has backed companies such as Figma (design collaboration platform) and Databricks (data and AI infrastructure platform). In fintech and financial infrastructure, its portfolio includes Stripe (payments infrastructure) and Brex (business financial platform). In consumer internet, the firm has also invested in companies like Discord (community platform) and Robinhood (financial services platform). His thesis centers on identifying a small number of exceptional companies with durable network effects and compounding growth potential across software, fintech, and internet ecosystems.",
       "linkedin": "https://www.linkedin.com/in/shahneilp",
       "company_url": "https://greenoaks.com/"
     },
     {
-      "name": "Gautam Krishnamurti '11",
+      "name": "Gautam Krishnamurthi '11",
       "org": "GreatPoint Ventures",
       "committee": "Venture Advisory Committee",
-      "bio": "Gautam Krishnamurti is a General Partner at GreatPoint Ventures. Krishnamurti focuses on in vesting in companies that solve difficult machine learning problems across different industries such as enterprise, biotech, fintech, and commerce infrastructure, that increase operational efficiency by democratizing access to machine learning talent. Some examples of Krishnamurti's niche within these sectors can be explained by investments in companies like Diffuse Bio, BeyondCore (acquired by SalesForce in 2018), Even Financial (acquired by MoneyLion in 2021), and Nixtla.",
+      "bio": "Gautam Krishnamurthi is a General Partner at GreatPoint Ventures. Krishnamurthi focuses on in vesting in companies that solve difficult machine learning problems across different industries such as enterprise, biotech, fintech, and commerce infrastructure, that increase operational efficiency by democratizing access to machine learning talent. Some examples of Krishnamurthi's niche within these sectors can be explained by investments in companies like Diffuse Bio, BeyondCore (acquired by SalesForce in 2018), Even Financial (acquired by MoneyLion in 2021), and Nixtla.",
       "linkedin": "https://www.linkedin.com/in/gautam-krishnamurthi/",
       "company_url": "https://www.greatpointvc.com/"
     },
@@ -263,7 +263,7 @@
     },
     {
       "name": "Johnny Wang '19",
-      "org": "Hinoki Security",
+      "org": "Statics",
       "committee": "Entrepreneurship Advisory Committee",
       "bio": "Johnny Wang is the Co-Founder of Hinoki Security, a Y Combinator–backed cybersecurity startup building a unified platform for continuous vulnerability scanning and patching. Wang studied Computer Science at Columbia before working in security at several companies, including Google, and previously co-founded Crosswire (2021), an enterprise access-management startup that helped security engineers manage access at scale. He also advises Jericho Security, a company building AI cybersecurity training for employees — giving him the hands-on advising experience of a strong entrepreneurial advisor.",
       "linkedin": "https://www.linkedin.com/in/johnnyyw/",
@@ -287,7 +287,7 @@
     },
     {
       "name": "Alexis Gauba '17",
-      "org": "Dawn AI",
+      "org": "Raindrop",
       "committee": "Entrepreneurship Advisory Committee",
       "bio": "Alexis Gauba is the Co-Founder of Dawn, a company that provides product analytics exclusively for AI products, allowing companies to make better marketing and product decisions. Gauba is a UC Berkeley alumni and has completed research in the blockchain space, making her a vital resource as a marketing advisor.",
       "linkedin": "https://www.linkedin.com/in/alexisgauba/",
@@ -303,7 +303,7 @@
     },
     {
       "name": "Ravi Kapur '92",
-      "org": "DiyaTV",
+      "org": "Diya TV & Major Market Broadcasting",
       "committee": "Entrepreneurship Advisory Committee",
       "bio": "Ravi Kapur is the Founder and CEO of DiyaTV, the first ever South Asian broadcast TV network with localized content for the South Asian audience. Their mission is to serve the Indian community after seeing such little representation on news sources. Before DiyaTV, Kapur worked as an anchor, producer, and reporter at other big networks, giving him the industry experience needed to serve as an advisor for all things brand image for startups.",
       "linkedin": "https://www.instagram.com/ravikapurtv/",
@@ -318,9 +318,9 @@
       "company_url": "http://oneschema.co/"
     },
     {
-      "name": "Ritu Bhatnagar ‘93",
+      "name": "Ritu Bhatnagar '93",
       "org": "SLAC National Accelerator Laboratory",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Ritu Bhatnagar is a Senior Laboratory Counsel, representing Stanford University and SLAC National Accelerator Laboratory, a U.S. Department of Energy National Laboratory managed and operated by Stanford. She works on the legal team, providing advice and assistance to help compliance with applicable laws, regulations, contract terms, grants, policies, and procedures, making her an expert in the legal side of operations.",
       "linkedin": "https://www.linkedin.com/in/ritb/",
       "company_url": "https://www6.slac.stanford.edu/"
@@ -328,7 +328,7 @@
     {
       "name": "Andrew Jin '15",
       "org": "Commure & Athelas",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Andrew Jin is a Vice President of Engineering at Commure after a merge with Athelas in 2023. Commure is a healthcare technology company building AI-native software to modernize clinical and administrative workflows across healthcare systems. Jin focuses on scaling enterprise deployments and driving product execution in complex healthcare environments. Prior to Commure, his experience spans roles across healthcare and technology companies, where he worked on building and operationalizing software for large-scale, regulated systems. His work in enterprise healthcare infrastructure positions him as a strong operator with domain expertise in healthcare technology and scaling applied software products.",
       "linkedin": "https://www.linkedin.com/in/andrewcjin/",
       "company_url": "https://www.commure.com/"
@@ -336,7 +336,7 @@
     {
       "name": "Wei-han Lien",
       "org": "Tenstorrent",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Wei-han Lien is the Chief Architect at Tenstorrent Inc., a semiconductor company building next-generation AI and high-performance computing hardware and chip architectures. Lien focuses on designing scalable compute architectures for advanced AI workloads, helping drive Tenstorrentâs efforts in developing efficient, programmable silicon for machine learning and inference at scale. Prior to Tenstorrent, Lien held senior engineering and architecture roles in the semiconductor and hardware industry, where he worked on GPU and high-performance system design. His deep technical background in chip architecture and AI compute systems positions him as a highly technical operator with strong expertise in hardware-software co-design for modern AI infrastructure.",
       "linkedin": "https://www.linkedin.com/in/wlien/",
       "company_url": "https://tenstorrent.com/"
@@ -344,7 +344,7 @@
     {
       "name": "Prakash Linga",
       "org": "HashiCorp",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Prakash Linga is a Vice President of Product Management at HashiCorp, following its acquisition of BluBracket, where Linga was the Co-Founder and CEO. BluBracket was a code security company focused on securing source code and developer workflows across modern software teams. Linga focuses on application security, developer-first security tooling, and building enterprise-grade systems that integrate directly into engineering workflows. Prior to founding BluBracket, he held engineering and technical leadership roles at infrastructure companies including VMware, where he worked on large-scale systems and enterprise software. His background in building developer infrastructure and security products positions him as a strong technical founder with deep expertise in secure software development at scale.",
       "linkedin": "https://www.linkedin.com/in/prakashlinga/",
       "company_url": "https://www.hashicorp.com/"
@@ -352,7 +352,7 @@
     {
       "name": "Wei Liu",
       "org": "DisplayTen",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Wei Liu is a CEO at DisplayTen (DTEN), a communications startup that allows collaboration across Zoom and Microsoft teams. Liu focuses on product strategy, enterprise adoption, and integrating hardware and software to create seamless remote communication experiences. Under his leadership, DTEN has developed all-in-one collaboration systems widely used in education and enterprise environments to enable immersive virtual meetings. Liuâs experience building and scaling a hardware-enabled SaaS company positions him as a strong operator in enterprise collaboration technology and hybrid work infrastructure.",
       "linkedin": "https://www.linkedin.com/in/wliu0532/",
       "company_url": "https://dten.com/"
@@ -360,7 +360,7 @@
     {
       "name": "Alan Malek '05",
       "org": "DeepMind",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Alan Malek is a Research Scientist at DeepMind in the United Kingdom. Malek focuses on developing and improving foundational models and algorithms that support cutting-edge artificial intelligence capabilities. His work sits within a highly technical research environment dedicated to scaling and refining modern AI systems across a range of applications. This background positions him as a deep technical contributor with expertise in AI research and model development at one of the leading organizations in the field.",
       "linkedin": "https://www.linkedin.com/in/ajmalek/",
       "company_url": "https://deepmind.google/"
@@ -368,7 +368,7 @@
     {
       "name": "Rajeev Raman",
       "org": "Recurly",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Rajeev Raman is a Strategic Advisor at Recurly, after serving as the Founder and CEO of Redfast, which Recurly acquired in May of 2025. Raman's successful entrepreneurship history is not limited to Redfast, with 1 Mainstream, another one of his startups, acquired in 2015 by Cisco Systems. Raman's entrepreneurial expertise makes him a valuable advisor",
       "linkedin": "https://www.linkedin.com/in/rajeevraman/",
       "company_url": "https://www.recurly.com/"
@@ -376,7 +376,7 @@
     {
       "name": "Glenn Reddy '15",
       "org": "Symphony Technology Group",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Glenn Reddy is an Investor at Symphony Technology Group (STG), specializing in private equity investments across enterprise software, data, and technology-enabled services. STG focuses on acquiring and scaling mature software businesses, particularly those with strong recurring revenue models, stable cash flows, and opportunities for operational transformation. Symphony Technology Group has backed companies such as McAfee (cybersecurity software platform), Trellix (enterprise security software company formed from FireEye acquisition), Riverbed Technology (IT performance monitoring and networking software), and RSA Security (identity and access management solutions), reflecting its focus on enterprise software consolidation, cybersecurity, and infrastructure software platforms. Reddy's investment focus aligns with STGâs broader strategy of taking control positions in established software businesses and driving operational improvement, product repositioning, and long-term value creation in enterprise technology markets.",
       "linkedin": "https://www.linkedin.com/in/glennwreddy/",
       "company_url": "https://stg.com/"
@@ -384,7 +384,7 @@
     {
       "name": "Rohan Shah '10",
       "org": "Extend",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Rohan Shah is the Founder of Extend, a fintech infrastructure company building virtual card and spend management APIs that enable businesses to issue cards and control payments programmatically. Shah focuses on product strategy, payments infrastructure, and scaling developer-first financial tools for modern enterprise workflows. At Extend, he has worked on enabling companies to embed flexible expense and payment controls directly into their software systems, positioning the company within the broader shift toward programmable financial infrastructure. His experience building in fintech infrastructure and developer tooling makes him a strong operator in payments automation and embedded finance systems.",
       "linkedin": "https://www.linkedin.com/in/rohanshah8",
       "company_url": "https://www.paywithextend.com/"
@@ -392,7 +392,7 @@
     {
       "name": "Steven Tam",
       "org": "Lowenstein Sandler",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Steven Tam is a Partner at Lowenstein Sandler. Tam specializes in Intellectual Property Law and serves as a Patent Attorney. Tam's legal expertise solidifies him as a credible advisor in the legal world.",
       "linkedin": "https://www.linkedin.com/in/steven-tam-bb3ab4/",
       "company_url": "https://www.lowenstein.com/"
@@ -400,7 +400,7 @@
     {
       "name": "Sean Turner '06",
       "org": "Swiftly",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Sean Turner is the Co-Founder and CTO of Swiftly, a retail technology company that helps consumer packaged goods (CPG) brands and retailers leverage data-driven marketing and loyalty solutions. Turner focuses on building the companyâs technical infrastructure, data platforms, and analytics systems that enable personalized consumer engagement at scale. Prior to co-founding Swiftly, he worked in engineering roles spanning data systems and software development, with a focus on building scalable platforms for high-volume retail and commerce applications. His experience in data infrastructure and consumer technology positions him as a strong technical founder with expertise in retail analytics and platform engineering.",
       "linkedin": "https://www.linkedin.com/in/seturner/",
       "company_url": "https://www.swiftly.com/"
@@ -424,14 +424,14 @@
     {
       "name": "Mylene Yao",
       "org": "Univfy",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "Mylene Yao is the Co-Founder, CEO, and Director of Univfy Inc., a healthcare technology company that uses predictive analytics and AI to improve IVF outcomes and help patients and clinics make more informed fertility treatment decisions. Yao focuses on clinical data science, product development, and scaling evidence-based tools that support reproductive medicine. Prior to founding Univfy, she trained and worked in academic medicine and reproductive health, contributing to research in fertility and assisted reproductive technologies. Her combined background in clinical science, healthcare innovation, and data-driven decision-making positions her as a strong operator and domain expert in womenâs health and fertility technology.",
       "linkedin": "https://www.linkedin.com/in/mylene-yao-m-d-049a2915/",
       "company_url": "https://www.univfy.com/"
     },
     {
       "name": "Sean Doherty '09",
-      "org": "Awary",
+      "org": "Skyline Wireless",
       "committee": "Entrepreneurship Advisory Committee",
       "bio": "Sean Doherty is the Co-Founder and CEO of Awary, a cybersecurity company that turns digital safety into a shared opportunity, showcasing his mastery of the field. By rewarding smarter online behavior, Awary helps financial institutions actively engage consumers in preventing fraud. Doherty is a seasoned entrepreneur, having previously founded Wurl (acquired for $430M) and Skyline Wireless, making him a perfect candidate for an entrepreneurial advisor.",
       "linkedin": "https://www.linkedin.com/in/seandohertyjr/",
@@ -448,7 +448,7 @@
     {
       "name": "R Wang",
       "org": "Constellation Research",
-      "committee": "Venture Advisory Committee",
+      "committee": "Entrepreneurship Advisory Committee",
       "bio": "R Wang is the Principal Analyst, Founder, and Chairman at Constellation Research, a technology research and advisory firm focused on digital transformation, enterprise software, and emerging enterprise technologies. Wang zeroes in on enterprise applications, cloud computing, AI adoption in business workflows, and the strategic impact of disruptive technologies on large organizations. He is widely known for advising executives at Fortune 500 companies on navigating digital disruption and technology strategy at scale. Wang also founded Constellation Research in 2010, building it into an influential analyst firm serving enterprise leaders and technology vendors. His experience leading a global research and advisory organization gives him deep credibility as a strategic advisor to enterprise and technology companies.",
       "linkedin": "https://www.linkedin.com/in/rwang0/",
       "company_url": "https://www.constellationr.com/"
