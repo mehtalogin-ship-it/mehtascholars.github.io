@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 import json, re, os
 
-# Cloudflare Pages serves public/, so generated HTML and the assets it references go
+# GitHub Pages serves public/, so generated HTML and the assets it references go
 # there. The source data stays at the repo root, alongside this script - it is input,
 # not something to publish.
 BASE=os.path.dirname(os.path.abspath(__file__))
@@ -31,42 +31,79 @@ FONTS='<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="pre
 
 SEAL='''<svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="48" fill="#0a582a"/><circle cx="50" cy="50" r="40" fill="none" stroke="#d9c67a" stroke-width="2"/><text x="50" y="46" text-anchor="middle" fill="#fff" font-family="Questrial, sans-serif" font-size="15">THE</text><text x="50" y="62" text-anchor="middle" fill="#d9c67a" font-family="Questrial, sans-serif" font-size="15">MEHTA</text><text x="50" y="82" text-anchor="middle" fill="#fff" font-family="Questrial, sans-serif" font-size="7" letter-spacing="1">ENDOWMENT</text></svg>'''
 
+# ============================================================================
+# PAGE REGISTRY
+# ----------------------------------------------------------------------------
+# The single source of truth for "what pages exist and what is on them".
+# nav(), footer(), the build loop and sitemap.xml all read PAGES, so adding a
+# page, renaming one, regrouping the nav into tracks, or moving a section from
+# one page to another is an edit HERE - not a rewrite of a page template.
+#
+#   slug   output filename minus .html, and the URL
+#   key    nav "active" key (kept distinct from slug so the markup is stable)
+#   label  nav/footer text
+#   track  nav group; must be a key in TRACKS
+#   drop   [(anchor, label)] -> hover dropdown under this nav item
+#   hero   ('h1', 'sub', 'cls') for sec_hero(), or None to draw its own
+#   body   ordered callables -> HTML fragments
+#   foot   include in the footer Explore column
+#
+# The two-track restructure is: change some `track` values and swap TRACKS for
+# its two-entry form. nav() itself does not change.
+# ============================================================================
+
+TRACKS=[('main',None)]
+
+CTA=('Contact Us!','mailto:harkermehtascholars@gmail.com')
+
+def _href(h, p=''):
+    """Leave mailto:/http(s)/#/tel alone; prefix internal links with the page's
+    depth. Lets the nav CTA become a real contact page later without touching nav()."""
+    return h if re.match(r'^(mailto:|https?:|#|tel:)', h) else p+h
+
 def nav(active, p=''):
     def cls(k): return ' class="active"' if k==active else ''
+    def link(pg): return f'<a href="{p}{pg["slug"]}.html"{cls(pg["key"])}>{pg["label"]}</a>'
+    items=[]
+    for tr,heading in TRACKS:
+        grp=[pg for pg in PAGES if pg.get('track')==tr and pg.get('label')]
+        if not grp: continue
+        if heading:
+            # A named track renders as ONE nav item with a dropdown, reusing the
+            # .has-drop component that already exists for Alumni Companies -
+            # so a two-track nav needs no new CSS.
+            on=' class="active"' if any(pg['key']==active for pg in grp) else ''
+            sub=''.join(f'\n            <li>{link(pg)}</li>' for pg in grp)
+            items.append(f'<li class="has-drop"><a href="{p}{grp[0]["slug"]}.html"{on}>{heading}</a>\n          <ul class="drop">{sub}\n          </ul></li>')
+            continue
+        for pg in grp:
+            if pg.get('drop'):
+                sub=''.join(f'\n            <li><a href="{p}{pg["slug"]}.html#{k}">{lbl}</a></li>' for k,lbl in pg['drop'])
+                items.append(f'<li class="has-drop">{link(pg)}\n          <ul class="drop">{sub}\n          </ul></li>')
+            else:
+                items.append(f'<li>{link(pg)}</li>')
+    items.append(f'<li><a class="nav-cta" href="{_href(CTA[1],p)}">{CTA[0]}</a></li>')
+    lis='\n        '.join(items)
     return f'''  <header class="site-header">
     <nav class="nav">
       <a class="brand" href="{p}index.html"><img class="brand-logo" src="{p}assets/logo.png?v=1" alt="The Mehta Endowment seal" width="70" height="60"><span class="brand-name">Harker Venture<br>Investment Initiative</span></a>
       <button class="nav-toggle" aria-label="Menu">&#9776;</button>
       <ul class="nav-links">
-        <li><a href="{p}index.html"{cls('home')}>Home</a></li>
-        <li><a href="{p}about.html"{cls('about')}>About</a></li>
-        <li class="has-drop"><a href="{p}alumni-companies.html"{cls('alumni')}>Alumni Companies</a>
-          <ul class="drop">
-            <li><a href="{p}alumni-companies.html#ai">AI</a></li>
-            <li><a href="{p}alumni-companies.html#health">Health &amp; Bio</a></li>
-            <li><a href="{p}alumni-companies.html#fintech">Fintech</a></li>
-            <li><a href="{p}alumni-companies.html#security">Security</a></li>
-            <li><a href="{p}alumni-companies.html#enterprise">Enterprise</a></li>
-            <li><a href="{p}alumni-companies.html#commerce">Commerce</a></li>
-          </ul></li>
-        <li><a href="{p}our-investments.html"{cls('invest')}>Our Investments</a></li>
-        <li><a href="{p}committee-list.html"{cls('committee')}>Committee List</a></li>
-        <li><a href="{p}updates.html"{cls('updates')}>Updates</a></li>
-        <li><a class="nav-cta" href="mailto:harkermehtascholars@gmail.com">Contact Us!</a></li>
+        {lis}
       </ul>
     </nav>
   </header>'''
 
 def footer(p=''):
+    ex=[f'<li><a href="{p}{pg["slug"]}.html">{pg["label"]}</a></li>' for pg in PAGES if pg.get('foot') and pg.get('label')]
+    rows='\n          '.join(''.join(ex[i:i+2]) for i in range(0,len(ex),2))
     return f'''  <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
         <div><img class="footer-logo" src="{p}assets/logo.png?v=1" alt="The Mehta Endowment" width="118" height="101"><span class="brand-name">Harker Venture Investment Initiative</span>
           <p style="margin-top:14px;max-width:38ch">Mehta Scholars serve as analysts for The Harker Venture Pool, investing in and supporting Harker alumni founders.</p></div>
         <div><h4>Explore</h4><ul class="footer-links">
-          <li><a href="{p}index.html">Home</a></li><li><a href="{p}about.html">About</a></li>
-          <li><a href="{p}alumni-companies.html">Alumni Companies</a></li><li><a href="{p}our-investments.html">Our Investments</a></li>
-          <li><a href="{p}committee-list.html">Committee List</a></li><li><a href="{p}updates.html">Updates</a></li></ul></div>
+          {rows}</ul></div>
         <div><h4>Get in touch</h4><ul class="footer-links">
           <li><a href="mailto:MehtaScholars@harker.org">MehtaScholars@harker.org</a></li>
           <li><a href="mailto:harkermehtascholars@gmail.com">harkermehtascholars@gmail.com</a></li>
@@ -103,10 +140,20 @@ def inner_photo(name, p=''):
 def avatar(name, cls='avatar', p=''):
     return f'<div class="{cls}">{inner_photo(name, p)}</div>'
 
-# ============ HOME ============
-home=head('Home | Mehta Scholars','The Harker Venture Investment Initiative — Mehta Scholars invest in and support Harker alumni founders and their companies.')
-home+=nav('home')
-home+='''
+def sec_hero(h1, sub='', cls=''):
+    """The .page-hero band, shared by every inner page. `h1`/`sub` are authored
+    copy containing entities like &amp; - they are NOT run through esc()."""
+    c=f' {cls}' if cls else ''
+    s=f'<p>{sub}</p>' if sub else ''
+    return f'\n  <section class="page-hero{c}"><div class="wrap"><h1>{h1}</h1>{s}</div></section>'
+
+# ============ SECTION BUILDERS ============
+# Each returns a complete HTML fragment and knows nothing about which page it
+# lands on - that is the registry's job. Moving the process flow or the team
+# grid to another page is a one-line edit in PAGES, not a rewrite.
+
+def sec_home_intro():
+    return '''
   <section class="intro-stage" id="introStage" data-frames="80" data-video-end="0.45">
     <div class="intro-pin">
       <canvas id="introCanvas" class="intro-canvas" width="1920" height="1080"></canvas>
@@ -141,10 +188,7 @@ home+='''
     </div>
   </section>
 '''
-home+=footer()
-open(ROOT+'/index.html','w').write(home)
 
-# ============ ABOUT ============
 # --- Our Process: animated, scroll-built flowchart (loop + split/merge) ---
 _ICO_DIAMOND='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l9 9-9 9-9-9z"/></svg>'
 _ICO_CHECK='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>'
@@ -162,94 +206,268 @@ _review=(f'<div class="pf-step has-loop" id="pfReview"><span class="pf-medal num
          f'<div class="pf-box"><h4>Advisory Committee review</h4><p>The report is presented to member(s) of the Venture Advisory Committee for feedback.</p>'
          f'<span class="proc-badge pf-loopfb">Refined &amp; re-presented ~3&times;</span>{_LOOP}</div>'
          f'</div>')
-_parts=[]
-_parts.append(_step('num','1','','<h4>Profile created</h4><p>A promotional profile is created and the founder &amp; company are added to the website.</p>'))
-_parts.append(_vseg())
-_parts.append(_step('num','2','','<h4>Preliminary report</h4><p>A preliminary report is put together on the company.</p>'))
-_parts.append(_vseg())
-_parts.append(_step('num','3','','<h4>Founder meeting</h4><p>A Mehta Scholar meets with the founder to discuss the company.</p>'))
-_parts.append(_vseg())
-_parts.append(_step('num','4','','<h4>In-depth report</h4><p>A full, in-depth report on the company is written.</p>'))
-_parts.append(_vseg())
-_parts.append(_review)
-_parts.append(_vseg())
-_parts.append(_step('num','6','','<h4>Report approved</h4><p>Once refined, the polished report is approved.</p>'))
-_parts.append(_vseg())
-_parts.append(_step('dec',_ICO_DIAMOND,'dec','<h4>Investment Committee decides</h4><p>The Venture Investment Committee reviews the finalized report and decides whether to invest.</p>'))
-# split: decision -> Result 1 / Result 2
-_parts.append('<div class="pf-split" id="pfSplit"><span class="pf-seg vert stem"><i></i></span><span class="pf-seg horiz barL"><i></i></span><span class="pf-seg horiz barR"><i></i></span><span class="pf-seg vert downL"><i></i></span><span class="pf-seg vert downR"><i></i></span></div>')
-# tier 1 : Result 1 (left) | Result 2 (spans right two columns)
-_r1=f'<div class="pf-step res r1"><span class="pf-medal ok">{_ICO_CHECK}</span><div class="pf-box"><span class="proc-tag ok">Result 1 &middot; Approved</span><p>The committee approves the investment.</p></div></div>'
-_r2=f'<div class="pf-step res r2"><span class="pf-medal no">{_ICO_BRANCH}</span><div class="pf-box"><span class="proc-tag no">Result 2 &middot; Not approved</span><p>The committee does not approve the investment &mdash; what happens next depends on the scholars&rsquo; conviction.</p></div></div>'
-_parts.append(f'<div class="pf-tier1" id="pfTier1">{_r1}{_r2}</div>')
-# sub : Result 1 continues straight down; Result 2 forks into two
-_parts.append('<div class="pf-sub" id="pfSub"><span class="pf-seg vert r1down"><i></i></span><span class="pf-seg vert r2stem"><i></i></span><span class="pf-seg horiz subbarL"><i></i></span><span class="pf-seg horiz subbarR"><i></i></span><span class="pf-seg vert subdownL"><i></i></span><span class="pf-seg vert subdownR"><i></i></span></div>')
-# tier 2 : three terminal outcomes
-_t1='<div class="pf-step term"><div class="pf-box term fund"><strong>$25K SAFE</strong><span>toward the next round</span></div></div>'
-_t2='<div class="pf-step term"><div class="pf-box term fund"><strong>$10K SAFE</strong><span>scholars still believe strongly</span></div></div>'
-_t3='<div class="pf-step term"><div class="pf-box term none"><strong>No investment</strong><span>the round is passed on</span></div></div>'
-_parts.append(f'<div class="pf-tier2" id="pfTier2">{_t1}{_t2}{_t3}</div>')
-# merge : all three outcomes -> final
-_parts.append('<div class="pf-merge3" id="pfMerge3"><span class="pf-seg vert up1"><i></i></span><span class="pf-seg vert up2"><i></i></span><span class="pf-seg vert up3"><i></i></span><span class="pf-seg horiz m3barL"><i></i></span><span class="pf-seg horiz m3barR"><i></i></span><span class="pf-seg vert m3stem"><i></i></span></div>')
-# final
-_parts.append(_step('fin',_ICO_FLAG,'final','<h4>Founder works with the committee</h4><p>In every case, the founder works with committee members &mdash; especially the Entrepreneurship Advisory Committee.</p>'))
-PROC=f'''<div class="process" id="procDiagram">
+
+def _proc(stop_at='full'):
+    """Build the flowchart.
+
+    stop_at='full'      the original chart: decision -> Result 1 / Result 2 ->
+                        $25K / $10K / no-investment terminals -> merge -> close.
+    stop_at='decision'  stops at "Investment Committee decides" and runs straight
+                        into the closing node. Removes the two-option/pricing
+                        presentation. The branch stays in code, so it is
+                        recoverable - do not delete it.
+    """
+    _parts=[]
+    _parts.append(_step('num','1','','<h4>Profile created</h4><p>A promotional profile is created and the founder &amp; company are added to the website.</p>'))
+    _parts.append(_vseg())
+    _parts.append(_step('num','2','','<h4>Preliminary report</h4><p>A preliminary report is put together on the company.</p>'))
+    _parts.append(_vseg())
+    _parts.append(_step('num','3','','<h4>Founder meeting</h4><p>A Mehta Scholar meets with the founder to discuss the company.</p>'))
+    _parts.append(_vseg())
+    _parts.append(_step('num','4','','<h4>In-depth report</h4><p>A full, in-depth report on the company is written.</p>'))
+    _parts.append(_vseg())
+    _parts.append(_review)
+    _parts.append(_vseg())
+    _parts.append(_step('num','6','','<h4>Report approved</h4><p>Once refined, the polished report is approved.</p>'))
+    _parts.append(_vseg())
+    _parts.append(_step('dec',_ICO_DIAMOND,'dec','<h4>Investment Committee decides</h4><p>The Venture Investment Committee reviews the finalized report and decides whether to invest.</p>'))
+    if stop_at=='full':
+        # split: decision -> Result 1 / Result 2
+        _parts.append('<div class="pf-split" id="pfSplit"><span class="pf-seg vert stem"><i></i></span><span class="pf-seg horiz barL"><i></i></span><span class="pf-seg horiz barR"><i></i></span><span class="pf-seg vert downL"><i></i></span><span class="pf-seg vert downR"><i></i></span></div>')
+        # tier 1 : Result 1 (left) | Result 2 (spans right two columns)
+        _r1=f'<div class="pf-step res r1"><span class="pf-medal ok">{_ICO_CHECK}</span><div class="pf-box"><span class="proc-tag ok">Result 1 &middot; Approved</span><p>The committee approves the investment.</p></div></div>'
+        _r2=f'<div class="pf-step res r2"><span class="pf-medal no">{_ICO_BRANCH}</span><div class="pf-box"><span class="proc-tag no">Result 2 &middot; Not approved</span><p>The committee does not approve the investment &mdash; what happens next depends on the scholars&rsquo; conviction.</p></div></div>'
+        _parts.append(f'<div class="pf-tier1" id="pfTier1">{_r1}{_r2}</div>')
+        # sub : Result 1 continues straight down; Result 2 forks into two
+        _parts.append('<div class="pf-sub" id="pfSub"><span class="pf-seg vert r1down"><i></i></span><span class="pf-seg vert r2stem"><i></i></span><span class="pf-seg horiz subbarL"><i></i></span><span class="pf-seg horiz subbarR"><i></i></span><span class="pf-seg vert subdownL"><i></i></span><span class="pf-seg vert subdownR"><i></i></span></div>')
+        # tier 2 : three terminal outcomes
+        _t1='<div class="pf-step term"><div class="pf-box term fund"><strong>$25K SAFE</strong><span>toward the next round</span></div></div>'
+        _t2='<div class="pf-step term"><div class="pf-box term fund"><strong>$10K SAFE</strong><span>scholars still believe strongly</span></div></div>'
+        _t3='<div class="pf-step term"><div class="pf-box term none"><strong>No investment</strong><span>the round is passed on</span></div></div>'
+        _parts.append(f'<div class="pf-tier2" id="pfTier2">{_t1}{_t2}{_t3}</div>')
+        # merge : all three outcomes -> final
+        _parts.append('<div class="pf-merge3" id="pfMerge3"><span class="pf-seg vert up1"><i></i></span><span class="pf-seg vert up2"><i></i></span><span class="pf-seg vert up3"><i></i></span><span class="pf-seg horiz m3barL"><i></i></span><span class="pf-seg horiz m3barR"><i></i></span><span class="pf-seg vert m3stem"><i></i></span></div>')
+        _parts.append(_step('fin',_ICO_FLAG,'final','<h4>Founder works with the committee</h4><p>In every case, the founder works with committee members &mdash; especially the Entrepreneurship Advisory Committee.</p>'))
+    else:
+        _parts.append(_vseg())
+        _parts.append(_step('fin',_ICO_FLAG,'final',PROC_CLOSE))
+    return f'''<div class="process" id="procDiagram">
       <div class="pf">{''.join(_parts)}</div>
     </div>'''
-TEAM=[('Class of 2025',['Andy Chung','Saahira Dayal','Sophie Degoricija','Ian Gerstner','Yifan Li','Tiana Salvi']),
-      ('Class of 2026',['Tanvi Sivakumar','Leana Zhou']),
-      ('Class of 2027',['Akash Dubey','Bazigh Tahirzad','David Kelly','Ronica Khattri','Amy Tong'])]
+
+# The note the whole process now ends on. Whatever the committee decides, the
+# founder gets access to the ecosystem and the advisors.
+PROC_CLOSE=('<h4>Access to the Harker Strategic Ecosystem</h4>'
+            '<p>Whatever the committee decides, the founder gains access to the Harker Strategic Ecosystem '
+            '&mdash; our alumni VCs, angel investors and operators &mdash; and to the Entrepreneurship '
+            'Advisory Committee, who work with founders to develop and solidify their companies.</p>')
+
+PROC_STOP='full'
+
+def sec_process():
+    return ('\n  <section class="section-tint"><div class="wrap"><div class="section-head">'
+            '<p class="eyebrow">Our Process</p><h2>From profile to investment</h2></div>\n    '
+            + _proc(PROC_STOP) + '</div></section>')
+
+ABOUT_P1='Mehta Scholars serve as analysts for The Harker Venture Pool. This real-world, hands-on experience provides a unique opportunity to our advanced-level Business &amp; Entrepreneurship students who take Honors Corporate Finance &amp; Honors Venture Capital in their 11th-grade year. Top performers are then selected to be Mehta Scholars during their 12th-grade year.'
+ABOUT_P2='Mehta Scholars identify, research, promote, and support alumni founders and their companies as they look to invest in their companies from the Harker Venture Pool. They also connect alumni founders with other VCs, Angel Investors, Entrepreneurs, and other Business and Technology Professionals in the Harker Strategic Ecosystem as needed.'
+
+def sec_about_prose():
+    return ('\n  <section><div class="wrap" style="max-width:900px">'
+            f'\n    <p style="font-size:1.15rem">{ABOUT_P1}</p>'
+            f'\n    <p style="font-size:1.15rem">{ABOUT_P2}</p>'
+            '\n  </div></section>')
+
+# The scholar roster lives in captured/scholars.json so it can be updated without
+# touching the generator. Falls back to nothing rather than crashing the build.
+try: TEAM=[(c['class'],c['names']) for c in json.load(open(CAP+'scholars.json'))]
+except Exception: TEAM=[]
 try: SCHOLAR_LI=json.load(open(CAP+'scholar_linkedin.json'))
 except Exception: SCHOLAR_LI={}
-teamhtml=''
-for cls,ppl in TEAM:
-    teamhtml+=f'<div class="class-block"><h3>{cls}</h3><div class="people">'
-    for n in ppl:
-        av=avatar(n); li=SCHOLAR_LI.get(n)
-        if li: av=f'<a href="{li}" target="_blank" rel="noopener" class="scholar-link" aria-label="{esc(n)} on LinkedIn">{av}</a>'
-        teamhtml+=f'<div class="person">{av}<div class="name">{n}</div></div>'
-    teamhtml+='</div></div>'
-about=head('About | Mehta Scholars','Meet the Mehta Scholar team and learn how our analysts research and invest in Harker alumni founders.')
-about+=nav('about')
-about+=f'''
-  <section class="page-hero"><div class="wrap"><h1>The Mehta Scholar Team</h1><p>Student analysts for The Harker Venture Pool.</p></div></section>
-  <section><div class="wrap" style="max-width:900px">
-    <p style="font-size:1.15rem">Mehta Scholars serve as analysts for The Harker Venture Pool. This real-world, hands-on experience provides a unique opportunity to our advanced-level Business &amp; Entrepreneurship students who take Honors Corporate Finance &amp; Honors Venture Capital in their 11th-grade year. Top performers are then selected to be Mehta Scholars during their 12th-grade year.</p>
-    <p style="font-size:1.15rem">Mehta Scholars identify, research, promote, and support alumni founders and their companies as they look to invest in their companies from the Harker Venture Pool. They also connect alumni founders with other VCs, Angel Investors, Entrepreneurs, and other Business and Technology Professionals in the Harker Strategic Ecosystem as needed.</p>
-  </div></section>
-  <section class="section-tint"><div class="wrap"><div class="section-head"><p class="eyebrow">Our Process</p><h2>From profile to investment</h2></div>
-    {PROC}</div></section>
-  <section><div class="wrap"><div class="section-head"><p class="eyebrow">Our Team</p><h2>Meet the scholars</h2></div>{teamhtml}</div></section>
-'''
-about+=footer()
-open(ROOT+'/about.html','w').write(about)
+
+def sec_team():
+    teamhtml=''
+    for cls,ppl in TEAM:
+        teamhtml+=f'<div class="class-block"><h3>{cls}</h3><div class="people">'
+        for n in ppl:
+            av=avatar(n); li=SCHOLAR_LI.get(n)
+            if li: av=f'<a href="{li}" target="_blank" rel="noopener" class="scholar-link" aria-label="{esc(n)} on LinkedIn">{av}</a>'
+            teamhtml+=f'<div class="person">{av}<div class="name">{n}</div></div>'
+        teamhtml+='</div></div>'
+    return ('\n  <section><div class="wrap"><div class="section-head"><p class="eyebrow">Our Team</p>'
+            f'<h2>Meet the scholars</h2></div>{teamhtml}</div></section>\n')
 
 # ============ ALUMNI COMPANIES ============
 STAGE_ORDER=["Acquired / IPO'd",'Pre-Seed','Seed','Series A and Later']
 SECTORS=[('all','All'),('ai','AI'),('health','Health &amp; Bio'),('fintech','Fintech'),('security','Security'),
  ('enterprise','Enterprise/SaaS'),('commerce','Commerce/Consumer'),('energy','Energy/Climate'),('media','Media/Gaming'),('hardware','Hardware/Deep-Tech')]
-alumni=head('Alumni Companies | Mehta Scholars','Companies founded by Harker alumni across AI, health &amp; bio, fintech, security, enterprise, commerce, energy, media, and deep tech.')
-alumni+=nav('alumni')
-alumni+='''
-  <section class="page-hero serif"><div class="wrap"><h1>Harker fosters the best.</h1><p>The companies founded by Harker alumni — the ventures our Mehta Scholars research, back, and champion.</p></div></section>
-  <section class="co-section"><div class="wrap">
-    <div class="filters">'''
-alumni+=''.join(f'<button class="filter-btn{" active" if k=="all" else ""}" data-filter="{k}" id="{k}">{lbl}</button>' for k,lbl in SECTORS)
-alumni+='</div>'
-for stage in STAGE_ORDER:
-    grp=[f for f in companies if f.get('stage_group')==stage]
-    if not grp: continue
-    alumni+=f'<div data-stage-group><h2 class="stage-label">{esc(stage)}</h2><div class="co-grid">'
-    for f in grp:
-        if f.get('tile'):
-            thumb=f'<div class="co-thumb"><img src="{f["tile"]}?v=10" alt="{esc(f["company"])}" loading="lazy"></div>'
-        else:
-            thumb=f'<div class="co-thumb ph" style="--tc:{f.get("color","#2f6d3a")}"><span>{esc(f["company"])}</span></div>'
-        alumni+=f'<a class="co-tile" data-sector="{f["sector_key"]}" href="companies/{f["page"]}.html">{thumb}<div class="co-name">{esc(f["name"])} {esc(f.get("year",""))}</div></a>'
-    alumni+='</div></div>'
-alumni+='</div></section>'
-alumni+=footer()
-open(ROOT+'/alumni-companies.html','w').write(alumni)
+
+def sec_alumni_grid():
+    out='\n  <section class="co-section"><div class="wrap">\n    <div class="filters">'
+    out+=''.join(f'<button class="filter-btn{" active" if k=="all" else ""}" data-filter="{k}" id="{k}">{lbl}</button>' for k,lbl in SECTORS)
+    out+='</div>'
+    for stage in STAGE_ORDER:
+        grp=[f for f in companies if f.get('stage_group')==stage]
+        if not grp: continue
+        out+=f'<div data-stage-group><h2 class="stage-label">{esc(stage)}</h2><div class="co-grid">'
+        for f in grp:
+            if f.get('tile'):
+                thumb=f'<div class="co-thumb"><img src="{f["tile"]}?v=10" alt="{esc(f["company"])}" loading="lazy"></div>'
+            else:
+                thumb=f'<div class="co-thumb ph" style="--tc:{f.get("color","#2f6d3a")}"><span>{esc(f["company"])}</span></div>'
+            out+=f'<a class="co-tile" data-sector="{f["sector_key"]}" href="companies/{f["page"]}.html">{thumb}<div class="co-name">{esc(f["name"])} {esc(f.get("year",""))}</div></a>'
+        out+='</div></div>'
+    return out+'</div></section>'
+
+# ============ OUR INVESTMENTS ============
+# Each entry is (founder, class year, company, category tag, description, page).
+# `page` is the record's page slug from companies.json - NOT slug(company_name).
+# Founders with more than one company are paged under their own name, so deriving
+# the href from the display name produced a 404 for Kos.ai.
+INV=[('Namrata Anand','\'10','Diffuse Bio','Health Tech & Life Sciences','Diffuse Bio is a biotechnology company specializing in generative AI for protein design. Their mission is to create AI systems that engineer novel, useful proteins with exceptional precision.','diffuse-bio'),
+('Barrett Glasauer','\'09','Rejigg','Fintech','Rejigg connects quality small business owners with vetted buyers, minimizing fees, eliminating brokers, and streamlining the acquisition process.','rejigg'),
+('Surhbi Sarna','\'03','Collate','Health Tech & Life Sciences','Collate uses AI to create and streamline accurate documentation for diagnostic, medical device, and drug development companies, thereby reducing time to market and expediting the creation of life-saving innovations.','collate'),
+('Aumesh Mishra','\'16','Tivara','Health Tech & Life Sciences','Tivara is an AI company that automates insurance approval (prior authorization) for healthcare clinics, helping doctors deliver care to patients faster.','tivara'),
+('Anita Modi','\'04','Peer AI','Health Tech & Life Sciences','Peer AI is an agentic AI platform that provides support for regulatory documentation for life sciences and biotech companies with strong security and compliance.','peer-ai'),
+('Drew Goldstein','\'13','Ephemeral Technologies','Health Tech & Life Sciences','Ephemeral Technologies works to accelerate end-to-end drug development and delivery using an integrated AI, software, and robotics platform.','ephemeral-technologies'),
+('Tanuj Thapliyal','','Kos.ai','Fintech','Kos.ai is a virtual finance employee that autonomously completes critical financial workflows - invoice reviews, purchase orders and custom finance processes - for capital-intensive industries such as datacenters, defense, energy and construction.','tanuj-thapliyal'),
+('Ravi Mishra','\'04','Ample','AI and Smart Tech','Ample is building cloud infrastructure that deploys a full application from a single prompt to a coding agent, handling hosting, configuration and scaling behind the scenes. It folds existing infrastructure products into one assembled system, taking an app live in around 30 seconds.','ample')]
+
+def sec_investments():
+    out='\n  <section><div class="wrap"><div class="invest">'
+    for nm,yr,co,tag,desc,page in INV:
+        sl=slug(co)
+        logo=f'<div class="invest-logo"><img src="assets/invest-logos/{sl}.png?v=2" alt="{esc(co)} logo" loading="lazy"></div>' if os.path.exists(f'{ROOT}/assets/invest-logos/{sl}.png') else ''
+        out+=f'''<div class="invest-card">
+      <div class="invest-top">
+        <div class="invest-co-block">{logo}<div class="co">{esc(co)}</div></div>
+        <div class="invest-founder">{esc(nm)}{(" " + esc(yr)) if yr else ""}</div>
+      </div>
+      <div class="invest-body">
+        <div class="invest-headshot">{inner_photo(nm)}</div>
+        <span class="tag">{esc(tag)}</span>
+        <p>{esc(desc)}</p>
+        <a class="btn small" href="companies/{page}.html">More on {esc(co)}</a>
+      </div></div>'''
+    return out+'</div></div></section>'
+
+# ============ COMMITTEE ============
+ORDER=['Venture Investment Committee','Venture Advisory Committee','Entrepreneurship Advisory Committee']
+def linklabel(u): return 'Instagram' if 'instagram.com' in (u or '') else 'LinkedIn'
+
+def sec_committee(groups=None):
+    """Rosters + the profile modal. cdata/idx are LOCAL to this call: if the
+    rosters are ever split across two pages, page-global indices would make every
+    tile on the second page open the wrong person's modal, silently."""
+    groups=groups or ORDER
+    out=''; cdata=[]; idx=0; tint=False
+    for grp in groups:
+        mem=[m for m in committee if m['committee']==grp]
+        if not mem: continue
+        seccls=' section-tint' if tint else ''; tint=not tint
+        out+=f'<section class="{seccls.strip()}"><div class="wrap"><div class="section-head"><p class="eyebrow">{grp}</p></div><p class="committee-intro">{esc(sections.get(grp,""))}</p><div class="members-grid">'
+        for m in mem:
+            cdata.append({'name':m['name'],'org':m['org'],'bio':m.get('bio',''),
+              'linkedin':m.get('linkedin',''),'linklabel':linklabel(m.get('linkedin','')),
+              'company':m.get('company_url',''),'photo':PHOTOS.get(m['name'],''),'initials':initials(m['name'])})
+            out+=f'''<button class="member-tile" data-idx="{idx}"><div class="photo">{inner_photo(m['name'])}</div><div class="m-head"><h3>{esc(m['name'])}</h3><div class="org">{esc(m['org'])}</div><p class="tile-bio">{esc(m.get('bio',''))}</p></div><span class="tile-more">View profile &rarr;</span></button>'''
+            idx+=1
+        out+='</div></div></section>'
+    out+='''
+  <div class="modal-overlay" id="memberModal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mName">
+      <button class="modal-close" aria-label="Close">&times;</button>
+      <div class="modal-photo" id="mPhoto"></div>
+      <div class="modal-info">
+        <h3 id="mName"></h3>
+        <div class="org" id="mOrg"></div>
+        <p id="mBio"></p>
+        <div class="modal-links" id="mLinks"></div>
+      </div>
+    </div>
+  </div>
+  <script>
+  window.COMMITTEE=''' + json.dumps(cdata) + ''';
+  (function(){
+    var modal=document.getElementById('memberModal');
+    var mPhoto=document.getElementById('mPhoto'),mName=document.getElementById('mName'),mOrg=document.getElementById('mOrg'),mBio=document.getElementById('mBio'),mLinks=document.getElementById('mLinks');
+    function openModal(i){var d=window.COMMITTEE[i];if(!d)return;
+      mPhoto.innerHTML=d.photo?'<img src="'+d.photo+'" alt="'+d.name+'">':d.initials;
+      mName.textContent=d.name;mOrg.textContent=d.org;mBio.textContent=d.bio||'';
+      var l='';
+      if(d.linkedin)l+='<a class="btn outline" target="_blank" rel="noopener" href="'+d.linkedin+'">'+d.linklabel+' \\u2197</a>';
+      if(d.company)l+='<a class="btn outline" target="_blank" rel="noopener" href="'+d.company+'">Company \\u2197</a>';
+      mLinks.innerHTML=l;modal.hidden=false;document.body.style.overflow='hidden';}
+    function closeModal(){modal.hidden=true;document.body.style.overflow='';}
+    document.addEventListener('click',function(e){
+      var t=e.target.closest('.member-tile');
+      if(t){openModal(+t.getAttribute('data-idx'));return;}
+      if(e.target===modal||e.target.classList.contains('modal-close'))closeModal();
+    });
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)closeModal();});
+  })();
+  </script>'''
+    return out
+
+# ============ UPDATES ============
+def sec_updates():
+    return '''
+  <section><div class="wrap"><div class="posts">
+    <article class="post"><div class="post-cover"><h2>Mehta Scholars Attend Startup World Cup</h2></div>
+      <div class="post-body"><div class="post-meta"><span>Harker Mehta Scholars</span><span>Apr 26</span><span>1 min read</span></div>
+      <p>On April 17th, our Mehta Scholar team participated in the Startup World Cup Youth Qualifier, organized by Harker and Pegasus Tech Ventures. Our senior Mehta Scholars, Leana Zhou and Tanvi Sivakumar, facilitated the fireside chat with Brandon Yang from Cartesia. Meanwhile, our junior Mehta Scholars engaged in networking opportunities with professionals across various industries, gaining key insights and forming important connections.</p></div></article>
+  </div></div></section>'''
+
+# ============ THE REGISTRY ============
+PAGES=[
+ dict(slug='index', key='home', label='Home', track='main', foot=True,
+      title='Home | Mehta Scholars',
+      desc='The Harker Venture Investment Initiative — Mehta Scholars invest in and support Harker alumni founders and their companies.',
+      hero=None, body=[sec_home_intro]),
+
+ dict(slug='about', key='about', label='About', track='main', foot=True,
+      title='About | Mehta Scholars',
+      desc='Meet the Mehta Scholar team and learn how our analysts research and invest in Harker alumni founders.',
+      hero=('The Mehta Scholar Team','Student analysts for The Harker Venture Pool.'),
+      body=[sec_about_prose, sec_process, sec_team]),
+
+ dict(slug='alumni-companies', key='alumni', label='Alumni Companies', track='main', foot=True,
+      title='Alumni Companies | Mehta Scholars',
+      desc='Companies founded by Harker alumni across AI, health &amp; bio, fintech, security, enterprise, commerce, energy, media, and deep tech.',
+      drop=[('ai','AI'),('health','Health &amp; Bio'),('fintech','Fintech'),
+            ('security','Security'),('enterprise','Enterprise'),('commerce','Commerce')],
+      hero=('Harker fosters the best.','The companies founded by Harker alumni — the ventures our Mehta Scholars research, back, and champion.','serif'),
+      body=[sec_alumni_grid]),
+
+ dict(slug='our-investments', key='invest', label='Our Investments', track='main', foot=True,
+      title='Our Investments | Mehta Scholars',
+      desc="Harker's Mehta Scholars put $25k SAFEs into Harker alumni startups. See a selection of our past investments.",
+      hero=('Our Investments',"Harker's Mehta Scholars put $25k SAFEs into Harker alumni startups. We review reports with the Venture Advisory Committee and the Venture Investment Committee. Here are a few of our past investments."),
+      body=[sec_investments]),
+
+ dict(slug='committee-list', key='committee', label='Committee List', track='main', foot=True,
+      title='Committee List | Mehta Scholars',
+      desc='The Venture Investment, Venture Advisory, and Entrepreneurship Advisory Committees supporting the Mehta Scholars.',
+      hero=('Harker connects you with the best.','The committees of experienced investors and founders who guide, review, and support our work.','serif'),
+      body=[sec_committee]),
+
+ dict(slug='updates', key='updates', label='Updates', track='main', foot=True,
+      title='Updates | Mehta Scholars',
+      desc='News and updates from The Harker Venture Investment Initiative.',
+      hero=('Updates','News, milestones, and announcements from the Mehta Scholars.'),
+      body=[sec_updates]),
+]
+
+def render(pg, p=''):
+    doc=head(pg['title'], pg['desc'], p)
+    doc+=nav(pg['key'], p)
+    if pg.get('hero'): doc+=sec_hero(*pg['hero'])
+    for s in pg['body']: doc+=s()
+    doc+=footer(p)
+    return doc
+
+for pg in PAGES:
+    open(os.path.join(ROOT, pg['slug']+'.html'),'w').write(render(pg))
 
 # ============ COMPANY / FOUNDER DETAIL PAGES ============
 os.makedirs(ROOT+'/companies',exist_ok=True)
@@ -284,107 +502,16 @@ for pgslug,cos in pages.items():
     doc+=footer(p='../')
     open(f'{ROOT}/companies/{pgslug}.html','w').write(doc)
 
-# ============ OUR INVESTMENTS ============
-INV=[('Namrata Anand','\'10','Diffuse Bio','Health Tech & Life Sciences','Diffuse Bio is a biotechnology company specializing in generative AI for protein design. Their mission is to create AI systems that engineer novel, useful proteins with exceptional precision.'),
-('Barrett Glasauer','\'09','Rejigg','Fintech','Rejigg connects quality small business owners with vetted buyers, minimizing fees, eliminating brokers, and streamlining the acquisition process.'),
-('Surhbi Sarna','\'03','Collate','Health Tech & Life Sciences','Collate uses AI to create and streamline accurate documentation for diagnostic, medical device, and drug development companies, thereby reducing time to market and expediting the creation of life-saving innovations.'),
-('Aumesh Mishra','\'16','Tivara','Health Tech & Life Sciences','Tivara is an AI company that automates insurance approval (prior authorization) for healthcare clinics, helping doctors deliver care to patients faster.'),
-('Anita Modi','\'04','Peer AI','Health Tech & Life Sciences','Peer AI is an agentic AI platform that provides support for regulatory documentation for life sciences and biotech companies with strong security and compliance.'),
-('Drew Goldstein','\'13','Ephemeral Technologies','Health Tech & Life Sciences','Ephemeral Technologies works to accelerate end-to-end drug development and delivery using an integrated AI, software, and robotics platform.'),
-('Tanuj Thapliyal','','Kos.ai','Fintech','Kos.ai is a virtual finance employee that autonomously completes critical financial workflows - invoice reviews, purchase orders and custom finance processes - for capital-intensive industries such as datacenters, defense, energy and construction.'),
-('Ravi Mishra','\'04','Ample','AI and Smart Tech','Ample is building cloud infrastructure that deploys a full application from a single prompt to a coding agent, handling hosting, configuration and scaling behind the scenes. It folds existing infrastructure products into one assembled system, taking an app live in around 30 seconds.')]
-inv=head('Our Investments | Mehta Scholars',"Harker's Mehta Scholars put $25k SAFEs into Harker alumni startups. See a selection of our past investments.")
-inv+=nav('invest')
-inv+='''
-  <section class="page-hero"><div class="wrap"><h1>Our Investments</h1><p>Harker's Mehta Scholars put $25k SAFEs into Harker alumni startups. We review reports with the Venture Advisory Committee and the Venture Investment Committee. Here are a few of our past investments.</p></div></section>
-  <section><div class="wrap"><div class="invest">'''
-for nm,yr,co,tag,desc in INV:
-    sl=slug(co)
-    logo=f'<div class="invest-logo"><img src="assets/invest-logos/{sl}.png?v=2" alt="{esc(co)} logo" loading="lazy"></div>' if os.path.exists(f'{ROOT}/assets/invest-logos/{sl}.png') else ''
-    inv+=f'''<div class="invest-card">
-      <div class="invest-top">
-        <div class="invest-co-block">{logo}<div class="co">{esc(co)}</div></div>
-        <div class="invest-founder">{esc(nm)}{(" " + esc(yr)) if yr else ""}</div>
-      </div>
-      <div class="invest-body">
-        <div class="invest-headshot">{inner_photo(nm)}</div>
-        <span class="tag">{esc(tag)}</span>
-        <p>{esc(desc)}</p>
-        <a class="btn small" href="companies/{sl}.html">More on {esc(co)}</a>
-      </div></div>'''
-inv+='</div></div></section>'
-inv+=footer()
-open(ROOT+'/our-investments.html','w').write(inv)
-
-# ============ COMMITTEE ============
-ORDER=['Venture Investment Committee','Venture Advisory Committee','Entrepreneurship Advisory Committee']
-comm=head('Committee List | Mehta Scholars','The Venture Investment, Venture Advisory, and Entrepreneurship Advisory Committees supporting the Mehta Scholars.')
-comm+=nav('committee')
-comm+='''
-  <section class="page-hero serif"><div class="wrap"><h1>Harker connects you with the best.</h1><p>The committees of experienced investors and founders who guide, review, and support our work.</p></div></section>'''
-def linklabel(u): return 'Instagram' if 'instagram.com' in (u or '') else 'LinkedIn'
-cdata=[]; idx=0; tint=False
-for grp in ORDER:
-    mem=[m for m in committee if m['committee']==grp]
-    if not mem: continue
-    seccls=' section-tint' if tint else ''; tint=not tint
-    comm+=f'<section class="{seccls.strip()}"><div class="wrap"><div class="section-head"><p class="eyebrow">{grp}</p></div><p class="committee-intro">{esc(sections.get(grp,""))}</p><div class="members-grid">'
-    for m in mem:
-        cdata.append({'name':m['name'],'org':m['org'],'bio':m.get('bio',''),
-          'linkedin':m.get('linkedin',''),'linklabel':linklabel(m.get('linkedin','')),
-          'company':m.get('company_url',''),'photo':PHOTOS.get(m['name'],''),'initials':initials(m['name'])})
-        comm+=f'''<button class="member-tile" data-idx="{idx}"><div class="photo">{inner_photo(m['name'])}</div><div class="m-head"><h3>{esc(m['name'])}</h3><div class="org">{esc(m['org'])}</div><p class="tile-bio">{esc(m.get('bio',''))}</p></div><span class="tile-more">View profile &rarr;</span></button>'''
-        idx+=1
-    comm+='</div></div></section>'
-comm+='''
-  <div class="modal-overlay" id="memberModal" hidden>
-    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="mName">
-      <button class="modal-close" aria-label="Close">&times;</button>
-      <div class="modal-photo" id="mPhoto"></div>
-      <div class="modal-info">
-        <h3 id="mName"></h3>
-        <div class="org" id="mOrg"></div>
-        <p id="mBio"></p>
-        <div class="modal-links" id="mLinks"></div>
-      </div>
-    </div>
-  </div>
-  <script>
-  window.COMMITTEE=''' + json.dumps(cdata) + ''';
-  (function(){
-    var modal=document.getElementById('memberModal');
-    var mPhoto=document.getElementById('mPhoto'),mName=document.getElementById('mName'),mOrg=document.getElementById('mOrg'),mBio=document.getElementById('mBio'),mLinks=document.getElementById('mLinks');
-    function openModal(i){var d=window.COMMITTEE[i];if(!d)return;
-      mPhoto.innerHTML=d.photo?'<img src="'+d.photo+'" alt="'+d.name+'">':d.initials;
-      mName.textContent=d.name;mOrg.textContent=d.org;mBio.textContent=d.bio||'';
-      var l='';
-      if(d.linkedin)l+='<a class="btn outline" target="_blank" rel="noopener" href="'+d.linkedin+'">'+d.linklabel+' \\u2197</a>';
-      if(d.company)l+='<a class="btn outline" target="_blank" rel="noopener" href="'+d.company+'">Company \\u2197</a>';
-      mLinks.innerHTML=l;modal.hidden=false;document.body.style.overflow='hidden';}
-    function closeModal(){modal.hidden=true;document.body.style.overflow='';}
-    document.addEventListener('click',function(e){
-      var t=e.target.closest('.member-tile');
-      if(t){openModal(+t.getAttribute('data-idx'));return;}
-      if(e.target===modal||e.target.classList.contains('modal-close'))closeModal();
-    });
-    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!modal.hidden)closeModal();});
-  })();
-  </script>'''
-comm+=footer()
-open(ROOT+'/committee-list.html','w').write(comm)
-
-# ============ UPDATES ============
-upd=head('Updates | Mehta Scholars','News and updates from The Harker Venture Investment Initiative.')
-upd+=nav('updates')
-upd+='''
-  <section class="page-hero"><div class="wrap"><h1>Updates</h1><p>News, milestones, and announcements from the Mehta Scholars.</p></div></section>
-  <section><div class="wrap"><div class="posts">
-    <article class="post"><div class="post-cover"><h2>Mehta Scholars Attend Startup World Cup</h2></div>
-      <div class="post-body"><div class="post-meta"><span>Harker Mehta Scholars</span><span>Apr 26</span><span>1 min read</span></div>
-      <p>On April 17th, our Mehta Scholar team participated in the Startup World Cup Youth Qualifier, organized by Harker and Pegasus Tech Ventures. Our senior Mehta Scholars, Leana Zhou and Tanvi Sivakumar, facilitated the fireside chat with Brandon Yang from Cartesia. Meanwhile, our junior Mehta Scholars engaged in networking opportunities with professionals across various industries, gaining key insights and forming important connections.</p></div></article>
-  </div></div></section>'''
-upd+=footer()
-open(ROOT+'/updates.html','w').write(upd)
+# ============ SITEMAP ============
+# Generated from the registry so an IA change cannot leave it stale. It used to be
+# hand-maintained inside public/ - the one directory contributors are told never to
+# edit - and had drifted (it listed pages that no longer existed and missed two new ones).
+SITE='https://www.mehtascholars.com/'
+locs=[SITE]+[SITE+pg['slug']+'.html' for pg in PAGES if pg['slug']!='index'] \
+           +[SITE+'companies/'+s+'.html' for s in sorted(pages)]
+open(ROOT+'/sitemap.xml','w',encoding='utf-8').write(
+    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    + ''.join(f'  <url><loc>{u}</loc></url>\n' for u in locs) + '</urlset>\n')
 
 # ============ REDIRECT STUBS ============
 # GitHub Pages serves static files and nothing else - no _redirects, no rewrite rules -
@@ -427,8 +554,9 @@ for line in open(os.path.join(BASE,'captured','redirects.txt'), encoding='utf-8'
     open(dest,'w',encoding='utf-8').write(redirect_stub(new))
     stubs.append(('/'+old, new))
 
-print("Generated: index, about, alumni-companies, our-investments, committee-list, updates")
-print("Company pages:", len(pages), f"(from {len(companies)} company records, {len(founders)} founders)")
+print("Generated:", ", ".join(pg['slug'] for pg in PAGES))
+print("Company pages:", len(pages), f"(from {len(companies)} company records, {len(founders)} founder records)")
+print("Sitemap URLs:", len(locs))
 print("Redirect stubs:", len(stubs))
 for o,n in stubs: print(f"    {o}  ->  {n}")
 if skipped:
