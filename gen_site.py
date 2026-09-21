@@ -262,7 +262,7 @@ PROC_CLOSE=('<h4>Access to the Harker Strategic Ecosystem</h4>'
             '&mdash; our alumni VCs, angel investors and operators &mdash; and to the Entrepreneurship '
             'Advisory Committee, who work with founders to develop and solidify their companies.</p>')
 
-PROC_STOP='full'
+PROC_STOP='decision'
 
 def sec_process():
     return ('\n  <section class="section-tint"><div class="wrap"><div class="section-head">'
@@ -441,8 +441,8 @@ PAGES=[
 
  dict(slug='our-investments', key='invest', label='Our Investments', track='main', foot=True,
       title='Our Investments | Mehta Scholars',
-      desc="Harker's Mehta Scholars put $25k SAFEs into Harker alumni startups. See a selection of our past investments.",
-      hero=('Our Investments',"Harker's Mehta Scholars put $25k SAFEs into Harker alumni startups. We review reports with the Venture Advisory Committee and the Venture Investment Committee. Here are a few of our past investments."),
+      desc="Harker's Mehta Scholars invest in Harker alumni startups. See a selection of our past investments.",
+      hero=('Our Investments',"Harker's Mehta Scholars invest in Harker alumni startups. We review reports with the Venture Advisory Committee and the Venture Investment Committee, then decide together. Here are a few of our past investments."),
       body=[sec_investments]),
 
  dict(slug='committee-list', key='committee', label='Committee List', track='main', foot=True,
