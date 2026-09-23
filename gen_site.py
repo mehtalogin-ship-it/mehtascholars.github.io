@@ -17,7 +17,10 @@ except Exception: PHOTOS={}
 CATLABEL={'ai':'AI and Smart Tech','health':'Health Tech & Life Sciences','fintech':'Fintech'}
 
 def initials(name):
+    # Names carry a class year ("Ravi Belani '90"), so drop any trailing year
+    # token first - otherwise the fallback avatar reads "R'" instead of "RB".
     p=[x for x in re.split(r'\s+',name.strip()) if x]
+    p=[x for x in p if not re.match(r"^[\u2018\u2019']?\d{2,4}$", x)] or p
     if not p: return '?'
     return (p[0][0]+(p[-1][0] if len(p)>1 else '')).upper()
 
@@ -330,7 +333,7 @@ INV=[('Namrata Anand','\'10','Diffuse Bio','Health Tech & Life Sciences','Diffus
 ('Aumesh Mishra','\'16','Tivara','Health Tech & Life Sciences','Tivara is an AI company that automates insurance approval (prior authorization) for healthcare clinics, helping doctors deliver care to patients faster.','tivara'),
 ('Anita Modi','\'04','Peer AI','Health Tech & Life Sciences','Peer AI is an agentic AI platform that provides support for regulatory documentation for life sciences and biotech companies with strong security and compliance.','peer-ai'),
 ('Drew Goldstein','\'13','Ephemeral Technologies','Health Tech & Life Sciences','Ephemeral Technologies works to accelerate end-to-end drug development and delivery using an integrated AI, software, and robotics platform.','ephemeral-technologies'),
-('Tanuj Thapliyal','','Kos.ai','Fintech','Kos.ai is a virtual finance employee that autonomously completes critical financial workflows - invoice reviews, purchase orders and custom finance processes - for capital-intensive industries such as datacenters, defense, energy and construction.','tanuj-thapliyal'),
+('Tanuj Thapliyal','\'06','Kos.ai','Fintech','Kos.ai is a virtual finance employee that autonomously completes critical financial workflows - invoice reviews, purchase orders and custom finance processes - for capital-intensive industries such as datacenters, defense, energy and construction.','tanuj-thapliyal'),
 ('Ravi Mishra','\'04','Ample','AI and Smart Tech','Ample is building cloud infrastructure that deploys a full application from a single prompt to a coding agent, handling hosting, configuration and scaling behind the scenes. It folds existing infrastructure products into one assembled system, taking an app live in around 30 seconds.','ample')]
 
 def sec_investments():
