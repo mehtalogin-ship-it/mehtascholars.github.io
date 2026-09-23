@@ -17,7 +17,10 @@ except Exception: PHOTOS={}
 CATLABEL={'ai':'AI and Smart Tech','health':'Health Tech & Life Sciences','fintech':'Fintech'}
 
 def initials(name):
+    # Names carry a class year ("Ravi Belani '90"), so drop any trailing year
+    # token first - otherwise the fallback avatar reads "R'" instead of "RB".
     p=[x for x in re.split(r'\s+',name.strip()) if x]
+    p=[x for x in p if not re.match(r"^[\u2018\u2019']?\d{2,4}$", x)] or p
     if not p: return '?'
     return (p[0][0]+(p[-1][0] if len(p)>1 else '')).upper()
 
