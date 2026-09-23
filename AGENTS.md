@@ -60,13 +60,27 @@ regenerated `public/` files together.
 staging environment and no review step. `.github/workflows/pages-deploy.yml` deploys `public/`
 on every push.
 
+**`main` is protected: it takes a pull request, not a direct push.** Open a branch, push the
+branch, open a PR. No approvals are required — the gate exists so changes are visible and
+reviewable before they reach the public site, not to block you.
+
 So:
 
 - **Always preview locally before pushing** (see Verify below).
-- **Ask the person before pushing.** Committing locally is cheap and reversible; publishing is
-  neither. Do not push on your own initiative.
+- **Ask the person before you open or merge a PR.** Committing to a branch is cheap and
+  reversible; publishing is neither. Do not publish on your own initiative.
 - Never `git push --force`. Never rewrite history on `main`.
 - If something is already broken live, fix forward with a new commit. Don't revert-and-force.
+
+### Do not make this repository private
+
+It is public on purpose. The GitHub account is on the **free plan**, and GitHub Pages will not
+serve a private repository on a free plan — making it private **takes mehtascholars.com offline**,
+with no error message explaining why.
+
+The repo contains no secrets; it is the source code of a public website. If you were asked to
+"keep the repository private," what was actually wanted is control over what gets published, and
+that is what the branch protection above provides. Making it private would need a paid plan first.
 
 ---
 
@@ -171,6 +185,8 @@ These have all happened. None of them produce an error message.
 - **Committing media.** Never commit video or raw photos. `source-media/` and
   `public/assets/intro/_source/` are gitignored for this reason — git keeps binaries forever
   and they cannot be removed without rewriting history.
+- **Making the repo private.** Pages stops serving it on the free plan and the live site goes
+  down. See above.
 - **Hand-placing a logo with cut-out detail.** `scripts/tilegen.py` builds flat silhouettes
   from the alpha channel, so interior detail is lost (see the KOS tile). Such logos must be
   placed manually.
