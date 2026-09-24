@@ -57,7 +57,7 @@ SEAL='''<svg class="seal" viewBox="0 0 100 100" aria-hidden="true"><circle cx="5
 
 TRACKS=[('main',None)]
 
-CTA=('Contact Us!','mailto:harkermehtascholars@gmail.com')
+CTA=('Contact Us!','mailto:MehtaScholars@harker.org')
 
 def _href(h, p=''):
     """Leave mailto:/http(s)/#/tel alone; prefix internal links with the page's
@@ -109,7 +109,6 @@ def footer(p=''):
           {rows}</ul></div>
         <div><h4>Get in touch</h4><ul class="footer-links">
           <li><a href="mailto:MehtaScholars@harker.org">MehtaScholars@harker.org</a></li>
-          <li><a href="mailto:harkermehtascholars@gmail.com">harkermehtascholars@gmail.com</a></li>
           <li style="color:var(--muted)">500 Saratoga Ave,<br>San Jose, CA 95129</li></ul></div>
       </div>
       <div class="footer-bottom"><span>&copy; 2026 The Harker Venture Investment Initiative &middot; Mehta Scholars</span><span>The Harker School</span></div>
@@ -186,7 +185,7 @@ def sec_home_intro():
           <p class="eyebrow">Join Our Network</p>
           <h2>Explore collaboration, mentorship &amp; investment</h2>
           <p>Connect with a diverse network of entrepreneurs, industry experts, and investors to explore collaborations, mentorship, and investment opportunities.</p>
-          <a class="btn" href="mailto:harkermehtascholars@gmail.com">Join Now</a>
+          <a class="btn" href="mailto:MehtaScholars@harker.org">Join Now</a>
         </div></div>
       </div>
       <div class="wall-dots"><span class="wall-dot is-on"></span><span class="wall-dot"></span></div>
