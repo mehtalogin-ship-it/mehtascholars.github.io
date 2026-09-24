@@ -26,3 +26,6 @@
 
 # Stale slug: Louiza Labs was renamed Theora, so the old per-company page is orphaned.
 /companies/louiza-labs.html  /companies/theora.html      301
+
+# Potluck Labs rebranded to Ample; the old per-company page is retired.
+/companies/potluck-labs.html  /companies/ample.html      301
