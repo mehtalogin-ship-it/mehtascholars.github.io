@@ -134,9 +134,21 @@ def head(title, desc, p=''):
 <body>
 '''
 
+# The same person is written differently on different pages - "Alexis Gauba" on her
+# founder page, "Alexis Gauba '17" on the committee list - and photo_map is keyed by
+# the exact string. That let one person end up with two different headshots. This
+# index resolves any spelling that differs only by a trailing class year, so a single
+# photo_map entry now covers every page that person appears on.
+def _photo_key(name):
+    n=re.sub(r"[\u2018\u2019']\s*\d{2,4}\s*$", '', name or '').strip()
+    return re.sub(r'[^a-z]', '', n.lower())
+PHOTOS_BY_PERSON={}
+for _k, _v in PHOTOS.items():
+    PHOTOS_BY_PERSON.setdefault(_photo_key(_k), _v)
+
 def inner_photo(name, p=''):
     """Return <img> if a real photo exists, else initials text."""
-    ph=PHOTOS.get(name)
+    ph=PHOTOS.get(name) or PHOTOS_BY_PERSON.get(_photo_key(name))
     if ph: return f'<img src="{p}{ph}" alt="{esc(name)}" loading="lazy">'
     return initials(name)
 
