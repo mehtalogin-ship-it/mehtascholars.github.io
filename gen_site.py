@@ -346,7 +346,7 @@ INV=[('Namrata Anand','\'10','Diffuse Bio','Health Tech & Life Sciences','Diffus
 ('Drew Goldstein','\'13','Ephemeral Technologies','Health Tech & Life Sciences','Ephemeral Technologies works to accelerate end-to-end drug development and delivery using an integrated AI, software, and robotics platform.','ephemeral-technologies'),
 ('Tanuj Thapliyal','\'06','Kos.ai','Fintech','Kos.ai is a virtual finance employee that autonomously completes critical financial workflows - invoice reviews, purchase orders and custom finance processes - for capital-intensive industries such as datacenters, defense, energy and construction.','tanuj-thapliyal'),
 ('Ravi Mishra','\'04','Ample','AI and Smart Tech','Ample is building cloud infrastructure that deploys a full application from a single prompt to a coding agent, handling hosting, configuration and scaling behind the scenes. It folds existing infrastructure products into one assembled system, taking an app live in around 30 seconds.','ample'),
-('Rajiv Sancheti','','Caddy','AI and Smart Tech','Caddy is a personal AI for everyday work that lives in your text messages. It surfaces what matters from your email, calendar and apps, and acts on it when you reply.','caddy')]
+('Rajiv Sancheti','\'16','Caddy','AI and Smart Tech','Caddy is a personal AI for everyday work that lives in your text messages. It surfaces what matters from your email, calendar and apps, and acts on it when you reply.','caddy')]
 
 def sec_investments():
     out='\n  <section><div class="wrap"><div class="invest">'
