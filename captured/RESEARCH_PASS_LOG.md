@@ -81,3 +81,17 @@ Bios researched/rewritten: Brandon Yang/Cartesia (Stanford SSMs, Snorkel, Google
 RENAME: "Imaging Startup" -> **Glassfrog** (contactless under-mattress vitals sensor; glassfrog.ai; sector Health). Old page removed, sitemap fixed.
 STAGE moves to Acquired: Aquarium (joined Notion 2024), Glow (Libsyn 2021). [Shantanu/Lume done session 3.]
 STILL OPEN: Denny Tsai/Agence (n/a). Pokedata/Ram Menon — owner unsure if founder is Justin Yang (justin-yang-35a22b120, shows stealth); left as-is/minimal, no LinkedIn. Ravi Kapur = Instagram only. AWG (Jason Huang) still no website. Quant no website (n/a).
+
+## Stage audit, batch 1 (28 Sept 2026)
+Meeting of 24 Sept asked for every displayed stage to be refreshed by search. Blank `stage_raw`
+defaults to Pre-Seed, which misfiled several large companies. Batch 1 = the most visible mismatches.
+- **Cartesia** Pre-Seed -> Series A+: Series B $100M, Oct 2025 (Kleiner Perkins). research.contrary.com/company/cartesia; fortune.com 2025-03-11 (Series A)
+- **Kumo AI** Pre-Seed -> Series A+: Series B $18M, Sep 2022 (Sequoia). businesswire.com 2022-09-27
+- **Spot AI** Pre-Seed -> Series A+: Series B $40M Nov 2022, +$31M Oct 2024. spot.ai/blog (both announcements)
+- **Swiftly** Pre-Seed -> Series A+: Series C $100M, Sep 2022, $1B+ valuation. siliconangle.com 2022-09-19
+- **OneSchema** Pre-Seed -> Seed: $6.3M seed Nov 2022 (General Catalyst); no Series A on record. oneschema.co/blog/oneschema-announces-6m-fundraise
+- **Loot Crate** Pre-Seed -> Acquired: Ch. 11 Aug 2019, assets sold to Loot Crate Acquisition LLC (Money Chest affiliate), approved Oct 2019. prnewswire.com; en.wikipedia.org/wiki/Loot_Crate
+- **Descope** Seed (unchanged): seed extended Sep 2025 to $88M total, still called a seed. descope.com/press-release/seed-funding-advisory-board
+- **Doppel** Series A+ (unchanged): Series C $70M, Nov 2025 (Bessemer). doppel.com/blog/doppel-series-c
+- **Nous Research** Series A+ (unchanged): Series A Apr 2025 (Paradigm). Series B ~$75M at $1.5B reported *in talks* Jul 2026, not confirmed closed. techcrunch.com 2026-07-13
+- **Agora** Series A+ -> Pre-Seed: raw value was "Early"; the Series A+ filing had no basis. No public round found for agoraintel.com (search results are Agora.io and Agora real-estate, different companies). **Needs owner confirmation.**
