@@ -95,3 +95,16 @@ defaults to Pre-Seed, which misfiled several large companies. Batch 1 = the most
 - **Doppel** Series A+ (unchanged): Series C $70M, Nov 2025 (Bessemer). doppel.com/blog/doppel-series-c
 - **Nous Research** Series A+ (unchanged): Series A Apr 2025 (Paradigm). Series B ~$75M at $1.5B reported *in talks* Jul 2026, not confirmed closed. techcrunch.com 2026-07-13
 - **Agora** Series A+ -> Pre-Seed: raw value was "Early"; the Series A+ filing had no basis. No public round found for agoraintel.com (search results are Agora.io and Agora real-estate, different companies). **Needs owner confirmation.**
+
+## Stage audit, batch 2 (28 Sept 2026)
+All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
+- **Diffuse Bio** Pre-Seed -> Seed: YC W23; 2023 round with GreatPoint, Fellows Fund, Humba (Tracxn, Crunchbase). VCBacked calls it pre-seed. Judgement call. Our record's "Redpoint" investor not corroborated.
+- **Peer AI** Pre-Seed -> Seed: $12.1M total announced Oct 2025, led by Flare Capital + SignalFire; release never names the round. getpeer.ai/press/peer-ai-raises-12m-funding-accelerate-drug-approvals
+- **FarmX** Pre-Seed -> Series A+: Series B Apr 2020; Kubota's second investment Feb 2022 (~$23.8M raise per SEC filing). kubota.com/news/2022/20220207.html
+- **Decrypt Biomedicine** Pre-Seed -> Seed: 2023 seed from Curie.Bio (STAT, 2023-02-14).
+- **Muse Games** Pre-Seed (unchanged): founded 2008, funded by Kickstarter, no institutional round. "Pre-Seed" is a poor fit for a 17-year-old studio; the taxonomy has no bootstrapped bucket.
+- **Awary** Pre-Seed (unchanged): no public funding record.
+- **Ansa** Pre-Seed -> Series A+: $14M Series A, Apr 2024 ($19.4M total). fintech.global 2024-05-01
+- **LittleHorse** Pre-Seed (unchanged): no public funding record.
+- **Squadz** Pre-Seed (unchanged): founded 2014, JHU Social Innovation Lab + city grant; no priced round found.
+- **Hawala** Pre-Seed -> Seed: $3M Nov 2025 led by Pharsalus Capital. Company newsroom calls it "Series Seed"; SignalBase says pre-seed. Went with the company. usehawala.com/newsroom/3m-series-seed-funding
