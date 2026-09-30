@@ -126,3 +126,15 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **Agence** Pre-Seed (unchanged): no public funding record for agence.run; Denny Tsai's link to it also unconfirmed (see earlier passes).
 - **Crosswire** Pre-Seed -> Seed: $6M seed late 2021, a16z + General Catalyst. Raw "Left" meant the founder (Johnny Wang) left to co-found Hinoki. Tracxn lists Crosswire as out of business; unconfirmed.
 - Skipped: **Pokedata** (stealth, nothing public).
+
+## Stage audit, batch 4 (30 Sept 2026): odd raw values
+- **Axiom** Pre-Seed (unchanged): YC W25 $500K, "the only outside funding Axiom has ever raised" (Forbes 2026-02-26). Raw was "No investment". NB our bio says UC Berkeley EECS; press says the founders are UC San Diego. Not changed, worth checking.
+- **TenSixty Biosciences** Pre-Seed, **TABLED, data untouched**: $7.2M Aug 2022 (Civilization Ventures; General Catalyst lists it in portfolio), round unnamed. Raw "8/22/2026 - unkwown" is a typo'd date. Don't confuse with TenSixteen Bio (different company, $40M Series A).
+- **Advanced Optronics** Pre-Seed -> Seed: our own raw already said "Seed: 11/7/2024", yet it was filed Pre-Seed. Public: NSF Convergence Accelerator $650K grant, AlphaLab Health, ~$2M funding (midatlanticicorps.com).
+- **Grey Matter Platform** Pre-Seed -> Acquired: acquired by Saviance Technologies, closed Mar 2018 (PRWeb). Raw was "weren't funded", true but it was bought.
+- **BountyME** Acquired -> Bootstrapped: its record carried Grey Matter's bio and acquisition. BountyMe is a separate talent-acquisition platform (social recruiting + PowerScore ranking), no outside funding. Record bio rewritten (it is not displayed: the shared founder page uses Grey Matter's bio, which already covers BountyME correctly).
+- **The Coterie** Acquired -> Series A+: raised $50M ($40M equity + $10M debt) led by a16z, with Initialized, Pear, Gradient. Operating; builds software for private-fund GPs/LPs. Raw was "Aquired?", likely confused with Aaptiv.
+- **Aaptiv** Acquired (confirmed): sold to PEAR Health Labs in 2021.
+- **Atlantic Money** Acquired (confirmed): acquired by Deel, 2024 (Finextra, Deel).
+- **Mida** Acquired (confirmed): acquired by Sanas; founders lead Sanas's translation team (sanas.ai blog).
+- **Sidenote** Seed -> Pre-Seed: YC S23 only (YC = Pre-Seed rule). YC lists it inactive. **Website fixed**: was sanas.ai (Mida's acquirer); sidenote.ai now belongs to an unrelated compliance product, so it links to YC's page instead.
