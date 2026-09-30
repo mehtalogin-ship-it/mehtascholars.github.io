@@ -113,3 +113,16 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **YC's standard deal = Pre-Seed.** Matches existing YC-only entries; no changes needed.
 - **Diffuse Bio, Peer AI: tabled.** Reverted to their pre-audit values (blank, Pre-Seed). Research above stands for when they're revisited.
 - **New stage `Bootstrapped`** for companies with no institutional round. Muse Games moved there.
+
+## Stage audit, batch 3 (30 Sept 2026)
+- **Altitude IQ** Pre-Seed -> Seed: seed led by Ulu Ventures (company site). altitudeiq.ai
+- **Upward** Pre-Seed (unchanged): no public funding record.
+- **Backbone** Pre-Seed, **TABLED, data untouched**: "backed by a16z, Lightspeed, Hanabi" (job posts, f4.fund); no round named or dated. Same ambiguity as Diffuse Bio / Peer AI.
+- **Glassfrog** Pre-Seed (unchanged): no public funding record.
+- **Smarty** Pre-Seed -> Seed: undisclosed seed from Pear VC, Amplify (Tracxn). Raw value was "Good".
+- **Kos.ai** Pre-Seed -> Seed: $12M "inception financing", late 2025, co-led by 8VC + XYZ Ventures (PR Newswire); Dealroom calls it a seed. Raw value was "x".
+- **Danger Devices** Pre-Seed, **TABLED, data untouched**: ~$25M total (Bare Metal, Event Horizon, Matter Venture Partners); latest round Oct 2024 "unattributed VC". Size implies past pre-seed, but no round is named.
+- **Convey** Pre-Seed -> Series A+: $38M Series A, Jun 2026, led by a16z (BusinessWire 2026-06-17). Raw value was "Early - Hot".
+- **Agence** Pre-Seed (unchanged): no public funding record for agence.run; Denny Tsai's link to it also unconfirmed (see earlier passes).
+- **Crosswire** Pre-Seed -> Seed: $6M seed late 2021, a16z + General Catalyst. Raw "Left" meant the founder (Johnny Wang) left to co-found Hinoki. Tracxn lists Crosswire as out of business; unconfirmed.
+- Skipped: **Pokedata** (stealth, nothing public).
