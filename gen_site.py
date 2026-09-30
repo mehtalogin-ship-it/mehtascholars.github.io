@@ -312,7 +312,9 @@ def sec_team():
             f'<h2>Meet the scholars</h2></div>{teamhtml}</div></section>\n')
 
 # ============ ALUMNI COMPANIES ============
-STAGE_ORDER=["Acquired / IPO'd",'Pre-Seed','Seed','Series A and Later']
+STAGE_ORDER=["Acquired / IPO'd",'Pre-Seed','Seed','Series A and Later','Bootstrapped']
+_bad=sorted({f.get('stage_group') for f in companies}-set(STAGE_ORDER))
+if _bad: raise SystemExit(f'Unknown stage_group {_bad}: add it to STAGE_ORDER or fix companies.json. Unlisted stages drop the company from Alumni Companies.')
 SECTORS=[('all','All'),('ai','AI'),('health','Health &amp; Bio'),('fintech','Fintech'),('security','Security'),
  ('enterprise','Enterprise/SaaS'),('commerce','Commerce/Consumer'),('energy','Energy/Climate'),('media','Media/Gaming'),('hardware','Hardware/Deep-Tech')]
 

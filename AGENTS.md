@@ -121,7 +121,10 @@ filter category that silently matches nothing:
 | `energy` | Energy/Climate |
 | `hardware` | Hardware/Deep-Tech |
 
-`stage_group`: `Pre-Seed` · `Seed` · `Series A and Later` · `Acquired / IPO'd`
+`stage_group`: `Pre-Seed` · `Seed` · `Series A and Later` · `Acquired / IPO'd` · `Bootstrapped`
+
+Y Combinator's standard deal counts as **Pre-Seed**. `Bootstrapped` is for companies with no
+institutional round (self-funded, crowdfunded). `gen_site.py` now refuses to run on any other value.
 
 Then `python3 gen_site.py`. The roster entry and the detail page at
 `public/companies/<page>.html` are both created automatically.

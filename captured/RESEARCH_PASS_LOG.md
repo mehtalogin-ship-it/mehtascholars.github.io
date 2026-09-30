@@ -108,3 +108,8 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **LittleHorse** Pre-Seed (unchanged): no public funding record.
 - **Squadz** Pre-Seed (unchanged): founded 2014, JHU Social Innovation Lab + city grant; no priced round found.
 - **Hawala** Pre-Seed -> Seed: $3M Nov 2025 led by Pharsalus Capital. Company newsroom calls it "Series Seed"; SignalBase says pre-seed. Went with the company. usehawala.com/newsroom/3m-series-seed-funding
+
+## Owner decisions (30 Sept 2026)
+- **YC's standard deal = Pre-Seed.** Matches existing YC-only entries; no changes needed.
+- **Diffuse Bio, Peer AI: tabled.** Reverted to their pre-audit values (blank, Pre-Seed). Research above stands for when they're revisited.
+- **New stage `Bootstrapped`** for companies with no institutional round. Muse Games moved there.
