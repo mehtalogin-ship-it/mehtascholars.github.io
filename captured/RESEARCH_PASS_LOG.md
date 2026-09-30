@@ -150,3 +150,15 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **Ephemeral Technologies** Pre-Seed (unchanged): a search summary claimed a "$16M Series A led by BlackRock and Fin Capital", but the cited page (Caplight) says funding "is not publicly available". Unverified, not used. Worth asking the team (it is one of Our Investments).
 - **Percival** Pre-Seed (unchanged): YC X25, $500K Jun 2025 (YC rule).
 - **Tivara** Pre-Seed -> Seed: YC pre-seed 2024, then $3.6M seed Jan 2026 (Mischief, Day One Ventures), per Business Insider pitch-deck story (via aol.com).
+
+## Stage audit, batch 6 (30 Sept 2026)
+- **Raindrop** Seed -> Series A+: $35M Series A led by CRV, 16-17 Sep 2026, total $50M (Axios 2026-09-16; runtimewire; citybiz). Prior: $15M seed Dec 2025 led by Lightspeed (finsmes).
+- **Inventive** Seed (confirmed): $6.5M seed Jun 2024 led by Wing VC (BusinessWire 2024-06-24). No Series A found.
+- **Pamastay** Pre-Seed (unchanged): a search summary claimed "$127M at $1B, Series B, Sequoia"; pamastay.com has no funding info and the company was founded 2024. Unsupported, not used.
+- **Theora** Pre-Seed (confirmed): YC S25, $500K standard deal.
+- **Bizzy AI** Pre-Seed (confirmed): YC S25, $500K (CB Insights).
+- **Pincites** Acquired (confirmed): Filevine, 14 Jan 2026 (filevine.com/news; Artificial Lawyer).
+- **Hinoki** Seed (unchanged): YC-backed; no public round found. Kept the team's "Seed 07/08/2024".
+- **Flipturn** Acquired (confirmed): Einride, $38.4M all-stock; announced 21 Jul 2026, closed 6 Aug 2026 (TechCrunch 2026-07-21; Einride release).
+- **Letterbook** Pre-Seed (confirmed): YC S23 + Pioneer Fund; founder says no VC funding.
+- **Latent** Pre-Seed -> Series A+: $80M Series A Mar 2026, co-led by Spark Capital + Transformation Capital (BusinessWire 2026-03-30).
