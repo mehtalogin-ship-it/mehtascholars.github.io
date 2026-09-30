@@ -138,3 +138,15 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **Atlantic Money** Acquired (confirmed): acquired by Deel, 2024 (Finextra, Deel).
 - **Mida** Acquired (confirmed): acquired by Sanas; founders lead Sanas's translation team (sanas.ai blog).
 - **Sidenote** Seed -> Pre-Seed: YC S23 only (YC = Pre-Seed rule). YC lists it inactive. **Website fixed**: was sanas.ai (Mida's acquirer); sidenote.ai now belongs to an unrelated compliance product, so it links to YC's page instead.
+
+## Stage audit, batch 5 (30 Sept 2026)
+- **Quant** Pre-Seed (unchanged): student startup, no public funding. **Website added**: quantsqrd.com (Quant², portfolio optimization for hedge funds; names Viradia). Record had none.
+- **LD Talent** Pre-Seed -> Bootstrapped: raised ~$624K on Wefunder via SAFE ($6.6M cap); no institutional round. wefunder.com/ldtalentwork
+- **Hailcube** Pre-Seed -> Bootstrapped: LD Talent's successor, also Wefunder (wefunder.com/hailcube).
+- **Cortex** Pre-Seed (unchanged): angels per our record (Amano, Yuan, Belshe); Tracxn shows no institutional round. Several unrelated "Cortex"es exist (Cortex AI robotics, $6M), don't confuse.
+- **Dolomite Therapeutics** Pre-Seed (unchanged): incorporated Dec 2024. A search summary claimed "$177M since 2021"; that is a different (tremor-therapy) company. Not used.
+- **Spyra Beauty** Pre-Seed (unchanged): founder has spoken publicly about a lack of funding; kept the team's "Pre Seed" rather than override it.
+- **Shopsense** Pre-Seed (unchanged): $2.2M SAFE at a $20M post-money cap (aibase; Tracxn: 1 round, Aperiam).
+- **Ephemeral Technologies** Pre-Seed (unchanged): a search summary claimed a "$16M Series A led by BlackRock and Fin Capital", but the cited page (Caplight) says funding "is not publicly available". Unverified, not used. Worth asking the team (it is one of Our Investments).
+- **Percival** Pre-Seed (unchanged): YC X25, $500K Jun 2025 (YC rule).
+- **Tivara** Pre-Seed -> Seed: YC pre-seed 2024, then $3.6M seed Jan 2026 (Mischief, Day One Ventures), per Business Insider pitch-deck story (via aol.com).
