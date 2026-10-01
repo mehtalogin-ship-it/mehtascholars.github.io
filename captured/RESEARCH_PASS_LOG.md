@@ -307,3 +307,12 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - **DoorDash**: Andy Fang was CTO 2013-2020, now Co-Founder; title updated.
 - **FLAG Stealth (Vedant Shah)**: LinkedIn shows no startup: KKR analyst/associate 2022-25, HBS MBA candidate from Aug 2026. This entry may not belong on Alumni Companies.
 - No delta: Atlantic Money (Neeraj Baid now Director of Product at Deel), Aaptiv.
+
+## In-depth pass, group H (30 Sept 2026): deltas only
+- **Decrypt Biomedicine**: bio said Anuj Sharma was CEO; LinkedIn: Founder & CTO 2022-24, Founder & Board Member since; Research Engineer at Google DeepMind since Oct 2024. Bio + title corrected.
+- **Swiftly**: now "the AI platform built for retail" with AI agents (Sean Turner, Co-Founder & CTO since 2018). Bio updated.
+- **FLAG Awary**: Sean Doherty's LinkedIn has no Awary entry at all. Current roles: founder of Rhodes (Apr 2026, family-office back office) and president of Ridge Capital; earlier Wurl. Earlier sources (RocketReach) named him Awary's founder/CEO. Bio not changed; confirm whether Awary is still his.
+- No delta: Muse Games (Howard Tsao CEO since 2009), Ample (Ravi Mishra Co-founder/CEO, Ample Computer YC F26).
+- Not on LinkedIn in our data: Diya TV, Agence (no founder LinkedIn on record). Not checked.
+
+**In-depth pass complete: all companies with a founder LinkedIn on record have been checked (104 companies on the site).**
