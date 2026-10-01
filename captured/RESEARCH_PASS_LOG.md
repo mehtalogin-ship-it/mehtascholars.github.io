@@ -162,3 +162,16 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **Flipturn** Acquired (confirmed): Einride, $38.4M all-stock; announced 21 Jul 2026, closed 6 Aug 2026 (TechCrunch 2026-07-21; Einride release).
 - **Letterbook** Pre-Seed (confirmed): YC S23 + Pioneer Fund; founder says no VC funding.
 - **Latent** Pre-Seed -> Series A+: $80M Series A Mar 2026, co-led by Spark Capital + Transformation Capital (BusinessWire 2026-03-30).
+
+## Stage audit, batch 7 (30 Sept 2026)
+- **Lowkey** Pre-Seed -> Acquired: Niantic acquired it Dec 2021 (TechCrunch 2021-12-01). Our own bio already said so.
+- **Parse** Pre-Seed -> Acquired: Facebook, ~$85M, Apr 2013 (TechCrunch 2013-04-25). Our own bio already said so.
+- **Gait** Pre-Seed (confirmed): YC F24.
+- **Sudden Coffee** Pre-Seed -> Seed: $2.8M seed led by CRV after YC W17; shut down 2020 (Wikipedia; Sprudge).
+- **Remy Security** Pre-Seed (confirmed): YC S23 + Amino Capital, $500K; PitchBook lists it out of business (Apr 2025).
+- **OS3** Pre-Seed (confirmed): YC S26, no funding disclosed beyond YC.
+- **Glow** Acquired (confirmed): Libsyn, Apr 2021, $1.2M per SEC filing (GeekWire).
+- **Torch** Acquired (confirmed): OpenAI, 12 Jan 2026; price reported $60M (CNBC) to $100M (The Information).
+- **Lume** Acquired (confirmed, with a caveat): Vivian Health "acquires use of Lume technology" and hired the co-founders, Sep 2022. A technology-and-team deal rather than a full company purchase.
+- **Caddy** Pre-Seed (confirmed): YC F25, $500K Sep 2025.
+- NB: several companies are now defunct (Sudden Coffee, Remy, possibly Crosswire, Sidenote inactive). The stage taxonomy has no "closed" bucket; they sit at their last stage.
