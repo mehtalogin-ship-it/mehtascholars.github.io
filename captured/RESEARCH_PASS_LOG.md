@@ -175,3 +175,18 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **Lume** Acquired (confirmed, with a caveat): Vivian Health "acquires use of Lume technology" and hired the co-founders, Sep 2022. A technology-and-team deal rather than a full company purchase.
 - **Caddy** Pre-Seed (confirmed): YC F25, $500K Sep 2025.
 - NB: several companies are now defunct (Sudden Coffee, Remy, possibly Crosswire, Sidenote inactive). The stage taxonomy has no "closed" bucket; they sit at their last stage.
+
+## Owner decision (30 Sept 2026)
+- **No "closed" category.** Defunct companies stay at the last stage they reached; the site should not highlight shutdowns. Don't add one.
+
+## Stage audit, batch 8 (30 Sept 2026)
+- **Delfina** Series A+ (confirmed): $17M Series A Feb 2025, led by USVP (PRWeb; fintech.global 2025-02-19).
+- **Diya TV** Seed (unchanged): founded 2009, broadcast network; no public funding detail. Kept the team's value.
+- **Collate** Seed -> Series A+: $95M round Jun 2026 after a $30M seed (Jan 2025, Redpoint/First Round/Conviction). Sources disagree on the letter: beformidable says Series A, others say Series C. Either way past Seed. Valuation reported near $1B.
+- **Onos Health** Seed -> Series A+: $17M Series A Aug 2026 led by Costanoa, with Flare + CVS Health Ventures (finsmes 2026-08); 2025 seed co-led by Haystack + Pathlight.
+- **Kaizen Labs** Series A+ (confirmed): $21M Series A Oct 2025 led by NEA (GlobeNewswire 2025-10-30).
+- **Emerald AI** Series A+ (confirmed): $150M Series A at $1.05B (Virginia Business), after a $24.5M seed Jul 2025.
+- **Martin** Seed (confirmed): $2M seed (Pioneer Fund, FoundersX), YC S23 (VentureBeat). NB same founders (Dawson Chen, Ethan Hou) and batch as Letterbook.
+- **Delve** Series A+ (confirmed): $32M Series A at $300M, Jul 2025, led by Insight Partners (delve.co/blog/series-a).
+- **Observee** Series A+ -> Pre-Seed: raw "Series C 5/25, Series B 9/24..." was junk. Observee is YC S25 ($125K+ standard deal), founded 2025 by Chanana, Chandok and Chris Hailey, the OS3 team. Bio is shared with OS3 and already describes both.
+- **Rejigg** Seed (confirmed): $10.5M total through its seed round.
