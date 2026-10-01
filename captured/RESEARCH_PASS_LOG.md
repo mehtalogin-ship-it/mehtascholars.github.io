@@ -355,3 +355,4 @@ From the "7 new companies" list. Freebuff was added earlier; Sentec dropped with
 - **Audit of all tiles** found two more problems, both fixed: Glassfrog's tile still read "Imagining Startup", its pre-rename name (rebuilt from glassfrog.ai; file renamed glassfrog.png); Pamastay's mark was a garbled photo fragment (rebuilt from pamastay.com/logo.png, its shield-and-elephant logo with the name inside, no caption).
 - Tile cache tag bumped to ?v=12.
 - **Still no tile (7):** Upward (domain dead), Hailcube (no site), Refactor (icon is a blank green square), Sidenote, Mida, two Stealth entries.
+- **Sidenote, Mida** (owner-supplied logos, 1 Oct): tiles built; brand colours set (Sidenote purple, Mida teal) since both sit on Jason Lin's page. Logo identity checked against Sidenote's YC page. Still no tile (5): Upward, Hailcube, Refactor, two Stealth entries.
