@@ -190,3 +190,4 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **Delve** Series A+ (confirmed): $32M Series A at $300M, Jul 2025, led by Insight Partners (delve.co/blog/series-a).
 - **Observee** Series A+ -> Pre-Seed: raw "Series C 5/25, Series B 9/24..." was junk. Observee is YC S25 ($125K+ standard deal), founded 2025 by Chanana, Chandok and Chris Hailey, the OS3 team. Bio is shared with OS3 and already describes both.
 - **Rejigg** Seed (confirmed): $10.5M total through its seed round.
+- **Observee merged into OS3** (owner, 30 Sept): same company and team, not a separate venture. The duplicate entry and its tile are removed; OS3 remains (YC S26, Pre-Seed). Chris Hailey's founder page is unchanged, and its bio still mentions Observee.
