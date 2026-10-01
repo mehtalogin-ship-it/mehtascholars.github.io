@@ -281,3 +281,17 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - **Pokedata**: resolves an earlier open question. Justin Yang (justin-yang-35a22b120) lists Co-Founder, Pokedata, since May 2021. No public description, so the bio stays minimal.
 - **Aquarium Learning**: Peter Gao on a career break since Jan 2025. Bio is about the company; no change.
 - No delta: Spyra Beauty, Parse (Ilya Sukhar, GP at Matrix, already in bio), Descope, Rejigg.
+
+## In-depth pass, group E (30 Sept 2026): deltas only
+- **Beacon Software**: describes itself as an AI holding company valued at $1B+ that has acquired dozens of Main Street software companies (Divyahans Gupta's LinkedIn). Bio said it "partners with software companies to scale sustainably". Updated.
+- **Rye**: bio still described a "decentralized network" from its web3 launch; Rye now sells a Universal Checkout API for agentic commerce. Arjun Bhargava is Co-Founder & CEO; previously Co-Founder & CTO of Session. Bio rewritten (the record also lacked his surname).
+- **Gait**: Kyle Li's tenure ended Jun 2025 (10 months). Bio changed to past tense ("co-founded") without stating a shutdown, per owner rule.
+- **Nous Research**: Shivani Mitra was CEO & President Jul 2023-May 2025, now listed as Co-Founder; Managing Partner at Prometheia since Jun 2025. Bio says "co-founded by"; no change.
+- **Huxe**: Stephen Hughes still lists Huxe as current. No change (owner rule on shutdowns).
+- No delta: Shopsense (Bryan Quinn CEO since 2026; bio already says CEO), FarmX, Pine, Percival, Built Robotics.
+
+## In-depth pass, group F (30 Sept 2026): deltas only
+- **Sidenote / Mida**: Jason Lin left Sanas May 2026 (Member of Technical Staff Apr 2025-May 2026); both bios said he "now works" there. Mida bio rewritten with LinkedIn facts (CEO; 250K+ translations, 70+ countries).
+- **Ansa**: JT Cho left; founder of a stealth company since Sep 2025 (GPU cloud pricing/capital structure). Bio no longer calls him current CTO.
+- **Hawala**: Omar Hamade's LinkedIn lists "Founder & CEO, Stack Inc." (Jun 2025-, New York, "venture backed $3m"); usehawala.com still live as Hawala, so Stack Inc. is likely the entity name. Added Nubank (M&A, 2025) and IonQ (strategic finance, 2022-24) to bio; city New York.
+- No delta: Advanced Optronics, Nightfall AI, Grey Matter/BountyME (Sri Prakash now an independent auditor; bios are about the past companies), Neura Health, SuperOrder, Loot Crate (Chris Davis CEO until Nov 2021; bio already past tense), LittleHorse.
