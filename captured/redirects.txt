@@ -34,3 +34,4 @@
 /companies/stealth-shah.html    /alumni-companies.html         301
 /companies/apriori.html         /companies/ray-song.html       301
 /companies/commure.html         /companies/andrew-jin.html     301
+/companies/lume.html            /companies/shantanu-joshi.html  301
