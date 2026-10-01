@@ -316,3 +316,19 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - Not on LinkedIn in our data: Diya TV, Agence (no founder LinkedIn on record). Not checked.
 
 **In-depth pass complete: all companies with a founder LinkedIn on record have been checked (104 companies on the site).**
+
+## Owner answers to the open questions (1 Oct 2026)
+- **Agence**: cut (owner). Removed; page redirects to Alumni Companies. NB Denny Tsai is still on the Entrepreneurship Advisory Committee listed as "Agence"; not changed.
+- **Stealth (Vedant Shah)**: cut; "company probably is just gone" (owner). Page redirects to Alumni Companies.
+- **aPriori -> Capricorn** (owner; confirmed: Capricorn's company LinkedIn lists apr.io). Renamed; tile regenerated from apr.io (now the "Cap" mark). Moved to a Ray Song founder page; /companies/apriori.html redirects there.
+- **Computable added** (Ray Song, founded Aug 2026): Computable GPU Index, an open-source price per GPU-hour (getcomputable.com; company LinkedIn "Financial Infrastructure of the AI Economy"). No public funding -> Pre-Seed. Tile from its own mark (a single rectangle).
+- **Freebuff added** (Dawson Chen, Co-Founder & COO since Aug 2026): the free, ad-funded coding agent, formerly Codebuff (YC F24, $500K pre-seed from YC, Lombardstreet, Pioneer Fund). YC lists Dawson Chen and James Grugett as founders. -> Pre-Seed. Letterbook and Martin bios: he has left both.
+- **Dorsal Health added** (Andrew Jin '15, Founder & CEO 2019-24): virtual and in-person musculoskeletal care, New York; backed by 8VC, Bling Capital, Precursor; acquired by Commure (Jin's LinkedIn; company page "Dorsal Health (Acquired by Commure)"). -> Acquired. Andrew Jin now has a founder page; /companies/commure.html redirects there.
+- **Backbone**: was already listed (Seed, Manan Shah's page) but had a placeholder tile. Built a tile from backbonesystems.ai's four-bar mark.
+- **Kos.ai / Spot AI**: correct LinkedIn is linkedin.com/in/tanujt. Tanuj is CEO of Kos.ai since Sep 2025; was Spot AI CEO 2018-Apr 2024, then executive chairman and director to Dec 2025. Both bios and titles updated.
+- **LD Talent / Hailcube**: LD Talent is a past venture (Gobi Dasu now on its board); Hailcube is his current company (the "stealth AI startup" on LinkedIn). Bios updated.
+- **Awary**: shut down (owner). Bio past tense; stays at last stage per rule.
+- **Bizzy AI**: Ansh Sheth still there; YC's company page (/companies/geo-ai, "Active", NYC) links the same LinkedIn we have. No change.
+- **Quant**: quantsqrd.com/#team still lists Deeya Viradia. No change.
+- **Diya TV**: primarily an Instagram presence, no founder LinkedIn. No change.
+- Tile cache tag bumped ?v=10 -> ?v=11 so the changed Capricorn tile refreshes for returning visitors.
