@@ -246,3 +246,21 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - **Tivara**: bio said Aumesh Misra worked at Google; LinkedIn shows Microsoft (2020-22) and Compound (8th engineer). Co-Founder & CTO. Bio rewritten; class year '16 added to the record. Our Investments card had "Mishra"; fixed (photo map already covers both spellings).
 - **Caddy**: Rajiv Sancheti based in New York, on-site. Bio otherwise accurate.
 - **Cartesia, Latent stage, Kos.ai, Spot AI**: no material delta. **Flag:** Tanuj Thapliyal's LinkedIn lists only "CEO, Spot AI" and does not mention Kos.ai, though press names him Kos.ai's co-founder.
+
+## In-depth pass, group A (30 Sept 2026): deltas only
+- **Designlab**: Harish Venkatesan stepped down as CEO Jul 2025 after 12 years; now Advisor & Chairman, and Head of Product at FLORA. Bio + title updated.
+- **Glow**: Amira Valliani has been at the Solana Foundation since Jan 2022 (now Head of Payments Growth). Bio no longer calls her Glow's current CEO.
+- **Pamastay**: Ashwini Iyer describes her role as CTO & Co-Founder ("Agentic Risk Intelligence for Healthcare Administrators"). Title/bio updated.
+- **Inventive**: Kavita Shah is Chief Product Officer & Co-Founder. Title updated.
+- **FLAG Quant**: Deeya Viradia's current LinkedIn roles (Entrepreneurs@Berkeley president, Berkeley) don't mention Quant/Quant². Possibly dormant; not changed.
+- **FLAG Bizzy AI**: the LinkedIn on record (ansh-sheth-684b8a215) shows only Stanford ASES/BASES and no Bizzy. Earlier pass doubted it was the right person; the owner later supplied it. Unresolved.
+- No delta: Theora (bio already reflects datasets/environments for healthcare agents), Pincites (Sona Sulakian now VP AI Products at Filevine; bio is about the company), Sound of Molecules, OneSchema.
+
+## In-depth pass, group B (30 Sept 2026): deltas only
+- **Martin / Letterbook**: our LinkedIn URL for Dawson Chen (dawson-chen-martin) is dead (404); correct one is dawson-chen-letterbook. He was Co-Founder & CEO of Martin Jul 2023-Jul 2026 and since Aug 2026 is **Co-founder & COO of Freebuff**. **Letterbook is not on his LinkedIn at all.** Both bios rewritten so neither calls him a current CEO. **FLAG:** is Letterbook still active, and is it really separate from Martin? **FLAG:** Freebuff is on the "7 new companies to add" list. It would be his third company on the same page.
+- **AltitudeIQ**: Ketul Patel joined as Co-Founder Feb 2026 (record said "Founder"); also founder of Shake Ventures, previously co-founded Layered.xyz. Bio updated.
+- **Flipturn**: Katie Siegel now VP Product at Einride, leading the Flipturn unit; deal $38M plus earn-out, closed Aug 2026. Bio already says acquired; no change.
+- **Upward**: Arvind Ramgopal still CTO; also began graduate study at Santa Clara Law Aug 2026. No change.
+- **LD Talent / Hailcube**: Gobi Dasu's current role is co-founder of a stealth AI startup (May 2025) and South Park Commons member; LD Talent still on profile (8 yrs 6 mos). **FLAG:** LD Talent/Hailcube may be past ventures.
+- **Stealth (Suraj Pakala)**: still stealth (since May 2026; previously investor at FalconX Ventures). No change.
+- No delta: Delfina, Glassfrog, Kaizen Labs, Emerald AI.
