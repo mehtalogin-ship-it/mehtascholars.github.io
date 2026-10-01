@@ -314,3 +314,37 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', function () { geom(); build(); });
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { geom(); build(); });
 })();
+
+/* ---- Strategic Ecosystem: scroll-built map. The hub appears, then the cascade
+        draws node by node: Parents -> (arc) -> Alumni -> (arc) -> Students ---- */
+(function () {
+  var map = document.getElementById('ecoMap');
+  if (!map) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  map.classList.add('armed');
+  function q(sel) { return map.querySelector(sel); }
+  function clamp(x) { return Math.max(0, Math.min(1, x)); }
+  var hub = q('.eco-hub');
+  var nodes = { par: q('.eco-node[data-k="par"]'), alu: q('.eco-node[data-k="alu"]'), stu: q('.eco-node[data-k="stu"]') };
+  var arcs = { a1: q('.eco-arc[data-k="a1"]'), a2: q('.eco-arc[data-k="a2"]') };
+  var heads = { a1: q('.eco-head[data-k="a1"]'), a2: q('.eco-head[data-k="a2"]') };
+  function arc(k, t) {
+    if (arcs[k]) arcs[k].style.strokeDashoffset = String(1 - t);
+    if (heads[k]) heads[k].classList.toggle('on', t >= 0.98);
+  }
+  function build() {
+    var r = map.getBoundingClientRect();
+    // 0 when the map's top reaches 85% down the viewport, 1 once it has travelled
+    // most of its own height further - so the whole sequence plays within view.
+    var p = clamp((window.innerHeight * 0.85 - r.top) / (r.height * 0.8));
+    if (hub) hub.classList.toggle('on', p > 0.04);
+    if (nodes.par) nodes.par.classList.toggle('on', p > 0.16);
+    arc('a1', clamp((p - 0.24) / 0.22));
+    if (nodes.alu) nodes.alu.classList.toggle('on', p > 0.46);
+    arc('a2', clamp((p - 0.54) / 0.22));
+    if (nodes.stu) nodes.stu.classList.toggle('on', p > 0.76);
+  }
+  build();
+  window.addEventListener('scroll', build, { passive: true });
+  window.addEventListener('resize', build);
+})();

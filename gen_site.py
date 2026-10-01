@@ -59,6 +59,25 @@ TRACKS=[('main',None)]
 
 CTA=('Contact Us!','mailto:MehtaScholars@harker.org')
 
+# The initiative's private LinkedIn group, and the interest form. The form is not
+# built yet: while INTEREST_FORM is empty the button renders as a non-clickable
+# "coming soon" placeholder, so nobody lands on a dead link. Paste the Google Form
+# URL here and regenerate - every page that shows the button picks it up.
+LINKEDIN_GROUP='https://www.linkedin.com/groups/14619102/'
+INTEREST_FORM=''
+
+_ICO_LI='<svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.83v1.54h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4z"/></svg>'
+
+def join_buttons(cls=''):
+    """'Join Now' (LinkedIn group) + 'Express Interest' (the form, or a placeholder)."""
+    join=f'<a class="btn" href="{LINKEDIN_GROUP}" target="_blank" rel="noopener">{_ICO_LI}Join Now</a>'
+    if INTEREST_FORM:
+        form=f'<a class="btn outline" href="{INTEREST_FORM}" target="_blank" rel="noopener">Express Interest</a>'
+    else:
+        form='<span class="btn outline is-soon" aria-disabled="true">Express Interest<small>Form coming soon</small></span>'
+    c=f' {cls}' if cls else ''
+    return f'<div class="join-btns{c}">{join}{form}</div>'
+
 def _href(h, p=''):
     """Leave mailto:/http(s)/#/tel alone; prefix internal links with the page's
     depth. Lets the nav CTA become a real contact page later without touching nav()."""
@@ -114,7 +133,7 @@ def footer(p=''):
       <div class="footer-bottom"><span>&copy; 2026 The Harker Venture Investment Initiative &middot; Mehta Scholars</span><span>The Harker School</span></div>
     </div>
   </footer>
-  <script src="{p}js/main.js?v=24"></script>
+  <script src="{p}js/main.js?v=25"></script>
 </body>
 </html>'''
 
@@ -128,7 +147,7 @@ def head(title, desc, p=''):
   {FONTS}
   <link rel="icon" type="image/png" href="{p}assets/favicon.png?v=1">
   <link rel="apple-touch-icon" href="{p}assets/favicon.png?v=1">
-  <link rel="stylesheet" href="{p}css/styles.css?v=39">
+  <link rel="stylesheet" href="{p}css/styles.css?v=40">
 </head>
 <body>
 '''
@@ -176,16 +195,17 @@ def sec_home_intro():
         <div class="ws-slide is-active" data-i="0">
           <div class="ws-head"><p class="eyebrow">What We Do</p><h2>A launchpad for founders and investors</h2></div>
           <div class="ws-cards">
-            <div class="ws-card" data-c="0"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20v-6M6 20v-4M18 20v-9"/><circle cx="12" cy="8" r="3"/></svg></div><div><p class="kicker">Exceptional Mentorship</p><h3>Industry Insights</h3><p>Industry insights and guidance from experienced mentors within Harker's network.</p></div></div>
-            <div class="ws-card" data-c="1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg></div><div><p class="kicker">Strategic Partnerships</p><h3>Forge Connections</h3><p>Partnerships with forward-thinking people and organizations to drive mutual success.</p></div></div>
-            <div class="ws-card" data-c="2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9 10h4a2 2 0 0 1 0 4H9"/></svg></div><div><p class="kicker">Access to Funding</p><h3>Fuel Your Growth</h3><p>Access to funding sources through our extensive network to fuel your growth.</p></div></div>
+            <div class="ws-card" data-c="0"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2.5"/><circle cx="4.5" cy="6" r="2"/><circle cx="19.5" cy="6" r="2"/><circle cx="12" cy="20.5" r="2"/><path d="M6.2 7.1l3.8 3.1M17.8 7.1 14 10.2M12 14.5v4"/></svg></div><div><p class="kicker"><span class="ws-num">01</span>Connect</p><h3>Bring the Harker community together</h3><p>Entrepreneurs, investors, and business, technology &amp; research professionals in one network.</p><p class="ws-chips"><span>Entrepreneurs</span><span>Investors</span><span>Business</span><span>Technology</span><span>Research</span></p></div></div>
+            <div class="ws-card" data-c="1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><div><p class="kicker"><span class="ws-num">02</span>Support</p><h3>Help alumni companies grow</h3><p>Support with customer &amp; talent acquisition, strategic partnerships, and venture funding.</p><p class="ws-chips"><span>Customers</span><span>Talent</span><span>Partnerships</span><span>Funding</span></p></div></div>
+            <div class="ws-card" data-c="2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg></div><div><p class="kicker"><span class="ws-num">03</span>Educate</p><h3>Real-world experience for students</h3><p>Real-world, hands-on experiences for our students.</p><p class="ws-chips"><span>Research</span><span>Founder meetings</span><span>Investing</span></p></div></div>
           </div>
         </div>
         <div class="ws-slide" data-i="1"><div class="ws-inner">
           <p class="eyebrow">Join Our Network</p>
           <h2>Explore collaboration, mentorship &amp; investment</h2>
           <p>Connect with a diverse network of entrepreneurs, industry experts, and investors to explore collaborations, mentorship, and investment opportunities.</p>
-          <a class="btn" href="mailto:MehtaScholars@harker.org">Join Now</a>
+          '''+join_buttons()+'''
+          <p class="ws-note">Join the Harker Venture Investment Initiative Strategic Ecosystem, a private group on LinkedIn.</p>
         </div></div>
       </div>
       <div class="wall-dots"><span class="wall-dot is-on"></span><span class="wall-dot"></span></div>
@@ -193,8 +213,10 @@ def sec_home_intro():
         <div class="wrap">
           <div class="hero-box">
             <h1>The Harker Venture Investment Initiative</h1>
-            <p>Student analysts investing in — and championing — the next generation of Harker alumni founders.</p>
-            <p class="hero-cta"><a class="btn" href="our-investments.html">See our investments</a> <a class="btn ghost" href="about.html">Meet the scholars</a></p>
+            <div class="hero-links">
+              <a href="about.html"><span>Learn more about the Mehta Scholars &amp; how they invest in Harker alumni-founded companies</span><i aria-hidden="true">&rarr;</i></a>
+              <a href="strategic-ecosystem.html"><span>Learn more about our Strategic Ecosystem</span><i aria-hidden="true">&rarr;</i></a>
+            </div>
           </div>
         </div>
       </div>
@@ -272,7 +294,7 @@ def _proc(stop_at='full'):
 # The note the whole process now ends on. Whatever the committee decides, the
 # founder gets access to the ecosystem and the advisors.
 PROC_CLOSE=('<h4>Access to the Harker Strategic Ecosystem</h4>'
-            '<p>Whatever the committee decides, the founder gains access to the Harker Strategic Ecosystem '
+            '<p>Whatever the committee decides, the founder gains access to the <a href="strategic-ecosystem.html">Harker Strategic Ecosystem</a> '
             '&mdash; our alumni VCs, angel investors and operators &mdash; and to the Entrepreneurship '
             'Advisory Committee, who work with founders to develop and solidify their companies.</p>')
 
@@ -435,6 +457,97 @@ def sec_updates():
       <p>On April 17th, our Mehta Scholar team participated in the Startup World Cup Youth Qualifier, organized by Harker and Pegasus Tech Ventures. Our senior Mehta Scholars, Leana Zhou and Tanvi Sivakumar, facilitated the fireside chat with Brandon Yang from Cartesia. Meanwhile, our junior Mehta Scholars engaged in networking opportunities with professionals across various industries, gaining key insights and forming important connections.</p></div></article>
   </div></div></section>'''
 
+# ============ STRATEGIC ECOSYSTEM ============
+# The map is one SVG on a 640x600 board: a hub, an orbit track, and three
+# community nodes. The two green arcs are the cascade from the team's slide
+# (Parents -> Alumni -> Students). main.js draws them as the map scrolls in;
+# without JS (or with reduced motion) everything is simply shown.
+_ECO_NODES=[  # (id, cx, cy, lines)
+ ('par', 320, 100, ['Parents &amp;','Parents of','Alumni']),
+ ('alu', 493.2, 400, ['Alumni']),
+ ('stu', 146.8, 400, ['Business &amp;','Entrepreneurship','Students']),
+]
+def _eco_node(nid, cx, cy, lines):
+    lh=22; y0=cy-(len(lines)-1)*lh/2
+    t=''.join(f'<tspan x="{cx}" y="{y0+i*lh:.1f}">{l}</tspan>' for i,l in enumerate(lines))
+    return (f'<g class="eco-node" data-k="{nid}"><circle class="eco-halo" cx="{cx}" cy="{cy}" r="94"/>'
+            f'<circle class="eco-dot" cx="{cx}" cy="{cy}" r="82"/><text class="eco-label" text-anchor="middle" dominant-baseline="central">{t}</text></g>')
+
+def sec_eco_map():
+    nodes=''.join(_eco_node(*n) for n in _ECO_NODES)
+    svg=f'''<svg class="eco-svg" viewBox="48 2 544 588" role="img" aria-labelledby="ecoT ecoD">
+        <title id="ecoT">The Harker Strategic Ecosystem</title>
+        <desc id="ecoD">Three connected groups around the ecosystem: parents and parents of alumni, alumni, and Business and Entrepreneurship students. Arrows run from parents to alumni, and from alumni to students.</desc>
+        <defs><linearGradient id="ecoG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#038112"/><stop offset="1" stop-color="#073d1e"/></linearGradient></defs>
+        <circle class="eco-track" cx="320" cy="300" r="200"/>
+        <g class="eco-hub"><circle class="eco-pulse" cx="320" cy="300" r="88"/><circle cx="320" cy="300" r="88" fill="url(#ecoG)"/>
+          <text class="eco-hubtext" text-anchor="middle"><tspan x="320" y="276">Harker</tspan><tspan x="320" y="304">Strategic</tspan><tspan x="320" y="332">Ecosystem</tspan></text></g>
+        <path class="eco-arc" data-k="a1" pathLength="1" d="M412.3,122.6 A200,200 0 0 1 519.8,308.7"/>
+        <polygon class="eco-head" data-k="a1" points="0,0 -16,-9 -16,9" transform="translate(519.8,308.7) rotate(92.5)"/>
+        <path class="eco-arc" data-k="a2" pathLength="1" d="M427.5,468.7 A200,200 0 0 1 212.5,468.7"/>
+        <polygon class="eco-head" data-k="a2" points="0,0 -16,-9 -16,9" transform="translate(212.5,468.7) rotate(212.5)"/>
+        {nodes}
+      </svg>'''
+    return f'''
+  <section><div class="wrap eco-map-wrap">
+    <div class="eco-map" id="ecoMap">{svg}</div>
+    <div class="eco-side">
+      <p class="eyebrow">One connected network</p>
+      <h2>Every part of the Harker community, in one place</h2>
+      <p>The Strategic Ecosystem links the Harker community across generations. Parents and parents of alumni, alumni, and today&rsquo;s Business &amp; Entrepreneurship students each bring something to the people coming up behind them.</p>
+      <ul class="eco-roles">
+        <li><span class="eco-ico">{_ECO_ICO['ent']}</span>Entrepreneurs</li>
+        <li><span class="eco-ico">{_ECO_ICO['inv']}</span>Investors</li>
+        <li><span class="eco-ico">{_ECO_ICO['pro']}</span>Business &amp; Technology Professionals</li>
+      </ul>
+    </div>
+  </div></section>'''
+
+_ECO_ICO={
+ 'ent':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.1 2.1 0 0 0-2.9-.1z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></svg>',
+ 'inv':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>',
+ 'pro':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg>',
+ 'stu':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>',
+ 'alu':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.6-7 8-7s8 3 8 7"/></svg>',
+ 'par':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3.5"/><path d="M2 21c0-3.6 3.1-6.5 7-6.5s7 2.9 7 6.5"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.6c2.9.3 5 2.5 5 5.4"/></svg>',
+ 'exp':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>',
+ 'exx':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M8.2 12.7 7 22l5-3 5 3-1.2-9.3"/></svg>',
+ 'sup':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8L12 21.2l8.8-8.8a5.5 5.5 0 0 0 0-7.8z"/></svg>',
+ 'ene':'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"/></svg>',
+}
+
+def _eco_col(n, title, items):
+    lis=''.join(f'<li><span class="eco-ico">{_ECO_ICO[k]}</span>{lbl}</li>' for k,lbl in items)
+    return f'<div class="eco-col"><p class="eco-step">{n}</p><h3>{title}</h3><ul>{lis}</ul></div>'
+
+def sec_eco_members():
+    who=_eco_col('01','Who is in it',[('stu','Students'),('alu','Alumni'),('par','Parents'),('par','Parents of Alumni')])
+    are=_eco_col('02','Who are',[('ent','Entrepreneurs'),('inv','Investors'),('pro','Business professionals'),('pro','Technology professionals')])
+    lev=_eco_col('03','Able to leverage',[('exp','Expertise'),('exx','Experience'),('sup','Support'),('ene','Energy')])
+    j='<span class="eco-join" aria-hidden="true">&rarr;</span>'
+    return f'''
+  <section class="section-tint"><div class="wrap">
+    <div class="section-head"><p class="eyebrow">What it is</p><h2>Who makes up the ecosystem</h2></div>
+    <div class="eco-cols">{who}{j}{are}{j}{lev}</div>
+    <p class="eco-summary">The Harker Venture Investment Initiative Strategic Ecosystem consists of <strong>students, alumni, parents, and parents of alumni</strong> who are <strong>entrepreneurs, investors, and business &amp; technology professionals</strong>, and who are able to leverage the <strong>expertise, experience, support, and energy</strong> of this distinguished group.</p>
+  </div></section>'''
+
+def sec_eco_scholars():
+    return f'''
+  <section><div class="wrap"><div class="eco-note">
+    <div>
+      <p class="eyebrow">Where the Mehta Scholars fit</p>
+      <h3>Students at the heart of the network</h3>
+      <p>Mehta Scholars identify, research, promote, and support alumni founders and their companies. They also connect alumni founders with VCs, angel investors, entrepreneurs, and business and technology professionals across the Harker Strategic Ecosystem.</p>
+      <a class="btn outline small" href="about.html">About the Mehta Scholars</a>
+    </div>
+  </div></div></section>
+  <section class="section-green eco-cta"><div class="wrap">
+    <div class="section-head"><p class="eyebrow">Join our network</p><h2>Become part of the ecosystem</h2>
+      <p>Join the Harker Venture Investment Initiative Strategic Ecosystem, a private group on LinkedIn.</p></div>
+    {join_buttons('center')}
+  </div></section>'''
+
 # ============ THE REGISTRY ============
 PAGES=[
  dict(slug='index', key='home', label='Home', track='main', foot=True,
@@ -467,6 +580,12 @@ PAGES=[
       desc='The Venture Investment, Venture Advisory, and Entrepreneurship Advisory Committees supporting the Mehta Scholars.',
       hero=('Harker connects you with the best.','The committees of experienced investors and founders who guide, review, and support our work.','serif'),
       body=[sec_committee]),
+
+ dict(slug='strategic-ecosystem', key='ecosystem', label='Strategic Ecosystem', track='main', foot=True,
+      title='Strategic Ecosystem | Harker Venture Investment Initiative',
+      desc='The Harker Strategic Ecosystem: students, alumni, parents, and parents of alumni who are entrepreneurs, investors, and business &amp; technology professionals.',
+      hero=('The Harker Strategic Ecosystem','Students, alumni, parents, and parents of alumni, working together as entrepreneurs, investors, and business &amp; technology professionals.','serif'),
+      body=[sec_eco_map, sec_eco_members, sec_eco_scholars]),
 
  dict(slug='updates', key='updates', label='Updates', track='main', foot=True,
       title='Updates | Mehta Scholars',
