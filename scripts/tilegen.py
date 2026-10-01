@@ -127,10 +127,17 @@ def white_mark(img):
 
 def hex2rgb(h): h=h.lstrip('#'); return tuple(int(h[i:i+2],16) for i in (0,2,4))
 
-def compose(color, name, mark, out):
+def compose(color, name, mark, out, caption=True):
+    """caption=False is for marks that already spell the company name (wordmarks):
+    the mark is centred, larger, and the name is not repeated underneath."""
     base = Image.new('RGBA', (W, H), hex2rgb(color)+(255,))
     base.alpha_composite(Image.open(TEX).convert('RGBA').resize((W, H)))
     draw = ImageDraw.Draw(base)
+    if not caption:
+        lg = ImageOps.contain(mark, (int(W*0.72), int(H*0.5)), Image.LANCZOS)
+        base.alpha_composite(lg, ((W-lg.size[0])//2, (H-lg.size[1])//2))
+        base.convert('RGB').save(out, quality=94)
+        return
     lg = ImageOps.contain(mark, (500, 500), Image.LANCZOS)
     cx = (W-lg.size[0])//2; cy = int(H*0.23) + (500-lg.size[1])//2
     base.alpha_composite(lg, (cx, cy))

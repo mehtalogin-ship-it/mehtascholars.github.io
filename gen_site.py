@@ -328,7 +328,7 @@ def sec_alumni_grid():
         out+=f'<div data-stage-group><h2 class="stage-label">{esc(stage)}</h2><div class="co-grid">'
         for f in grp:
             if f.get('tile'):
-                thumb=f'<div class="co-thumb"><img src="{f["tile"]}?v=11" alt="{esc(f["company"])}" loading="lazy"></div>'
+                thumb=f'<div class="co-thumb"><img src="{f["tile"]}?v=12" alt="{esc(f["company"])}" loading="lazy"></div>'
             else:
                 thumb=f'<div class="co-thumb ph" style="--tc:{f.get("color","#2f6d3a")}"><span>{esc(f["company"])}</span></div>'
             out+=f'<a class="co-tile" data-sector="{f["sector_key"]}" href="companies/{f["page"]}.html">{thumb}<div class="co-name">{esc(f["name"])} {esc(f.get("year",""))}</div></a>'

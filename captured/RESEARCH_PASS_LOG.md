@@ -347,3 +347,11 @@ From the "7 new companies" list. Freebuff was added earlier; Sentec dropped with
 - **Sourdough Tax ADDED** (Shantanu Joshi): helps 1099 contractors keep more of what they earn; sourdough.tax; founded 2026 (company LinkedIn). -> Pre-Seed. Shantanu's page renamed lume -> shantanu-joshi (three companies); old URL redirects.
 - **Logo tiles, 14 new**: Quant, Naya, Pokedata, Milk Infrastructure (tilegen as-is); Designlab, Spyra Beauty, Cartesia, Sourdough Tax, Torch, Bizzy AI, Ephemeral, Sound of Molecules, Sail Research, Clad Labs (mark cut by hand from each site's own icon, webclip or share image, because tilegen's alpha-silhouette produced blank circles or page-text fragments). Every tile checked visually.
 - **Still placeholders (12)**: Glow, Lowkey, Lume, Parse, BountyME, Sidenote, Mida, Hailcube, Upward (no usable site); Refactor (its icon is a plain green square with no mark); two Stealth entries.
+
+## Logo tiles round 2 (1 Oct 2026)
+- **Rule (owner):** if a logo already spells the company name (a wordmark), the tile does not repeat the name underneath. scripts/tilegen.py `compose(..., caption=False)` centres and enlarges the mark with no caption.
+- **From owner-supplied logo files:** Milk Infrastructure (pixel bottle; replaced the "M"), Clad Labs ("c.l."), Lowkey (crown; acquired by Niantic), BountyME ("B"), Lume (wordmark, no caption), Parse (wordmark, no caption), Glow (wordmark, no caption).
+- **Captions removed** (wordmark already says it): Spyra Beauty, Sail Research, OS3 (regenerated from os3robotics.com).
+- **Audit of all tiles** found two more problems, both fixed: Glassfrog's tile still read "Imagining Startup", its pre-rename name (rebuilt from glassfrog.ai; file renamed glassfrog.png); Pamastay's mark was a garbled photo fragment (rebuilt from pamastay.com/logo.png, its shield-and-elephant logo with the name inside, no caption).
+- Tile cache tag bumped to ?v=12.
+- **Still no tile (7):** Upward (domain dead), Hailcube (no site), Refactor (icon is a blank green square), Sidenote, Mida, two Stealth entries.
