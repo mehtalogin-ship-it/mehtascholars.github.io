@@ -191,3 +191,15 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **Observee** Series A+ -> Pre-Seed: raw "Series C 5/25, Series B 9/24..." was junk. Observee is YC S25 ($125K+ standard deal), founded 2025 by Chanana, Chandok and Chris Hailey, the OS3 team. Bio is shared with OS3 and already describes both.
 - **Rejigg** Seed (confirmed): $10.5M total through its seed round.
 - **Observee merged into OS3** (owner, 30 Sept): same company and team, not a separate venture. The duplicate entry and its tile are removed; OS3 remains (YC S26, Pre-Seed). Chris Hailey's founder page is unchanged, and its bio still mentions Observee.
+
+## Stage audit, batch 9 (30 Sept 2026)
+- **Nightfall AI** Series A+ (confirmed): $40M Series B Aug 2022 led by WestBridge (nightfall.ai blog); still independent, shipping in 2026.
+- **Built Robotics** Series A+ (confirmed): Series C Apr 2022 per our record; no newer round or acquisition found; active 2026.
+- **Beacon Software** Series A+ (confirmed): $250M Series B Nov 2025 (BetaKit; BusinessWire), $335M total.
+- **Pine** Series A+ (confirmed): ~$50M total incl. SVB venture debt and SAFE (BetaKit); acquired Properly 2023.
+- **Neura Health** Series A+ (confirmed): $11.4M Series A Sep 2025, led by AHA's Go Red for Women Venture Fund (GlobeNewswire 2025-09-29).
+- **Superorder** Series A+ (confirmed): $10M Series A Sep 2023, led by Foundation Capital (superorder.com/press).
+- **Future** Series A+ (confirmed): $75M Series C Feb 2022 (PR Newswire). A search summary said "acquired by Autograph Jan 2025"; it was a **merger with Future as the continuing company** (Brady joined Future's board; PR Newswire 2025-01-23). Not an acquisition of Future.
+- **Clad Labs** Seed -> Pre-Seed: YC F25 $500K only (TechCrunch 2025-11-12); YC rule.
+- **Concierge AI** Seed (confirmed): initial round Feb 2025 led by Gradient Ventures + Penny Jar (Wilson Sonsini).
+- **Huxe** Seed (unchanged): $4.6M (Conviction et al.); shut down May 2026 (TechCrunch 2026-05-22). Stays at last stage per owner rule.
