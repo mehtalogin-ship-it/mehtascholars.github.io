@@ -219,3 +219,19 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - Not researchable: the three **Stealth** entries and **Pokedata** (stealth).
 
 **Audit complete: 105 companies; 101 researched, 4 in stealth.**
+
+## In-depth pass, batch 1 (30 Sept 2026): company + founder LinkedIn, deltas only
+Method: founder LinkedIn /details/experience and /details/education, plus the company LinkedIn
+About page, read in the owner's logged-in Chrome. Only differences from our data are recorded.
+- **Axiom**: Preston Ellis is Co-Founder & CTO (title was blank); Harker 2017-21 so class year **'21** (was blank). Education corrected: BS Computer Engineering, UC San Diego 2021-24 (founded Axiom Apr 2024 there), then UC Berkeley MEng Aug-Dec 2024, "dropped out for YC". Company LinkedIn: HQ Austin, TX, founded 2024. Bio rewritten.
+- **Clad Labs**: pivoted from Chad (the "brainrot" IDE) to customer support. Company LinkedIn: "Customer support that resolves itself"; site: "the investigation layer between your support team and engineering". Bio rewritten; stage unchanged (YC F25, Pre-Seed).
+- **Hinoki**: Johnny Wang is Founder & CEO since Oct 2025, SF Bay Area (record said Founder, New York). No YC or investors on his profile or the company page; "building with a stealth team". YC directory has no listing. -> **Bootstrapped** (owner rule). Removed the "Y Combinator-backed" claim from both the Hinoki and Crosswire bios.
+- **Kumo AI**: Manan Shah left Kumo Apr 2025 to found Backbone (bio said he still works there). Bio put in past tense.
+- **Backbone**: -> **Seed** per a16z portfolio page (owner screenshot). Website added: backbonesystems.ai (record had none). HQ San Francisco.
+- **Peer AI**: -> **Series A+**, Series B per Dealroom (owner). LinkedIn description (regulatory-submission AI for biopharma) matches our bio closely; not changed.
+- **TenSixty**: -> **Series A+**, Series A per Tracxn (owner). Company has moved from target mapping to antibody therapeutics with several ADC programs in preclinical development. Bio rewritten; "Berkley" typo fixed.
+- **Refactor**: -> **Pre-Seed** (owner). Arnav Joshi is CEO; profile says "backed by yc, general catalyst et al." Website added: refactor.co (record had none). Bio updated.
+- **Danger Devices**: -> **Seed** (owner). HQ San Jose (record said "Lav Vegas"). Dealroom shows "no known external funding"; Tracxn earlier showed ~$25M. Sources conflict.
+- **Ephemeral**: Drew Goldstein's LinkedIn doesn't list Ephemeral (still Palantir Co-Head of Healthcare), consistent with stealth. No change.
+- **Agora**: Alex Lan, Co-Founder & CEO since May 2025, SF. Matches our bio. No change.
+- **AWG / Jason Huang '96**: removed from the site (owner), including the Entrepreneurship Advisory Committee.
