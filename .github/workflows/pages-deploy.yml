@@ -37,3 +37,36 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  # harkervii.com. GitHub Pages serves one custom domain per repo, so the
+  # initiative's site is published from its own repo, mehtalogin-ship-it/harkervii.
+  # It is built here from the same sources (public-vii/ is not committed) and
+  # pushed there with a deploy key that can write to that one repo only.
+  # Until the VII_DEPLOY_KEY secret exists this job does nothing.
+  deploy-vii:
+    runs-on: ubuntu-latest
+    env:
+      HAS_KEY: ${{ secrets.VII_DEPLOY_KEY != '' }}
+    steps:
+      - name: Checkout
+        if: env.HAS_KEY == 'true'
+        uses: actions/checkout@v4
+
+      - name: Build both sites
+        if: env.HAS_KEY == 'true'
+        run: python3 gen_site.py
+
+      - name: Push public-vii/ to the harkervii repo
+        if: env.HAS_KEY == 'true'
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          deploy_key: ${{ secrets.VII_DEPLOY_KEY }}
+          external_repository: mehtalogin-ship-it/harkervii
+          publish_branch: main
+          publish_dir: ./public-vii
+          # one commit per deploy, so ~100 MB of images don't pile up in that repo's history
+          force_orphan: true
+
+      - name: Not configured
+        if: env.HAS_KEY != 'true'
+        run: echo "::notice::VII_DEPLOY_KEY is not set, so harkervii.com was not deployed."

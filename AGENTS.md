@@ -1,7 +1,17 @@
 # AGENTS.md — how to edit this website without breaking it
 
-You are working on **mehtascholars.com**, the live public site of The Harker Venture
-Investment Initiative (Mehta Scholars). Read this file before touching anything.
+You are working on **two live public sites built from this one repo**:
+
+| Site | What it is | Pages | Built into |
+|---|---|---|---|
+| **mehtascholars.com** | The Mehta Scholars program | Home, About, Committee List, Our Investments, Updates | `public/` (committed) |
+| **harkervii.com** | The Harker Venture Investment Initiative, the ecosystem as a whole | Home, Strategic Ecosystem, Alumni Companies (+ founder pages), Updates | `public-vii/` (not committed; CI builds it) |
+
+Every page in the `PAGES` registry in `gen_site.py` has a `site` of `ms` or `vii`. The two sites
+deliberately **do not link to each other**. The only crossings are redirect stubs on
+mehtascholars.com for pages that moved to harkervii.com, so old links keep working.
+
+Read this file before touching anything.
 
 The person directing you is a Mehta Scholar, not necessarily a developer. They may ask for
 something in plain terms ("add this company", "fix this bio"). Your job is to translate that
@@ -12,7 +22,7 @@ text they're looking at.
 
 ## THE ONE RULE
 
-### Never edit anything inside `public/`.
+### Never edit anything inside `public/` or `public-vii/`.
 
 Every file in `public/` — all the HTML, the company pages, the redirect stubs — is
 **generated** by `gen_site.py`. If you hand-edit one, your change looks correct, gets
@@ -24,11 +34,13 @@ EDIT THESE                          NEVER EDIT THESE
 captured/*.json    ← content        public/*.html
 gen_site.py        ← page templates public/companies/*.html
 public/css/styles.css  ← design *   public/our-companies/, /blog/, /fintech/ … (stubs)
-public/js/main.js      ← behavior *
+public/js/main.js      ← behavior *   public-vii/  (all of it)
+public/assets/         ← images *
 ```
 
-\* `styles.css` and `main.js` live under `public/` but are **hand-written, not generated**.
-They are the two exceptions. Everything else in `public/` is output.
+\* `styles.css`, `main.js` and `assets/` live under `public/` but are **hand-written / hand-placed,
+not generated**. They are the exceptions, and they are shared: the generator copies them into
+`public-vii/`. Everything else in `public/`, and all of `public-vii/`, is output.
 
 **If you are about to edit an `.html` file, stop.** Find the source instead: page structure
 and copy live in `gen_site.py`; data lives in `captured/`.
@@ -56,9 +68,15 @@ regenerated `public/` files together.
 
 ## Publishing — read this before you push
 
-**Pushing to `main` publishes to the live public website within about a minute.** There is no
-staging environment and no review step. `.github/workflows/pages-deploy.yml` deploys `public/`
-on every push.
+**Pushing to `main` publishes BOTH live public websites within about a minute.** There is no
+staging environment and no review step. `.github/workflows/pages-deploy.yml` runs on every push:
+
+- job `deploy` publishes `public/` to mehtascholars.com (this repo's Pages).
+- job `deploy-vii` runs `gen_site.py`, then pushes `public-vii/` to the separate public repo
+  `mehtalogin-ship-it/harkervii`, whose Pages serves harkervii.com. (GitHub Pages allows one
+  custom domain per repo.) It authenticates with the `VII_DEPLOY_KEY` secret, a deploy key with
+  write access to that one repo only. **Never edit the harkervii repo directly**: every deploy
+  replaces its contents.
 
 **`main` is protected: it takes a pull request, not a direct push.** Open a branch, push the
 branch, open a PR. No approvals are required — the gate exists so changes are visible and
@@ -129,6 +147,10 @@ institutional round (self-funded, crowdfunded). `gen_site.py` now refuses to run
 Then `python3 gen_site.py`. The roster entry and the detail page at
 `public/companies/<page>.html` are both created automatically.
 
+### Post an update
+
+Edit `captured/updates.json`. Each post has `sites`: `["ms"]`, `["vii"]`, or both. Newest first.
+
 ### Add or remove an investment
 
 Edit the `INV = [...]` list near the top of `gen_site.py`. Each entry is
@@ -161,10 +183,11 @@ so browsers don't serve a cached copy, and regenerate.
 
 ```bash
 python3 gen_site.py
-python3 -m http.server 8747 --directory public
+python3 -m http.server 8747 --directory public       # mehtascholars.com
+python3 -m http.server 8748 --directory public-vii   # harkervii.com
 ```
 
-Open `http://localhost:8747/` and check:
+Open `http://localhost:8747/` and `http://localhost:8748/` and check:
 
 - The page you changed looks right, and the browser console has no errors.
 - The alumni filter still works: pick a sector, confirm the roster narrows and empty stage
@@ -223,12 +246,15 @@ captured/             all content as JSON. THIS is what you edit
   committee.json        committee members and section blurbs
   photo_map.json        name → headshot path
   redirects.txt         old URL → new page (generates stub pages)
-public/               GENERATED OUTPUT — the deployed site. Do not hand-edit
+  updates.json          posts for the Updates page on each site
+public/               GENERATED OUTPUT — mehtascholars.com. Do not hand-edit
   css/styles.css        hand-written (exception)
   js/main.js            hand-written (exception)
+  assets/               images, shared by both sites (exception)
+public-vii/           GENERATED OUTPUT — harkervii.com. gitignored, rebuilt by CI
 scripts/              tilegen.py (company tiles), procphoto.py (headshots)
 source-media/         raw photo/video source. gitignored, never deployed
-.github/workflows/    pages-deploy.yml — publishes public/ on push to main
+.github/workflows/    pages-deploy.yml — publishes both sites on push to main
 ```
 
 Further reading: **`BUILD.md`** for how-to detail, **`HANDOFF.md`** for project orientation,

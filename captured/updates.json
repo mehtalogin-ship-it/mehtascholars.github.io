@@ -1,0 +1,13 @@
+{
+  "_readme": "Posts for the Updates page on each site. `sites` is a list: \"ms\" = mehtascholars.com, \"vii\" = harkervii.com (both is allowed). Newest first. `body` is plain text.",
+  "posts": [
+    {
+      "sites": ["ms"],
+      "title": "Mehta Scholars Attend Startup World Cup",
+      "author": "Harker Mehta Scholars",
+      "date": "Apr 26",
+      "read": "1 min read",
+      "body": "On April 17th, our Mehta Scholar team participated in the Startup World Cup Youth Qualifier, organized by Harker and Pegasus Tech Ventures. Our senior Mehta Scholars, Leana Zhou and Tanvi Sivakumar, facilitated the fireside chat with Brandon Yang from Cartesia. Meanwhile, our junior Mehta Scholars engaged in networking opportunities with professionals across various industries, gaining key insights and forming important connections."
+    }
+  ]
+}
