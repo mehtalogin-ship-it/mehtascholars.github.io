@@ -29,3 +29,4 @@
 
 # Potluck Labs rebranded to Ample; the old per-company page is retired.
 /companies/potluck-labs.html  /companies/ample.html      301
+/companies/awg.html     /alumni-companies.html     301
