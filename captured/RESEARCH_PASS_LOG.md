@@ -264,3 +264,20 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - **LD Talent / Hailcube**: Gobi Dasu's current role is co-founder of a stealth AI startup (May 2025) and South Park Commons member; LD Talent still on profile (8 yrs 6 mos). **FLAG:** LD Talent/Hailcube may be past ventures.
 - **Stealth (Suraj Pakala)**: still stealth (since May 2026; previously investor at FalconX Ventures). No change.
 - No delta: Delfina, Glassfrog, Kaizen Labs, Emerald AI.
+
+## In-depth pass, group C (30 Sept 2026): deltas only
+- **Smarty**: product has shifted from an AI scheduling assistant to a humans-plus-AI-agents "chief of staff" service (Denzil Eden's LinkedIn, CEO since 2020). Bio rewritten; dropped the unsourced "$2 million seed" line.
+- **Delve**: website is now delve.co (was getdelve.com). Karun Kaushik still Co-Founder & CEO.
+- **Torch**: Eugene Huang now Member of Technical Staff (Health) at OpenAI since the acquisition. Bio sentence added.
+- **Lume**: Shantanu Joshi now founder of Sourdough Tax (Apr 2026) and Milk Infrastructure. Bio sentence added.
+- **Cortex**: Nemo Yang's current company is "Cortex Workspace" (Dec 2025-, Menlo Park); withcortex.ai now "The Desktop Agent For Your Workspace". Bio rewritten from the narrower document-data-entry product.
+- No delta: Stealth (Nicholas Chuang, still stealth since Oct 2023), Lowkey (Matthew Huang at Figma), Diffuse Bio, OS3, Dolomite.
+
+## In-depth pass, group D (30 Sept 2026): deltas only
+- **Future**: Rishi Mandal is Head of Platform Product at Sierra since May 2026; still lists Future co-founder. Bio no longer calls him Future's CEO.
+- **Concierge AI**: now "the AI answer engine for modern B2B brands" (Ayush Jain, Co-Founder & COO). Was described as an assistant for product teams. Bio updated.
+- **aPriori**: Ray Song founded Computable in Aug 2026. **FLAG:** his LinkedIn lists "Core Contributor, Capricorn" (Sep 2023-) and does not name aPriori. Capricorn may be aPriori's entity or a rename; unverified.
+- **Doppel**: title field held "2012" (junk); now Co-Founder & CTO. Bio said "Founder"; corrected to Co-Founder.
+- **Pokedata**: resolves an earlier open question. Justin Yang (justin-yang-35a22b120) lists Co-Founder, Pokedata, since May 2021. No public description, so the bio stays minimal.
+- **Aquarium Learning**: Peter Gao on a career break since Jan 2025. Bio is about the company; no change.
+- No delta: Spyra Beauty, Parse (Ilya Sukhar, GP at Matrix, already in bio), Descope, Rejigg.
