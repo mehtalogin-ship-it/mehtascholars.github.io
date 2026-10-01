@@ -203,3 +203,19 @@ All ten had a blank `stage_raw` and so defaulted to Pre-Seed.
 - **Clad Labs** Seed -> Pre-Seed: YC F25 $500K only (TechCrunch 2025-11-12); YC rule.
 - **Concierge AI** Seed (confirmed): initial round Feb 2025 led by Gradient Ventures + Penny Jar (Wilson Sonsini).
 - **Huxe** Seed (unchanged): $4.6M (Conviction et al.); shut down May 2026 (TechCrunch 2026-05-22). Stays at last stage per owner rule.
+
+## Stage audit, batch 10 (30 Sept 2026), final
+- **Windsurf** Acquired (confirmed, raw corrected): raw said "Aquired By Microsoft". Actually Google hired its CEO and leadership in a $2.4B licensing deal, then **Cognition** acquired the company, Jul 2025 (TechCrunch 2025-07-14; CNBC). Bio was already correct.
+- **Commure** Acquired -> Series A+: not acquired. Merged *with* Athelas 2023 and kept operating; Series E 2023, $200M growth financing Jun 2025, $70M May 2026 at $7B led by General Catalyst (MobiHealthNews). NB our entry is Andrew Jin, a VP of Engineering, not a founder.
+- **Designlab** Series A+ -> Seed: only seed rounds found ($120K Techstars 2013, $280K 2014, $600K 2017; investors University Ventures, Forefront, Kima). Raw "Growth Stage" had no round behind it.
+- **Sound of Molecules** Pre-Seed (confirmed): University of Illinois iVenture Accelerator grant; patents and 2026 peer-reviewed paper; no equity round.
+- **Aquarium Learning** Acquired (confirmed): joined Notion 15 Oct 2024, products wound down (aquariumlearning.com; Ivan Zhao on X).
+- **aPriori** Pre-Seed -> Seed: $2.7M pre-seed Jan 2024, $8M seed Jul 2024 led by Pantera at $100M token valuation (The Block), $20M strategic Aug 2025; $30M total.
+- **Refactor** Seed (unchanged): YC S24; no round beyond YC found. Kept the team's "Seed" (like Hinoki); by the YC rule it would be Pre-Seed. Worth confirming.
+- **AWG** Seed (unchanged): no public record. **Jason Huang '96 also runs Sentec Green Technology** (founders.json; The Icons 2024), which is on the "7 new companies to add" list. Check whether Sentec should be a second company under his page or whether AWG and Sentec overlap, before adding it.
+- **Rye** Seed (confirmed): $14M seed Oct 2022 led by a16z crypto (Forbes 2022-10-11); since pivoted to agentic-commerce checkout API.
+- **DoorDash** Acquired / IPO'd (confirmed): IPO on NYSE Dec 2020.
+- **Ample** Pre-Seed (confirmed): pre-YC micro round per the investment report; founder's LinkedIn now shows YC F26.
+- Not researchable: the three **Stealth** entries and **Pokedata** (stealth).
+
+**Audit complete: 105 companies; 101 researched, 4 in stealth.**
