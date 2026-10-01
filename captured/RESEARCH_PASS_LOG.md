@@ -356,3 +356,4 @@ From the "7 new companies" list. Freebuff was added earlier; Sentec dropped with
 - Tile cache tag bumped to ?v=12.
 - **Still no tile (7):** Upward (domain dead), Hailcube (no site), Refactor (icon is a blank green square), Sidenote, Mida, two Stealth entries.
 - **Sidenote, Mida** (owner-supplied logos, 1 Oct): tiles built; brand colours set (Sidenote purple, Mida teal) since both sit on Jason Lin's page. Logo identity checked against Sidenote's YC page. Still no tile (5): Upward, Hailcube, Refactor, two Stealth entries.
+- **Real logos replace letter placeholders** (owner-supplied, 1 Oct): DoorDash, Percival (Percy bulb), Gait, Remy, Capricorn (seahorse), Sudden Coffee, Muse Games, Diya TV, LD Talent. Several earlier tiles were just a favicon letter. Wordmarks (Sudden Coffee, Muse Games, Diya TV, LD Talent, Remy) have no caption. Brand colours set. Cache tag ?v=13. Possibly still letter/blob placeholders: Letterbook (L), Hinoki, Loot Crate, Kos.ai.
