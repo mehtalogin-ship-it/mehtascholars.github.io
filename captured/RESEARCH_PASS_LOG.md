@@ -235,3 +235,4 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - **Ephemeral**: Drew Goldstein's LinkedIn doesn't list Ephemeral (still Palantir Co-Head of Healthcare), consistent with stealth. No change.
 - **Agora**: Alex Lan, Co-Founder & CEO since May 2025, SF. Matches our bio. No change.
 - **AWG / Jason Huang '96**: removed from the site (owner), including the Entrepreneurship Advisory Committee.
+- **Danger Devices** (update): -> **Series A+**. Dealroom's company summary says a $25M Series B in Oct 2024 from Bare Metal Ventures and Matter Venture Partners (owner screenshot), though its funding table shows none. Refactor stays Pre-Seed (owner).
