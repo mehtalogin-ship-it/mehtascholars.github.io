@@ -332,3 +332,11 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - **Quant**: quantsqrd.com/#team still lists Deeya Viradia. No change.
 - **Diya TV**: primarily an Instagram presence, no founder LinkedIn. No change.
 - Tile cache tag bumped ?v=10 -> ?v=11 so the changed Capricorn tile refreshes for returning visitors.
+
+## New companies (1 Oct 2026)
+From the "7 new companies" list. Freebuff was added earlier; Sentec dropped with Jason Huang.
+- **Sail Research ADDED** (Neil Movva; our list spelled it "Neil Mova"). Inference platform for long-horizon AI agents. $80M across a Sequoia-led seed and a Kleiner Perkins-led Series A, announced 27 Jun 2026 (pulse2; Kleiner Perkins perspectives) -> Series A+. Co-founder & CTO Samir Menon. Movva: co-founded Blyss (YC W23), GPU performance at Together AI, Apple Neural Engine; Stanford BS/MS EE (Sequoia founder page). LinkedIn /in/nmovva. sailresearch.com. Class year unknown.
+- **Naya ADDED** (Julia Yusupov). Reusable tampon applicator; Seattle; founded 2026 (company LinkedIn). Co-Founder & CEO since Apr 2026 (ex-Amazon); co-founder Rita Kamenetskiy (UW bioengineering PhD). 2nd place, BU New Venture Competition; raising pre-seed -> Pre-Seed. naya-applicator.com. Class year unknown.
+- **Blast NOT ADDED**: already on the site. Blast pivoted to Refactor (Arnav Joshi '20), resolved in an earlier LinkedIn pass.
+- **Major Market Broadcasting NOT ADDED separately**: it is Ravi Kapur's station group (~30 stations; brands incl. Diya TV, KRDK 4, Chicago 22). Folded into the Diya TV bio to avoid a duplicate tile, as with Observee/OS3. **FLAG** if a separate entry is wanted.
+- **Something New NOT ADDED**: no source ties a company of that name to Krish Maniar. The likeliest Krish Maniar (Stanford CS, linkedin.com/in/krishmaniar4) lists only internships (Palantir, LangChain, Labelbox, Stanford AI Lab). **FLAG**: need a website or description.
