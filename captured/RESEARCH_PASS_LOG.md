@@ -295,3 +295,15 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - **Ansa**: JT Cho left; founder of a stealth company since Sep 2025 (GPU cloud pricing/capital structure). Bio no longer calls him current CTO.
 - **Hawala**: Omar Hamade's LinkedIn lists "Founder & CEO, Stack Inc." (Jun 2025-, New York, "venture backed $3m"); usehawala.com still live as Hawala, so Stack Inc. is likely the entity name. Added Nubank (M&A, 2025) and IonQ (strategic finance, 2022-24) to bio; city New York.
 - No delta: Advanced Optronics, Nightfall AI, Grey Matter/BountyME (Sri Prakash now an independent auditor; bios are about the past companies), Neura Health, SuperOrder, Loot Crate (Chris Davis CEO until Nov 2021; bio already past tense), LittleHorse.
+
+## In-depth pass, group G (30 Sept 2026): deltas only
+- **Squadz**: Nikhil Panu is SVP of Growth at Novig since Apr 2025. Bio changed to "founded" (no shutdown stated).
+- **Sudden Coffee**: Josh Zloof founded The Cozy Dragon (LA) Jul 2025. Bio changed to past tense.
+- **Remy Security**: Kevin Kim was Founder May 2023-Jun 2025; now Senior SWE at Unify. Bio changed to past tense.
+- **The Coterie**: Ethan Agarwal was Co-Founder & CEO Jan 2021-Jun 2025; now investor at DYA Capital. Bio updated. (His LinkedIn also lists a 2026 congressional campaign; left out of a company bio.)
+- **Commure**: Andrew Jin founded and ran Dorsal Health 2019-24 before joining Commure as VP Engineering (May 2024). Added to bio.
+- **Windsurf**: Varun Mohan has been at Google DeepMind since Jul 2025 (CEO of Windsurf Jun 2021-Jul 2025). Added.
+- **Extend**: Rohan Shah is Founder & CRO; title updated. LinkedIn now describes Extend as turning post-purchase shopper data into real-time intelligence; bio's warranty framing left as is.
+- **DoorDash**: Andy Fang was CTO 2013-2020, now Co-Founder; title updated.
+- **FLAG Stealth (Vedant Shah)**: LinkedIn shows no startup: KKR analyst/associate 2022-25, HBS MBA candidate from Aug 2026. This entry may not belong on Alumni Companies.
+- No delta: Atlantic Money (Neeraj Baid now Director of Product at Deel), Aaptiv.
