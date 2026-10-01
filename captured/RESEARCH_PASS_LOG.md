@@ -236,3 +236,13 @@ About page, read in the owner's logged-in Chrome. Only differences from our data
 - **Agora**: Alex Lan, Co-Founder & CEO since May 2025, SF. Matches our bio. No change.
 - **AWG / Jason Huang '96**: removed from the site (owner), including the Entrepreneurship Advisory Committee.
 - **Danger Devices** (update): -> **Series A+**. Dealroom's company summary says a $25M Series B in Oct 2024 from Bare Metal Ventures and Matter Venture Partners (owner screenshot), though its funding table shows none. Refactor stays Pre-Seed (owner).
+
+## In-depth pass, batch 2 (30 Sept 2026): deltas only
+- **Raindrop**: bio still described "Dawn" (product analytics). Now the monitoring platform for AI agents; Alexis Gauba previously co-founded Opyn (DeFi options, acquired by Coinbase). Bio rewritten. Tile already shows Raindrop despite its dawn-ai.png filename.
+- **Collate**: Surbhi Sarna, Founder & CEO since Feb 2025; YC General Partner Oct 2021-Feb 2025 (its first healthcare/biotech partner); sold nVision Medical to Boston Scientific for $275M (2018). Bio rewritten (also fixed typos). Our Investments card had "Surhbi"; fixed.
+- **Onos Health**: Suhaas Prasad is Co-Founder & CTO (was "Founder"); co-founded Aspire and was its CTO 2013-24. Bio rewritten from vague text to the current product (AI turning behavioral-health documentation into clinical intelligence for health plans).
+- **Latent**: bio claimed Rishabh Jain spent "over a decade in healthcare at Omada Health and Two Chairs"; LinkedIn shows OneSignal (senior SWE) and co-founding Ads on Top (acquired by Billups, 2021). Co-CEO with Sriram Somasundaram. Removed the unsourced "$600M valuation". Bio rewritten.
+- **Convey**: Rohan Chopra spent 8 years at DoorDash, ending as Senior Director of Engineering leading the Dasher & Logistics group. Bio updated.
+- **Tivara**: bio said Aumesh Misra worked at Google; LinkedIn shows Microsoft (2020-22) and Compound (8th engineer). Co-Founder & CTO. Bio rewritten; class year '16 added to the record. Our Investments card had "Mishra"; fixed (photo map already covers both spellings).
+- **Caddy**: Rajiv Sancheti based in New York, on-site. Bio otherwise accurate.
+- **Cartesia, Latent stage, Kos.ai, Spot AI**: no material delta. **Flag:** Tanuj Thapliyal's LinkedIn lists only "CEO, Spot AI" and does not mention Kos.ai, though press names him Kos.ai's co-founder.
