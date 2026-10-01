@@ -169,7 +169,7 @@ Open `http://localhost:8747/` and check:
 - The page you changed looks right, and the browser console has no errors.
 - The alumni filter still works: pick a sector, confirm the roster narrows and empty stage
   groups disappear.
-- Mobile nav toggle works below 940px.
+- Mobile nav toggle works below 1200px.
 - `git status` shows changes only in files you intended, plus regenerated `public/` files.
 
 ---

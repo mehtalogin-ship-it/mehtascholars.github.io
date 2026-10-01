@@ -339,13 +339,25 @@ section { padding: 84px 0; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
 /* ---------- Responsive ---------- */
-@media (max-width: 940px) {
+/* Seven nav items: keep labels on one line, tighten them on mid-width screens,
+   and fold into the hamburger menu below 1200px rather than wrap. */
+.nav-links a { white-space: nowrap; }
+@media (max-width: 1400px) and (min-width: 1201px) {
+  .nav { gap: 12px; padding: 0 16px; }
+  .nav-links { gap: 0; }
+  .nav-links a { padding: 0 10px; font-size: 0.93rem; }
+  .nav-cta { padding: 0 16px; }
+  .brand-name { font-size: 0.9rem; max-width: 210px; }
+}
+@media (max-width: 1200px) {
   .nav-toggle { display: inline-flex; }
   .nav-links { position: absolute; top: 74px; left: 0; right: 0; flex-direction: column; align-items: stretch; background: #fff; border-bottom: 1px solid var(--line); padding: 10px 16px 20px; gap: 2px; display: none; box-shadow: var(--shadow); }
   .nav-links.open { display: flex; }
   .nav-links a { height: auto; padding: 12px 8px; }
   .drop { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border: 0; margin: 0 0 0 14px; padding: 0; min-width: 0; }
   .nav-cta { justify-content: center; margin-top: 8px; border-radius: 8px; padding: 12px; }
+}
+@media (max-width: 940px) {
   .grid-3, .grid-2 { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 28px; }
   .company-card { grid-template-columns: 1fr; gap: 24px; padding: 26px; }
@@ -462,3 +474,92 @@ section { padding: 84px 0; }
   .ws-card p { font-size: .86rem; line-height: 1.4; }
   .ws-card .kicker { font-size: .78rem; }
 }
+
+/* ===== Home hero: the two "learn more" links (replace the old button pair) ===== */
+.hero-links { margin-top: 26px; display: flex; flex-direction: column; gap: 12px; }
+.hero-links a { display: flex; align-items: center; justify-content: space-between; gap: 18px; background: #fff; color: var(--green-deep); border-radius: 12px; padding: 14px 18px 14px 20px; font-family: var(--font-head); font-size: 1.04rem; line-height: 1.35; box-shadow: 0 8px 22px rgba(0,0,0,.18); transition: transform .18s, box-shadow .18s, background .18s; }
+.hero-links a:hover { text-decoration: none; transform: translateX(4px); background: var(--bg-green-tint); box-shadow: 0 12px 26px rgba(0,0,0,.24); }
+.hero-links a i { font-style: normal; flex: 0 0 34px; width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--green-dark); color: #fff; font-size: 1.05rem; transition: background .18s; }
+.hero-links a:hover i { background: var(--green); }
+@media (max-width: 720px){ .hero-links a { font-size: .92rem; padding: 11px 12px 11px 14px; } .hero-links a i { flex-basis: 28px; width: 28px; height: 28px; } }
+
+/* ===== What We Do cards: step number + topic chips ===== */
+.ws-num { display: inline-block; margin-right: 8px; padding: 1px 7px; border-radius: 40px; background: rgba(111,227,162,.16); font-size: .74rem; letter-spacing: .06em; vertical-align: 1px; }
+.intro-stage.lit .ws-num { background: var(--green-dark); color: #fff; }
+.ws-card p.ws-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 9px; }
+.ws-chips span { font-size: .74rem; padding: 3px 10px; border-radius: 40px; border: 1px solid rgba(255,255,255,.2); color: rgba(255,255,255,.8); }
+.intro-stage.lit .ws-chips span { background: #fff; border-color: #d6e6da; color: var(--green-deep); }
+@media (max-width: 720px){ .ws-card p.ws-chips { display: none; } .ws-num { display: none; } }
+@media (max-height: 640px){ .ws-card p.ws-chips { display: none; } }
+
+/* ===== Join buttons: LinkedIn group + interest form (or its placeholder) ===== */
+.join-btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.join-btns.center, .ws-inner .join-btns { justify-content: center; }
+.ws-inner .join-btns { margin-top: 22px; }
+.ws-inner .join-btns .btn { margin-top: 0; }
+.btn.is-soon { cursor: default; flex-direction: column; gap: 0; line-height: 1.15; padding-top: 8px; padding-bottom: 8px; opacity: .9; border-style: dashed; }
+.btn.is-soon:hover { transform: none; background: #fff; color: var(--green); }
+.btn.is-soon small { font-family: var(--font-body); font-size: .68rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.ws-note { font-size: .86rem; }
+.section-green .btn { background: #fff; color: var(--green-deep); }
+.section-green .btn:hover { background: var(--bg-green-tint); }
+.section-green .btn.is-soon { background: transparent; color: #fff; border-color: rgba(255,255,255,.7); }
+.section-green .btn.is-soon small { color: rgba(255,255,255,.75); }
+.eco-cta { padding: 76px 0; }
+.eco-cta .section-head { margin-bottom: 28px; }
+
+/* ===== Strategic Ecosystem: the map ===== */
+.eco-map-wrap { display: grid; grid-template-columns: minmax(0,1.1fr) minmax(0,1fr); gap: clamp(28px,5vw,72px); align-items: center; }
+.eco-map { width: 100%; max-width: 600px; margin: 0 auto; }
+.eco-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.eco-track { fill: none; stroke: var(--line); stroke-width: 3; stroke-dasharray: 2 10; stroke-linecap: round; }
+.eco-arc { fill: none; stroke: var(--green); stroke-width: 6; stroke-linecap: round; stroke-dasharray: 1 1; stroke-dashoffset: 0; }
+.eco-head { fill: var(--green-dark); transition: opacity .3s; }
+.eco-dot { fill: #fff; stroke: var(--green); stroke-width: 3; }
+.eco-halo { fill: var(--bg-green-tint); }
+.eco-label { font-family: var(--font-head); font-size: 17.5px; fill: var(--green-deep); }
+.eco-hubtext { font-family: var(--font-head); font-size: 23px; fill: #fff; letter-spacing: .02em; }
+.eco-pulse { fill: var(--green); opacity: 0; transform-box: fill-box; transform-origin: center; }
+.eco-node, .eco-hub { transform-box: fill-box; transform-origin: center; transition: opacity .55s ease, transform .55s cubic-bezier(.2,.7,.3,1.4); }
+/* armed = JS is driving it; until then (or with no JS) the whole map is visible */
+.eco-map.armed .eco-node, .eco-map.armed .eco-hub { opacity: 0; transform: scale(.7); }
+.eco-map.armed .eco-node.on, .eco-map.armed .eco-hub.on { opacity: 1; transform: none; }
+.eco-map.armed .eco-head { opacity: 0; }
+.eco-map.armed .eco-head.on { opacity: 1; }
+.eco-map.armed .eco-hub.on .eco-pulse { animation: ecoPulse 2.8s ease-out infinite; }
+@keyframes ecoPulse { 0% { opacity: .35; transform: scale(1); } 100% { opacity: 0; transform: scale(1.45); } }
+.eco-side h2 { font-size: clamp(1.7rem,3.2vw,2.4rem); }
+.eco-side > p { color: var(--muted); font-size: 1.08rem; }
+.eco-roles { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 10px; }
+.eco-roles li { display: flex; align-items: center; gap: 14px; background: var(--bg-soft); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; font-family: var(--font-head); color: var(--green-deep); font-size: 1.05rem; }
+.eco-ico { flex: 0 0 auto; width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: #fff; border: 1px solid var(--line); color: var(--green-dark); box-shadow: 0 4px 10px rgba(10,48,24,.08); }
+.eco-ico svg { width: 20px; height: 20px; }
+
+/* ===== Strategic Ecosystem: who / are / leverage ===== */
+.eco-cols { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr; gap: 18px; align-items: stretch; }
+.eco-col { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 26px 24px; box-shadow: var(--shadow); }
+.eco-col:last-child { background: linear-gradient(160deg, var(--green-dark), var(--green-deep)); border: 0; box-shadow: var(--shadow-green); }
+.eco-col:last-child h3, .eco-col:last-child li { color: #fff; }
+.eco-col:last-child .eco-step { color: #6fe3a2; }
+.eco-col:last-child .eco-ico { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.18); color: #6fe3a2; box-shadow: none; }
+.eco-step { font-family: var(--font-head); color: var(--green); letter-spacing: .14em; font-size: .8rem; margin: 0 0 4px; }
+.eco-col h3 { font-size: 1.35rem; margin: 0 0 16px; color: var(--green-deep); }
+.eco-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.eco-col li { display: flex; align-items: center; gap: 12px; color: var(--ink); }
+.eco-col .eco-ico { width: 34px; height: 34px; }
+.eco-col .eco-ico svg { width: 18px; height: 18px; }
+.eco-join { align-self: center; width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: #fff; border: 1px solid var(--line); color: var(--green); font-size: 1.2rem; box-shadow: var(--shadow); }
+.eco-summary { max-width: 860px; margin: 44px auto 0; text-align: center; font-size: 1.15rem; line-height: 1.7; color: var(--muted); }
+.eco-summary strong { color: var(--green-deep); font-weight: 600; }
+.eco-note { max-width: 860px; margin: 0 auto; border-left: 4px solid var(--green); background: var(--bg-green-tint); border-radius: 0 var(--radius) var(--radius) 0; padding: 30px 34px; }
+.eco-note h3 { margin: 0 0 8px; color: var(--green-deep); }
+.eco-note p { color: var(--muted); }
+.eco-note .btn { margin-top: 8px; }
+@media (max-width: 900px){
+  .eco-map-wrap { grid-template-columns: 1fr; }
+  .eco-cols { grid-template-columns: 1fr; }
+  .eco-join { justify-self: center; transform: rotate(90deg); }
+}
+@media (prefers-reduced-motion: reduce){ .eco-map.armed .eco-node, .eco-map.armed .eco-hub, .eco-map.armed .eco-head { opacity: 1 !important; transform: none !important; } .eco-arc { stroke-dashoffset: 0 !important; } .eco-pulse { animation: none !important; } }
+.intro-stage .wall-screen .btn.is-soon { background: transparent; color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.5); }
+.intro-stage.lit .wall-screen .btn.is-soon { background: #fff; color: var(--green); border-color: var(--green); }
