@@ -415,7 +415,7 @@
     "stage_group": "Pre-Seed",
     "sector": "Health & Bio",
     "sector_key": "health",
-    "tile": "assets/tiles/imagining-startup.png"
+    "tile": "assets/tiles/glassfrog.png"
   },
   {
     "name": "Rahul Madduluri",
@@ -529,22 +529,6 @@
     "sector": "Health & Bio",
     "sector_key": "health",
     "tile": "assets/tiles/tensixtybiosciences.png"
-  },
-  {
-    "name": "Jason Huang",
-    "year": "'96",
-    "company": "AWG",
-    "bio": "Jason Huang is the founder and CEO of AWG, a chip-design company developing the next generation of compound semiconductors. Building on silicon carbide (SiC) and gallium nitride (GaN) technologies — which offer superior heat management and energy efficiency — AWG targets up to 30% energy savings for electric vehicles, AI data centers, and robotics. Huang brings over two decades of semiconductor experience and also serves as General Manager of Sentec Green Technology, part of Sentec E&E.",
-    "category": "ai",
-    "stage": "",
-    "slug": "awg",
-    "linkedin": "https://www.linkedin.com/in/jason-huang-4023066/",
-    "website": "",
-    "cat_stage": "",
-    "stage_group": "Series A and Later",
-    "sector": "Enterprise",
-    "sector_key": "enterprise",
-    "tile": ""
   },
   {
     "name": "Johnny Wang",

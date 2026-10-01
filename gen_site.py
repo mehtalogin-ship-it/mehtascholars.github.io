@@ -312,7 +312,9 @@ def sec_team():
             f'<h2>Meet the scholars</h2></div>{teamhtml}</div></section>\n')
 
 # ============ ALUMNI COMPANIES ============
-STAGE_ORDER=["Acquired / IPO'd",'Pre-Seed','Seed','Series A and Later']
+STAGE_ORDER=["Acquired / IPO'd",'Pre-Seed','Seed','Series A and Later','Bootstrapped']
+_bad=sorted({f.get('stage_group') for f in companies}-set(STAGE_ORDER))
+if _bad: raise SystemExit(f'Unknown stage_group {_bad}: add it to STAGE_ORDER or fix companies.json. Unlisted stages drop the company from Alumni Companies.')
 SECTORS=[('all','All'),('ai','AI'),('health','Health &amp; Bio'),('fintech','Fintech'),('security','Security'),
  ('enterprise','Enterprise/SaaS'),('commerce','Commerce/Consumer'),('energy','Energy/Climate'),('media','Media/Gaming'),('hardware','Hardware/Deep-Tech')]
 
@@ -326,7 +328,7 @@ def sec_alumni_grid():
         out+=f'<div data-stage-group><h2 class="stage-label">{esc(stage)}</h2><div class="co-grid">'
         for f in grp:
             if f.get('tile'):
-                thumb=f'<div class="co-thumb"><img src="{f["tile"]}?v=10" alt="{esc(f["company"])}" loading="lazy"></div>'
+                thumb=f'<div class="co-thumb"><img src="{f["tile"]}?v=12" alt="{esc(f["company"])}" loading="lazy"></div>'
             else:
                 thumb=f'<div class="co-thumb ph" style="--tc:{f.get("color","#2f6d3a")}"><span>{esc(f["company"])}</span></div>'
             out+=f'<a class="co-tile" data-sector="{f["sector_key"]}" href="companies/{f["page"]}.html">{thumb}<div class="co-name">{esc(f["name"])} {esc(f.get("year",""))}</div></a>'
@@ -340,8 +342,8 @@ def sec_alumni_grid():
 # the href from the display name produced a 404 for Kos.ai.
 INV=[('Namrata Anand','\'10','Diffuse Bio','Health Tech & Life Sciences','Diffuse Bio is a biotechnology company specializing in generative AI for protein design. Their mission is to create AI systems that engineer novel, useful proteins with exceptional precision.','diffuse-bio'),
 ('Barrett Glasauer','\'09','Rejigg','Fintech','Rejigg connects quality small business owners with vetted buyers, minimizing fees, eliminating brokers, and streamlining the acquisition process.','rejigg'),
-('Surhbi Sarna','\'03','Collate','Health Tech & Life Sciences','Collate uses AI to create and streamline accurate documentation for diagnostic, medical device, and drug development companies, thereby reducing time to market and expediting the creation of life-saving innovations.','collate'),
-('Aumesh Mishra','\'16','Tivara','Health Tech & Life Sciences','Tivara is an AI company that automates insurance approval (prior authorization) for healthcare clinics, helping doctors deliver care to patients faster.','tivara'),
+('Surbhi Sarna','\'03','Collate','Health Tech & Life Sciences','Collate uses AI to create and streamline accurate documentation for diagnostic, medical device, and drug development companies, thereby reducing time to market and expediting the creation of life-saving innovations.','collate'),
+('Aumesh Misra','\'16','Tivara','Health Tech & Life Sciences','Tivara is an AI company that automates insurance approval (prior authorization) for healthcare clinics, helping doctors deliver care to patients faster.','tivara'),
 ('Anita Modi','\'04','Peer AI','Health Tech & Life Sciences','Peer AI is an agentic AI platform that provides support for regulatory documentation for life sciences and biotech companies with strong security and compliance.','peer-ai'),
 ('Drew Goldstein','\'13','Ephemeral Technologies','Health Tech & Life Sciences','Ephemeral Technologies works to accelerate end-to-end drug development and delivery using an integrated AI, software, and robotics platform.','ephemeral-technologies'),
 ('Tanuj Thapliyal','\'06','Kos.ai','Fintech','Kos.ai is a virtual finance employee that autonomously completes critical financial workflows - invoice reviews, purchase orders and custom finance processes - for capital-intensive industries such as datacenters, defense, energy and construction.','tanuj-thapliyal'),
