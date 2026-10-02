@@ -16,3 +16,6 @@ public/assets/intro/_source/
 
 # Raw shoot media - source material, never deployed, never in git history
 source-media/
+
+# harkervii.com build output - rebuilt by CI from the same sources, never committed
+public-vii/

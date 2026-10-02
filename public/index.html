@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home | Mehta Scholars</title>
-  <meta name="description" content="The Harker Venture Investment Initiative — Mehta Scholars invest in and support Harker alumni founders and their companies.">
+  <meta name="description" content="Mehta Scholars are Harker students who research, support, and invest in companies founded by Harker alumni.">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Questrial&family=Playfair+Display:wght@500;600&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="assets/favicon.png?v=1">
   <link rel="apple-touch-icon" href="assets/favicon.png?v=1">
@@ -12,79 +12,53 @@
 <body>
   <header class="site-header">
     <nav class="nav">
-      <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png?v=1" alt="The Mehta Endowment seal" width="70" height="60"><span class="brand-name">Harker Venture<br>Investment Initiative</span></a>
+      <a class="brand" href="index.html"><img class="brand-logo" src="assets/logo.png?v=1" alt="The Mehta Endowment seal" width="70" height="60"><span class="brand-name">Harker<br>Mehta Scholars</span></a>
       <button class="nav-toggle" aria-label="Menu">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li class="has-drop"><a href="alumni-companies.html">Alumni Companies</a>
-          <ul class="drop">
-            <li><a href="alumni-companies.html#ai">AI</a></li>
-            <li><a href="alumni-companies.html#health">Health &amp; Bio</a></li>
-            <li><a href="alumni-companies.html#fintech">Fintech</a></li>
-            <li><a href="alumni-companies.html#security">Security</a></li>
-            <li><a href="alumni-companies.html#enterprise">Enterprise</a></li>
-            <li><a href="alumni-companies.html#commerce">Commerce</a></li>
-          </ul></li>
-        <li><a href="our-investments.html">Our Investments</a></li>
         <li><a href="committee-list.html">Committee List</a></li>
-        <li><a href="strategic-ecosystem.html">Strategic Ecosystem</a></li>
+        <li><a href="our-investments.html">Our Investments</a></li>
         <li><a href="updates.html">Updates</a></li>
         <li><a class="nav-cta" href="mailto:MehtaScholars@harker.org">Contact Us!</a></li>
       </ul>
     </nav>
   </header>
-  <section class="intro-stage" id="introStage" data-frames="80" data-video-end="0.45">
-    <div class="intro-pin">
-      <canvas id="introCanvas" class="intro-canvas" width="1920" height="1080"></canvas>
-      <div class="wall-screen">
-        <div class="ws-power" aria-hidden="true"></div>
-        <div class="ws-slide is-active" data-i="0">
-          <div class="ws-head"><p class="eyebrow">What We Do</p><h2>A launchpad for founders and investors</h2></div>
-          <div class="ws-cards">
-            <div class="ws-card" data-c="0"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2.5"/><circle cx="4.5" cy="6" r="2"/><circle cx="19.5" cy="6" r="2"/><circle cx="12" cy="20.5" r="2"/><path d="M6.2 7.1l3.8 3.1M17.8 7.1 14 10.2M12 14.5v4"/></svg></div><div><p class="kicker"><span class="ws-num">01</span>Connect</p><h3>Bring the Harker community together</h3><p>Entrepreneurs, investors, and business, technology &amp; research professionals in one network.</p><p class="ws-chips"><span>Entrepreneurs</span><span>Investors</span><span>Business</span><span>Technology</span><span>Research</span></p></div></div>
-            <div class="ws-card" data-c="1"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><div><p class="kicker"><span class="ws-num">02</span>Support</p><h3>Help alumni companies grow</h3><p>Support with customer &amp; talent acquisition, strategic partnerships, and venture funding.</p><p class="ws-chips"><span>Customers</span><span>Talent</span><span>Partnerships</span><span>Funding</span></p></div></div>
-            <div class="ws-card" data-c="2"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/><path d="M22 9v6"/></svg></div><div><p class="kicker"><span class="ws-num">03</span>Educate</p><h3>Real-world experience for students</h3><p>Real-world, hands-on experiences for our students.</p><p class="ws-chips"><span>Research</span><span>Founder meetings</span><span>Investing</span></p></div></div>
-          </div>
-        </div>
-        <div class="ws-slide" data-i="1"><div class="ws-inner">
-          <p class="eyebrow">Join Our Network</p>
-          <h2>Explore collaboration, mentorship &amp; investment</h2>
-          <p>Connect with a diverse network of entrepreneurs, industry experts, and investors to explore collaborations, mentorship, and investment opportunities.</p>
-          <div class="join-btns"><a class="btn" href="https://www.linkedin.com/groups/14619102/" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.75h4V21H3zM9.5 9.75h3.83v1.54h.06c.53-1 1.84-2.06 3.79-2.06 4.05 0 4.8 2.67 4.8 6.13V21h-4v-4.98c0-1.19-.02-2.72-1.66-2.72-1.66 0-1.92 1.3-1.92 2.63V21h-4z"/></svg>Join Now</a><span class="btn outline is-soon" aria-disabled="true">Express Interest<small>Form coming soon</small></span></div>
-          <p class="ws-note">Join the Harker Venture Investment Initiative Strategic Ecosystem, a private group on LinkedIn.</p>
-        </div></div>
-      </div>
-      <div class="wall-dots"><span class="wall-dot is-on"></span><span class="wall-dot"></span></div>
-      <div class="intro-overlay">
-        <div class="wrap">
-          <div class="hero-box">
-            <h1>The Harker Venture Investment Initiative</h1>
-            <div class="hero-links">
-              <a href="about.html"><span>Learn more about the Mehta Scholars &amp; how they invest in Harker alumni-founded companies</span><i aria-hidden="true">&rarr;</i></a>
-              <a href="strategic-ecosystem.html"><span>Learn more about our Strategic Ecosystem</span><i aria-hidden="true">&rarr;</i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="intro-cue" aria-hidden="true">Scroll to step inside</div>
-    </div>
+  <section class="hero"><div class="hero-bg" style="background-image:linear-gradient(120deg, rgba(7,40,20,0.55), rgba(7,40,20,0.2)),url(assets/hero-patil.jpg);background-size:cover;background-position:center"></div>
+    <div class="wrap"><div class="hero-box">
+      <h1>The Mehta Scholars</h1>
+      <p>Harker students who research, support, and invest in companies founded by Harker alumni.</p>
+      <div class="hero-cta"><a class="btn" href="about.html">Meet the team</a><a class="btn ghost" href="our-investments.html">Our investments</a></div>
+    </div></div>
   </section>
+  <section><div class="wrap">
+    <div class="section-head"><p class="eyebrow">What we do</p><h2>Student analysts for The Harker Venture Pool</h2>
+      <p>Top Business &amp; Entrepreneurship students are selected as Mehta Scholars for their 12th-grade year.</p></div>
+    <div class="grid grid-3"><div class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><p class="kicker">01 &middot; Research</p><h3>Find and study alumni founders</h3><p>Scholars identify Harker alumni founders, meet with them, and write preliminary and in-depth reports on their companies.</p></div><div class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><p class="kicker">02 &middot; Invest</p><h3>Decide with the committees</h3><p>Reports are refined with the Venture Advisory Committee, and the Venture Investment Committee decides whether to invest from The Harker Venture Pool.</p></div><div class="card"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2.5"/><circle cx="4.5" cy="6" r="2"/><circle cx="19.5" cy="6" r="2"/><circle cx="12" cy="20.5" r="2"/><path d="M6.2 7.1l3.8 3.1M17.8 7.1 14 10.2M12 14.5v4"/></svg></div><p class="kicker">03 &middot; Support</p><h3>Connect founders to help</h3><p>Scholars promote alumni founders and connect them with VCs, angel investors, entrepreneurs, and business and technology professionals.</p></div></div>
+  </div></section>
+  <section class="section-tint"><div class="wrap">
+    <div class="section-head"><p class="eyebrow">Explore</p><h2>The program</h2></div>
+    <div class="grid grid-3"><a class="card" href="about.html"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2.5"/><circle cx="4.5" cy="6" r="2"/><circle cx="19.5" cy="6" r="2"/><circle cx="12" cy="20.5" r="2"/><path d="M6.2 7.1l3.8 3.1M17.8 7.1 14 10.2M12 14.5v4"/></svg></div><p class="kicker">About</p><h3>Meet the 13 scholars</h3><p>Who the Mehta Scholars are, how they are selected, and the process from profile to investment.</p></a><a class="card" href="committee-list.html"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></div><p class="kicker">Committee List</p><h3>81 advisors and investors</h3><p>The Venture Investment, Venture Advisory, and Entrepreneurship Advisory Committees.</p></a><a class="card" href="our-investments.html"><div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><p class="kicker">Our Investments</p><h3>9 alumni companies backed</h3><p>The Harker alumni startups the Mehta Scholars have invested in.</p></a></div>
+  </div></section>
+  <section class="section-green cta-band"><div class="wrap">
+    <h2>Get in touch</h2>
+    <p>Founders, alumni, and partners can reach the Mehta Scholars by email.</p>
+    <a class="btn" href="mailto:MehtaScholars@harker.org">MehtaScholars@harker.org</a>
+  </div></section>
   <footer class="site-footer">
     <div class="wrap">
       <div class="footer-grid">
-        <div><img class="footer-logo" src="assets/logo.png?v=1" alt="The Mehta Endowment" width="118" height="101"><span class="brand-name">Harker Venture Investment Initiative</span>
-          <p style="margin-top:14px;max-width:38ch">Mehta Scholars serve as analysts for The Harker Venture Pool, investing in and supporting Harker alumni founders.</p></div>
+        <div><img class="footer-logo" src="assets/logo.png?v=1" alt="The Mehta Endowment" width="118" height="101"><span class="brand-name">Harker Mehta Scholars</span>
+          <p style="margin-top:14px;max-width:38ch">Mehta Scholars serve as analysts for The Harker Venture Pool, researching, supporting, and investing in Harker alumni founders.</p></div>
         <div><h4>Explore</h4><ul class="footer-links">
           <li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li>
-          <li><a href="alumni-companies.html">Alumni Companies</a></li><li><a href="our-investments.html">Our Investments</a></li>
-          <li><a href="committee-list.html">Committee List</a></li><li><a href="strategic-ecosystem.html">Strategic Ecosystem</a></li>
+          <li><a href="committee-list.html">Committee List</a></li><li><a href="our-investments.html">Our Investments</a></li>
           <li><a href="updates.html">Updates</a></li></ul></div>
         <div><h4>Get in touch</h4><ul class="footer-links">
           <li><a href="mailto:MehtaScholars@harker.org">MehtaScholars@harker.org</a></li>
           <li style="color:var(--muted)">500 Saratoga Ave,<br>San Jose, CA 95129</li></ul></div>
       </div>
-      <div class="footer-bottom"><span>&copy; 2026 The Harker Venture Investment Initiative &middot; Mehta Scholars</span><span>The Harker School</span></div>
+      <div class="footer-bottom"><span>&copy; 2026 The Harker Mehta Scholars</span><span>The Harker School</span></div>
     </div>
   </footer>
   <script src="js/main.js?v=25"></script>
