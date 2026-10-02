@@ -33,7 +33,7 @@ SITES={
  'ms':  dict(root=ROOT, url='https://www.mehtascholars.com/',
              brand='Harker<br>Mehta Scholars', name='Harker Mehta Scholars',
              blurb='Mehta Scholars serve as analysts for The Harker Venture Pool, researching, supporting, and investing in Harker alumni founders.'),
- 'vii': dict(root=os.path.join(BASE,'public-vii'), url='https://www.harkervii.com/', cname='www.harkervii.com',
+ 'vii': dict(root=os.path.join(BASE,'public-vii'), url='https://harkervii.com/', cname='harkervii.com',
              brand='Harker Venture<br>Investment Initiative', name='Harker Venture Investment Initiative',
              blurb='Connecting Harker students, alumni, parents, and parents of alumni who are entrepreneurs, investors, and business &amp; technology professionals.'),
 }
